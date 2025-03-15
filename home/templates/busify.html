@@ -1,0 +1,92 @@
+{% extends "common.html"%}
+{% block start%}
+{% load static %}
+{% load django_bootstrap5 %}
+
+    <!-- <div> -->
+        <div class="container-fluid " style="height: 100vh;position: relative;">
+            <div class="row">
+              <!--  navbar   -->
+                {% include 'navbar.html' %}
+            </div>
+            <!--BANNER-->
+            <div class="row" style=" height: 70%;background-color: #FDD8B6;position: relative;border-bottom-right-radius: 200px;border-bottom-left-radius: 200px;display: flex;justify-content: center;">
+              <!---ILLUSTRATION---->
+            <div class="row d-none d-lg-flex d-md-flex" style="position: absolute; height: 100%;align-items: center;" >
+              <img class="img-fluid" src="{% static 'illustration_new.png' %}" alt="illustration" style="height:70%;width: 40%;" >
+            </div>
+            <!--BANNER TEXT-->
+            <div class="d-lg-none d-sm-flex d-md-flex" style="position: absolute; height: 100%; display: flex;align-items: center; justify-content: center;" >
+              <div style="display: block;">
+              <div style="justify-content: center; display: flex; align-items: center;">
+                <p class="mx-4 fs-1" style="font-weight: bold;color: #975764;text-align: center;">Online Bus Ticket Booking</p>
+              </div>
+              <div style="justify-content: center; display: flex; align-items: center;">
+                <p class="mx-5" style="text-align: center;color: #975764;">Embark on a seamless travel experience with busify</p>
+              </div>
+            </div>
+            </div>
+            <!--Card-->
+            {% include 'card.html' %}
+            </div>
+            <!--TEXT AFTER THE CARD-->
+            <div class="container">
+            <div class="row d-none d-lg-flex d-md-flex" style=" margin-top: 10%;">
+                <div style="justify-content: center; display: flex; align-items: center;">
+                  <p class="fs-1" style="font-weight: bold;margin-bottom: 0;">Enjoy the travell experience with us</p>
+                </div>
+                <div style="justify-content: center; display: flex; align-items: center;">
+                  <p style="font-weight: bold; font-size:large;color: grey;">Book your adventure,pack your bags and let the exploration begin</p>
+                </div>
+                <!--Carousel-->
+            </div>
+            <div class="row d-lg-none d-md-none d-sm-flex" style=" margin-top: 50%;">
+              <div style="justify-content: center; display: flex; align-items: center;">
+                <p class="fs-1" style="font-weight: bold;margin-bottom: 0;text-align: center;">Enjoy the travell experience with us</p>
+              </div>
+              <div style="justify-content: center; display: flex; align-items: center;">
+                <p style="font-weight: bold; font-size:large;color: grey;text-align: center;">Book your adventure,pack your bags and let the exploration begin</p>
+              </div>
+              <!--Carousel-->
+          </div>
+            <div class="my-3" style="display: flex;justify-content: center;align-items: center;">
+                <img src="{% static 'logo.png' %}" alt="lgo_end" style="height: 50px;width: 50px;">
+                <label style="color: #975764;font-weight: bold; font-family: cursive;font-size: 25px;">Busify</label>
+            </div>
+            <div class="row" style="margin-bottom: 50px;">
+              <div class="col-lg-4 col-md-12 col-sm-12" style="display: flex;justify-content: end;align-items: center;margin-bottom: 20px;">
+                <img src="{% static 'email (1).png' %}" alt="lgo_end" style="height: 20px;width: 20px;">
+                <a class="link-underline link-underline-opacity-0 "  href="#" style="color: grey;">hello@probusify.com</a>
+              </div>
+              <div class="col-lg-4 col-md-12 col-sm-12" style="display: flex;justify-content: center;align-items: center;margin-bottom: 20px;">
+                <img class="ms-lg-4 ms-md-3 ms-sm-1" src="{% static 'phone.png' %}" alt="lgo_end" style="height: 20px;width: 20px;">
+              <a class="link-underline link-underline-opacity-0" href="#" style="color: grey;">+91 8473298579</a>
+              </div>
+              <div class="col-lg-4 col-md-12 col-sm-12" style="display: flex;justify-content: start;align-items: center;margin-bottom: 20px;">
+                <img class="ms-lg-4" src="{% static 'location.png' %}" alt="lgo_end" style="height: 20px;width: 20px;">
+                <a class="link-underline link-underline-opacity-0 " href="#" style="color: grey;">India</a>
+              </div>
+            </div>
+            <hr>
+            <div style="display: flex;justify-content: center;align-items: center;margin-bottom: 30px;">
+              <a href="#"></a><img class="m-2 p-1" src="{% static 'twitter.png' %}" alt="lgo_end" style="height: 25px;width: 25px;border-radius: 25px;border: 1px solid grey;"></a>
+              <a href="https://www.instagram.com/"><img class="p-1" src="{% static 'instagram.png' %}" alt="lgo_end" style="height: 25px;width: 25px;border-radius: 25px;border: 1px solid grey;"></a>
+              <a href="#"></a><img class="m-2 p-1" src="{% static 'facebook.png' %}" alt="lgo_end" style="height: 25px;width: 25px;border-radius: 25px;border: 1px solid grey;"></a>
+              <a href="#"></a><img class="p-1" src="{% static 'pinterest.png' %}" alt="lgo_end" style="height: 25px;width: 25px;border-radius: 25px;border: 1px solid grey;"></a>
+              <a href="#"></a><img class="m-2 p-1" src="{% static 'tik-tok.png' %}" alt="lgo_end" style="height: 25px;width: 25px;border-radius: 25px;border: 1px solid grey;"></a>
+              <a href="#"></a><img  class="p-1"src="{% static 'search.png' %}" alt="lgo_end" style="height: 25px;width: 25px;border-radius: 25px;border: 1px solid grey;"></a>
+              <a href="#"></a><img class="m-2 p-1" src="{% static 'whatsapp.png' %}" alt="lgo_end" style="height: 25px;width: 25px;border-radius: 25px;border: 1px solid grey;"></a>
+            </div>
+            <div class="row m-0 p-0 ">
+              <p class="m-0 p-0 fw-bold" style="display: flex;justify-content: center;text-align: center;">Copyright c Make it Busify</p>
+              <p class="m-0 p-0 fw-bold" style="display: flex;justify-content: center;text-align: center;">Designed by make it services-Powered by busify</p>
+            </div>
+          </div>
+        <!--MODAL OF TOGGLE BUTTON visible on large screens theme,languages,privacy,etc-->
+        {% include 'toggle.html' %}
+        <!--MODAL of signup form-->
+        {% include 'signup.html' %}
+        <!--MODAL of login form-->
+        {% include 'login.html' %}
+        </div>
+    {% endblock%}

@@ -1,54 +1,62 @@
-<!-- {% extends "template.html"%} -->
-{% block get_navbar %}
-<nav class="navbar navbar-expand-lg fixed-top" style="background-color: #FDD8B6;">
-    <div class="container-fluid">
-      <div class="col-lg-6 col-md-6 col-sm-4 d-flex">
+{% load static %}
+{% load django_bootstrap5 %}
+<nav class="navbar navbar-expand-lg fixed-top pt-3" style="background-color: white;height: 12%;">
+  <!--CONTAINER of navbar-->
+  <div class="container-fluid">
+      <!-------------------FIRST HALF OF NAVBAR-------------------->
+    <div class="col-lg-6 col-md-6 col-sm-4 d-flex" >
       <div class="navbar-brand m-0 p-0 ms-lg-5">
-      <img class="img-fluid m-0 p-0 " src="{% static 'logo.png' %}" style="height: 45px;">
+      <img class="img-fluid m-0 p-0 " src="{% static 'logo.png' %}" style="height: 50px;width: 50px;">
       <a class="link-offset-2 link-underline link-underline-opacity-0 " href="#" style="color: #975764;font-weight: bold; font-family: cursive;">Busify</a>
       </div>
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-8 d-flex">
+      <!-------------------SECOND HALF OF NAVBAR-------------------->
+    <div class="col-lg-6 col-md-6 col-sm-8 d-flex" style="align-items: center;width: auto;;margin-left: auto;">
+      <!--DIV of download and language not visible on small screen-->
       <div class="d-lg-flex d-md-flex d-none  ms-lg-3 ">
-      <div class="nav-item d-flex mx-lg-2 mx-md-2">
-        <img src="{% static 'download.png' %}" alt="download_img" class="img-fluid mt-1 mx-1" style="height: 20px;">
-        <a class="nav-link active" href="#">Download</a>
+        <!--DOWNLOAD SCANNER-->
+            <div class="nav-item d-flex mx-lg-2 mx-md-2">
+                <img src="{% static 'download.png' %}" alt="download_img" class="img-fluid mt-1 mx-1" style="height: 20px;">
+                <a class="nav-link active" href="#">Download</a>
+            </div>
+        <!--LANGUAGE SCANNER-->
+            <div class="nav-item dropdown d-flex  ms-lg-3">
+                  <img src="{% static 'planet-earth.png' %}" alt="download_img" class="img-fluid mt-1 mx-1" style="height: 20px;">
+                  <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Language</a>
+                  <ul class="dropdown-menu p-2">
+                      <li class="d-flex mb-2">
+                        <img src="{% static 'flag.png' %}" class="col-2 p-0 py-1" style="height: auto;"></img>
+                        <a class="dropdown-item" href="#">Hindi</a></li>
+                      <li class="d-flex mb-2">
+                        <img src="{% static 'united-kingdom.png' %}" class="col-2 p-0 py-1" style="height: auto;"></img>
+                        <a class="dropdown-item" href="#">English</a></li>
+                      <li class="d-flex mb-2">
+                        <img src="{% static 'japan.png' %}" class="col-2 p-0 py-1" style="height: auto;"></img>
+                        <a class="dropdown-item" href="#">Japnese</a></li>
+                      <li class="d-flex mb-2"> 
+                        <img src="{% static 'france.png' %}" class="col-2 p-0 py-1" style="height: auto;"></img>
+                        <a class="dropdown-item" href="#">French</a></li>
+                      <li class="d-flex mb-2">
+                        <img src="{% static 'spain.png' %}" class="col-2 p-0 py-1" style="height: auto;"></img>
+                        <a class="dropdown-item" href="#">Spanish</a></li>
+                  </ul>
+            </div>
       </div>
-      <div class="nav-item dropdown d-flex  ms-lg-3">
-        <img src="{% static 'planet-earth.png' %}" alt="download_img" class="img-fluid mt-1 mx-1" style="height: 20px;">
-        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Language</a>
-          <ul class="dropdown-menu p-2">
-            <li class="d-flex mb-2">
-                <img src="{% static 'flag.png' %}" class="col-2 p-0 py-1" style="height: auto;"></img>
-                <a class="dropdown-item" href="#">Hindi</a></li>
-            <li class="d-flex mb-2">
-                <img src="{% static 'united-kingdom.png' %}" class="col-2 p-0 py-1" style="height: auto;"></img>
-                <a class="dropdown-item" href="#">English</a></li>
-            <li class="d-flex mb-2">
-                <img src="{% static 'japan.png' %}" class="col-2 p-0 py-1" style="height: auto;"></img>
-                <a class="dropdown-item" href="#">Japnese</a></li>
-            <li class="d-flex mb-2"> 
-                <img src="{% static 'france.png' %}" class="col-2 p-0 py-1" style="height: auto;"></img>
-                <a class="dropdown-item" href="#">French</a></li>
-            <li class="d-flex mb-2">
-                <img src="{% static 'spain.png' %}" class="col-2 p-0 py-1" style="height: auto;"></img>
-                <a class="dropdown-item" href="#">Spanish</a></li>
-          </ul>
+      <!--Signup  button -->
+      <div class="nav-item d-flex mx-1 mx-lg-3 mx-sm-3" >
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#signupModal" style="color: #975764;background-color: transparent;">Sign up</button>
       </div>
-      </div>
-      <div class="nav-item d-flex mx-1 mx-lg-3 mx-sm-3">
-        <a class="nav-link active" href="#" style="color: #975764;">Sign up</a>
-      </div>
+      <!--login  button -->
       <div class="nav-item d-flex ">
-        <button class="btn mx-lg-2" style="border-radius: 30px; color: white;background-color: #975764;">log in</button>
+            <button type="button" class="btn mx-lg-2" data-bs-toggle="modal" data-bs-target="#loginModal" style="border-radius: 30px; color: white;background-color: #975764;">log in</button>
       </div>
+      <!--toggle button of  NAVBAR  NOT  visible on small screen-->
       <button type="button" class="navbar-toggler-icon btn mx-2 my-1 d-none d-lg-flex d-md-flex" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
-    </div>
-    <!--OFF CANVAS-->
-    <button class=" navbar-toggler-icon btn d-lg-none d-sm-flex d-md-none ms-0 me-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></button>
-
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <!--toggle button of OFFCANVAS visible only on small screen-->
+      <button class="navbar-toggler-icon btn d-lg-none d-sm-flex d-md-none ms-0 me-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></button>
+       <!--OFF CANVAS-->
+        <div class="offcanvas offcanvas-end w-75" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-body d-lg-none d-sm-flex d-md-none ps-3">
                 <div class="row m-2">
                     <img src="{% static 'moon.png' %}" class="col-1 p-0" style="height: auto;"></img>
@@ -102,42 +110,7 @@
                   </ul>
               </div> 
             </div>
-            </div>
-        </div>
-          </div> 
-    <!--MODAL BODY-->
-    <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-        <div class="modal-dialog custom-modal d-none d-lg-flex d-md-flex">
-          <div class="modal-content">
-            <div class="modal-body">
-                <div class="row m-2">
-                    <img src="{% static 'moon.png' %}" class="col-1 p-0" style="height: auto;"></img>
-                    <div class="col-8">Dark mode</div>
-                    <div class="col-2">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                          </div>
-                    </div>
-                  </div>
-              <div class="row m-2">
-                <img src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
-                <div class="col-8">Privacy policy</div>
-              </div>
-              <div class="row m-2">
-                <img src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
-                <div class="col-8">Term & Condition</div>
-              </div>
-              <div class="row m-2">
-                <img src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
-                <div class="col-8">Contact us</div>
-              </div>
-              <div class="row m-2">
-                <img src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
-                <div class="col-8">Cancellation policy</div>
-              </div>
-              
         </div>
       </div>
-    </div> 
-  </nav> 
-  {% endblock%}
+  </div>
+</nav> 

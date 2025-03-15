@@ -1,0 +1,42 @@
+{% load static %}
+{% load django_bootstrap5 %}
+<div class="destiny_card" style="position: absolute;width: 90%;background-color: white;border: solid rgb(242, 234, 234) 1px; border-radius: 30px;box-shadow: 0px 0px 30px 0px white;margin-left: auto; margin-right: auto;">
+    <div class="row p-3 ">
+   <div class="col-lg-4 col-md-12 col-sm-12" style="height: 100%;">
+    <div style="display: flex;">
+        <img class="img-fluid mt-1 me-3" src="{% static 'circle.png' %}" alt="from-image" style="height: 25px;">
+        <p style="font-size: 20px;font-weight: 500;">From City</p>
+      </div>
+      <div>
+        <input placeholder="From" class="cities" type="text" name="City" style="border-bottom: 2px solid #FDD8B6;width: 80%;">
+      </div>
+   </div>
+   <div class="col-lg-4 col-md-12 col-sm-12 px-3" style="height: 100%;border-left: 2px solid #FDD8B6;">
+    <div style="display: flex;">
+      <img class="img-fluid mt-1 me-3" src="{% static 'circle.png' %}" alt="from-image" style="height: 25px;">
+      <p style="font-size: 20px;font-weight: 500;">To City</p>
+    </div>
+    <div>
+      <input placeholder="To" class="cities" type="text" name="City" style="border-bottom: 2px solid #FDD8B6;width: 80%;">
+    </div>
+   </div>
+   <div class="col-lg-4 col-md-12 col-sm-12 px-3" style="height: 100%; border-left: 2px solid #FDD8B6;">
+    <div class="row">
+      <div class="col-lg-7 col-md-12 col-sm-12">
+          <div style="display: flex;">
+              <img class="img-fluid mt-1 me-3" src="{% static 'circle.png' %}" alt="from-image" style="height: 25px;">
+              <p style="font-size: 20px;font-weight: 500;">Date</p>
+          </div>
+          <div>
+              <input  type="date" style="border-bottom: 2px solid #FDD8B6;width: 80%;">
+          </div>
+      </div>
+      <div class="col-lg-5 col-12" style="justify-content: center; display: flex; align-items: center;">
+          <button type="button" class="btn w-100 m-2 " style="border-radius: 10px;background-color: #975764;height: 40px;border: 0;color: white;">Search</button>
+      </div>
+    </div>
+    <div>
+    </div>
+   </div>
+  </div>
+  </div>
