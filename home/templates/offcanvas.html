@@ -1,0 +1,57 @@
+{% load static %}
+{% load django_bootstrap5 %}
+<div class="offcanvas offcanvas-end w-75" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-body d-lg-none d-sm-flex d-md-none ps-3">
+        <div class="row m-2">
+            <img src="{% static 'moon.png' %}" class="col-1 p-0" style="height: auto;"></img>
+            <div class="col-8">Dark mode</div>
+            <div class="col-2">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                  </div>
+            </div>
+          </div>
+      <div class="row m-2">
+        <img src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
+        <div class="col-8">Privacy policy</div>
+      </div>
+      <div class="row m-2">
+        <img src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
+        <div class="col-8">Term & Condition</div>
+      </div>
+      <div class="row m-2">
+        <img src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
+        <div class="col-8">Contact us</div>
+      </div>
+      <div class="row m-2">
+        <img src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
+        <div class="col-8">Cancellation policy</div>
+      </div>
+      <div class="row m-2 ">
+        <img src="{% static 'download.png' %}" class="col-1 p-0" style="height: auto;"></img>
+        <div class="col-8">Download</div>
+      </div>
+      <div class="dropdown row m-2 ">
+        <img src="{% static 'planet-earth.png' %}" class="col-1 p-1" style="height: auto;"></img>
+        <a class=" col-8 nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Language</a>
+          <ul class="dropdown-menu ps-1 w-50">
+            <li class="d-flex mb-2">
+                <img src="{% static 'flag.png' %}" class="col-2 p-0" style="height: auto;"></img>
+                <a class="dropdown-item" href="#">Hindi</a></li>
+            <li class="d-flex mb-2">
+                <img src="{% static 'united-kingdom.png' %}" class="col-2 p-0" style="height: auto;"></img>
+                <a class="dropdown-item" href="#">English</a></li>
+            <li class="d-flex mb-2">
+                <img src="{% static 'japan.png' %}" class="col-2 p-0" style="height: auto;"></img>
+                <a class="dropdown-item" href="#">Japnese</a></li>
+            <li class="d-flex mb-2"> 
+                <img src="{% static 'france.png' %}" class="col-2 p-0" style="height: auto;"></img>
+                <a class="dropdown-item" href="#">French</a></li>
+            <li class="d-flex mb-2">
+                <img src="{% static 'spain.png' %}" class="col-2 p-0" style="height: auto;"></img>
+                <a class="dropdown-item" href="#">Spanish</a></li>
+          </ul>
+      </div> 
+    </div>
+</div>
