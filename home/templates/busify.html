@@ -30,7 +30,7 @@
                   <p style="font-weight: bold; font-size:large;color: grey;">Book your adventure,pack your bags and let the exploration begin</p>
                 </div>
                 <!--Carousel-->
-                
+                {% include 'carousel.html' %}
             </div>
             <div class="row d-lg-none d-md-none d-sm-flex" style=" margin-top: 50%;">
               <div style="justify-content: center; display: flex; align-items: center;">
@@ -40,6 +40,7 @@
                 <p style="font-weight: bold; font-size:large;color: grey;text-align: center;">Book your adventure,pack your bags and let the exploration begin</p>
               </div>
               <!--Carousel-->
+              {% include 'carousel.html' %}
           </div>
             <div class="my-3" style="display: flex;justify-content: center;align-items: center;">
                 <img src="{% static 'logo.png' %}" alt="lgo_end" style="height: 50px;width: 50px;">
@@ -59,20 +60,7 @@
                 <a class="link-underline link-underline-opacity-0 " href="#" style="color: grey;">India</a>
               </div>
             </div>
-            <hr>
-            <div style="display: flex;justify-content: center;align-items: center;margin-bottom: 30px;">
-              <a href="#"></a><img class="mx-3 p-1" src="{% static 'twitter.png' %}" alt="lgo_end" style="height: 35px;width: 35px;border-radius: 35px;border: 1px solid rgb(202, 195, 195);"></a>
-              <a href="https://www.instagram.com/"><img class="p-1" src="{% static 'instagram.png' %}" alt="lgo_end" style="height: 35px;width: 35px;border-radius: 35px;border: 1px solid rgb(202, 195, 195);"></a>
-              <a href="#"></a><img class="mx-3 p-1" src="{% static 'facebook.png' %}" alt="lgo_end" style="height: 35px;width: 35px;border-radius: 35px;border: 1px solid rgb(202, 195, 195);"></a>
-              <a href="#"></a><img class="p-1" src="{% static 'pinterest.png' %}" alt="lgo_end" style="height: 35px;width: 35px;border-radius: 35px;border: 1px solid rgb(202, 195, 195);"></a>
-              <a href="#"></a><img class="mx-3 p-1" src="{% static 'tik-tok.png' %}" alt="lgo_end" style="height: 35px;width: 35px;border-radius: 35px;border: 1px solid rgb(202, 195, 195);"></a>
-              <a href="#"></a><img  class="p-1"src="{% static 'search.png' %}" alt="lgo_end" style="height: 35px;width: 35px;border-radius: 35px;border: 1px solid rgb(202, 195, 195);"></a>
-              <a href="#"></a><img class="mx-3 p-1" src="{% static 'whatsapp.png' %}" alt="lgo_end" style="height: 35px;width: 35px;border-radius: 35px;border: 1px solid rgb(202, 195, 195);"></a>
-            </div>
-            <div class="row m-0 p-0 ">
-              <p class="m-0 p-0 fw-bold" style="display: flex;justify-content: center;text-align: center;">Copyright © Make it Busify</p>
-              <p class="m-0 p-0 fw-bold" style="display: flex;justify-content: center;text-align: center;">| Designed by make it services-Powered by busify</p>
-            </div>
+            {% include 'footer.html' %}
           </div>
         <!--MODAL OF TOGGLE BUTTON visible on large screens theme,languages,privacy,etc-->
         {% include 'toggle.html' %}
