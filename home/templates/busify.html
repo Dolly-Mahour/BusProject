@@ -2,13 +2,16 @@
 {% block start%}
 {% load static %}
 {% load django_bootstrap5 %}
+{% load i18n %}
 
     <!-- <div> -->
         <div class="container-fluid " style="height: 100vh;position: relative;">
+          <!--ROW 1 -------------------------------------------------------------------------------------------------------->
             <div class="row">
               <!--  navbar   -->
                 {% include 'navbar.html' %}
             </div>
+            <!--Row 2------------------------------------------------------------------------------------------------------->
             <!--BANNER-->
             <div class="row" style=" height: 70%;background-color: #FDD8B6;position: relative;border-bottom-right-radius: 200px;border-bottom-left-radius: 200px;display: flex;justify-content: center;">
               <!---ILLUSTRATION---->
@@ -20,6 +23,7 @@
             <!--Card-->
             {% include 'card.html' %}
             </div>
+            <!--Row 3------------------------------------------------------------------------------------------------------->
             <!--TEXT AFTER THE CARD-->
             <div class="container">
             <div class="row d-none d-lg-flex d-md-flex" style=" margin-top: 10%;">
@@ -62,6 +66,14 @@
             </div>
             {% include 'footer.html' %}
           </div>
+           
+          <h1>{% trans 'herotitle' %}</h1>
+          {% for people in peoples %}
+           <div class="card h-25 w-25">
+            <p>Name - {{people.title}}</p>
+            <p>CONTENT - {{people.content}}</p>
+           </div>
+          {%  endfor %}
         <!--MODAL OF TOGGLE BUTTON visible on large screens theme,languages,privacy,etc-->
         {% include 'toggle.html' %}
         <!--MODAL of signup form-->

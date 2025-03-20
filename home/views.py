@@ -1,9 +1,10 @@
 from django.shortcuts import render
+from .models import post
 
 # Create your views here.
 
 def homepage(request):
-    return render(request,"busify.html")
+    peoples = post.objects.all()
+    
+    return render(request,"busify.html", context={'peoples': peoples})
 
-# def signup(request):
-#     return render(request,"signup_form.html")

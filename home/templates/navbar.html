@@ -1,5 +1,6 @@
 {% load static %}
 {% load django_bootstrap5 %}
+{% load i18n %}
 <nav class="navbar navbar-expand-lg fixed-top pt-3" style="background-color: white;height: 12%;">
   <!--CONTAINER of navbar-->
   <div class="container-fluid">
@@ -20,29 +21,8 @@
                 <img src="{% static 'download.png' %}" alt="download_img" class="img-fluid mt-1 mx-1" style="height: 20px;">
                 <a type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#downloadModal" class="nav-link active" href="#">Download</a>
             </div>
-        <!--LANGUAGE SCANNER-->
-            <div class="nav-item dropdown d-flex  ms-lg-3">
-                  <img src="{% static 'planet-earth.png' %}" alt="download_img" class="img-fluid mt-1 mx-1" style="height: 20px;">
-                  <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Language</a>
-                  <ul class="dropdown-menu p-2">
-                      <li class="d-flex mb-2">
-                        <img src="{% static 'flag.png' %}" class="col-2 p-0 py-1" style="height: auto;"></img>
-                        <a class="dropdown-item" href="#">Hindi</a></li>
-                      <li class="d-flex mb-2">
-                        <img src="{% static 'united-kingdom.png' %}" class="col-2 p-0 py-1" style="height: auto;"></img>
-                        <a class="dropdown-item" href="#">English</a></li>
-                      <li class="d-flex mb-2">
-                        <img src="{% static 'japan.png' %}" class="col-2 p-0 py-1" style="height: auto;"></img>
-                        <a class="dropdown-item" href="#">Japnese</a></li>
-                      <li class="d-flex mb-2"> 
-                        <img src="{% static 'france.png' %}" class="col-2 p-0 py-1" style="height: auto;"></img>
-                        <a class="dropdown-item" href="#">French</a></li>
-                      <li class="d-flex mb-2">
-                        <img src="{% static 'spain.png' %}" class="col-2 p-0 py-1" style="height: auto;"></img>
-                        <a class="dropdown-item" href="#">Spanish</a></li>
-                  </ul>
-            </div>
+        <!--LANGUAGES -->
+           {% include 'global.html' %}
       </div>
       <div class="col-lg-6 col-md-6 col-sm-12 ms-2" style="align-items: center;display: flex;">
         <!--Signup  button -->
