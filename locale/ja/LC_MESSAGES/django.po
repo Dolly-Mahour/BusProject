@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-19 16:46+0530\n"
-"PO-Revision-Date: 2025-03-19 13:07+0000\n"
+"POT-Creation-Date: 2025-03-24 16:39+0530\n"
+"PO-Revision-Date: 2025-03-24 16:55+0000\n"
 "Last-Translator:   <dollymahour282@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,40 +19,162 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.10.1\n"
 
-#: .\BusProject\settings.py:114
-msgid "Hindi"
-msgstr "ヒンディー語"
-
 #: .\BusProject\settings.py:115
+msgid "Hindi"
+msgstr "hindi"
+
+#: .\BusProject\settings.py:116
 msgid "English"
 msgstr "英語"
 
-#: .\BusProject\settings.py:116
+#: .\BusProject\settings.py:117
 msgid "Japnese"
 msgstr "日本語"
 
-#: .\BusProject\settings.py:117
+#: .\BusProject\settings.py:118
 msgid "French"
 msgstr "フランス語"
 
-#: .\BusProject\settings.py:118
+#: .\BusProject\settings.py:119
 msgid "Spanish"
 msgstr "スペイン語"
 
-#: .\home\models.py:14
+#: .\home\models.py:7
 msgid "title"
 msgstr ""
 
-#: .\home\models.py:15
+#: .\home\models.py:8
 msgid "content"
 msgstr ""
 
-#: .\home\templates\busify.html:70
-msgid "herotitle"
-msgstr ""
+#: .\home\templates\banner.html:7 .\home\templates\banner.html:20
+msgid "banner-t1"
+msgstr "バスチケットのオンライン予約"
 
-#~ msgid "name_input"
-#~ msgstr "名前の入力"
+#: .\home\templates\banner.html:10 .\home\templates\banner.html:24
+msgid "banner-t2"
+msgstr "Busifyでシームレスな旅行体験を始めましょう"
 
-#~ msgid "mobile_no_input"
-#~ msgstr "携帯電話番号入力"
+#: .\home\templates\banner.html:28
+msgid "banner-t-btn"
+msgstr "今すぐ予約する"
+
+#: .\home\templates\busify.html:31 .\home\templates\busify.html:41
+msgid "after-card-t1"
+msgstr "私たちと一緒に旅行体験をお楽しみください"
+
+#: .\home\templates\busify.html:34 .\home\templates\busify.html:44
+msgid "after-card-t2"
+msgstr "冒険を予約し、荷物をまとめて探検を始めましょう"
+
+#: .\home\templates\busify.html:63
+msgid "footer-country"
+msgstr "インド"
+
+#: .\home\templates\card.html:9 .\home\templates\card.html:12
+msgid "t-card-from-city"
+msgstr "から"
+
+#: .\home\templates\card.html:18 .\home\templates\card.html:21
+msgid "t-card-to-city"
+msgstr "に"
+
+#: .\home\templates\card.html:29
+msgid "t-card-date"
+msgstr "日付"
+
+#: .\home\templates\card.html:36
+msgid "t-card-search"
+msgstr "検索"
+
+#: .\home\templates\carousel.html:10 .\home\templates\carousel.html:64
+msgid "t-carousel-h1"
+msgstr "すべては旅行についてです！"
+
+#: .\home\templates\carousel.html:20 .\home\templates\carousel.html:38
+#: .\home\templates\carousel.html:56 .\home\templates\carousel.html:74
+#: .\home\templates\carousel.html:92 .\home\templates\carousel.html:110
+msgid "t-carousel-BusOffer"
+msgstr "このオファーでバスを見る"
+
+#: .\home\templates\carousel.html:28 .\home\templates\carousel.html:82
+msgid "t-carousel-h2"
+msgstr "最速のバス予約"
+
+#: .\home\templates\carousel.html:46 .\home\templates\carousel.html:100
+msgid "t-carousel-h3"
+msgstr "お得なセールと割引"
+
+#: .\home\templates\global.html:11
+msgid "t-languages"
+msgstr "言語"
+
+#: .\home\templates\login.html:27 .\home\templates\signup.html:42
+msgid "dd-login-number"
+msgstr "電話番号を入力してください"
+
+#: .\home\templates\login.html:30 .\home\templates\signup.html:45
+msgid "dd-login-password"
+msgstr "パスワードを入力してください"
+
+#: .\home\templates\login.html:33
+msgid "dd-login-forget"
+msgstr "パスワードを忘れた"
+
+#: .\home\templates\login.html:36 .\home\templates\navbar.html:38
+#: .\home\templates\signup.html:54
+msgid "t-login"
+msgstr "ログイン"
+
+#: .\home\templates\login.html:39
+#| msgid "t-login"
+msgid "dd-login-ques"
+msgstr "ログイン"
+
+#: .\home\templates\login.html:39 .\home\templates\navbar.html:31
+#: .\home\templates\signup.html:51
+msgid "t-signup"
+msgstr "サインアップ"
+
+#: .\home\templates\navbar.html:21
+msgid "t-download"
+msgstr "ダウンロード"
+
+#: .\home\templates\signup.html:36
+#| msgid "t-signup"
+msgid "dd-signup-name"
+msgstr "サインアップ"
+
+#: .\home\templates\signup.html:39
+#| msgid "t-signup"
+msgid "dd-signup-email"
+msgstr "サインアップ"
+
+#: .\home\templates\signup.html:48
+msgid "dd-signup-ref-code"
+msgstr "紹介コードを入力してください（オプション）"
+
+#: .\home\templates\signup.html:54
+#| msgid "t-signup"
+msgid "dd-signup-ques"
+msgstr "サインアップ"
+
+#: .\home\templates\toggle.html:10
+msgid "dd-tb-t-1"
+msgstr "ダークモード"
+
+#: .\home\templates\toggle.html:19
+msgid "dd-tb-t-2"
+msgstr "プライバシーポリシー"
+
+#: .\home\templates\toggle.html:23
+msgid "dd-tb-t-3"
+msgstr "条件と状態"
+
+#: .\home\templates\toggle.html:27
+msgid "dd-tb-t-4"
+msgstr "お問い合わせ"
+
+#: .\home\templates\toggle.html:31
+msgid "dd-tb-t-5"
+msgstr "キャンセルポリシー"

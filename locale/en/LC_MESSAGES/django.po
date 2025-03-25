@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-19 16:46+0530\n"
-"PO-Revision-Date: 2025-03-20 11:17+0000\n"
+"POT-Creation-Date: 2025-03-24 16:39+0530\n"
+"PO-Revision-Date: 2025-03-24 16:44+0000\n"
 "Last-Translator:   <dollymahour282@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,37 +19,168 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.1\n"
 
-#: .\BusProject\settings.py:114
+#: .\BusProject\settings.py:115
 msgid "Hindi"
 msgstr "Hindi"
 
-#: .\BusProject\settings.py:115
+#: .\BusProject\settings.py:116
 msgid "English"
 msgstr "English"
 
-#: .\BusProject\settings.py:116
+#: .\BusProject\settings.py:117
 msgid "Japnese"
 msgstr "Japanese"
 
-#: .\BusProject\settings.py:117
+#: .\BusProject\settings.py:118
 msgid "French"
 msgstr "French"
 
-#: .\BusProject\settings.py:118
+#: .\BusProject\settings.py:119
 msgid "Spanish"
 msgstr "Spanish"
 
-#: .\home\models.py:14
+#: .\home\models.py:7
 msgid "title"
 msgstr ""
 
-#: .\home\models.py:15
+#: .\home\models.py:8
 msgid "content"
 msgstr ""
 
-#: .\home\templates\busify.html:70
-msgid "herotitle"
-msgstr "Hello"
+#: .\home\templates\banner.html:7 .\home\templates\banner.html:20
+msgid "banner-t1"
+msgstr "Online Bus Ticket Booking"
+
+#: .\home\templates\banner.html:10 .\home\templates\banner.html:24
+msgid "banner-t2"
+msgstr "Embark on a seamless travel experience with Busify"
+
+#: .\home\templates\banner.html:28
+msgid "banner-t-btn"
+msgstr "Book now"
+
+#: .\home\templates\busify.html:31 .\home\templates\busify.html:41
+msgid "after-card-t1"
+msgstr "Enjoy your travel experience with us"
+
+#: .\home\templates\busify.html:34 .\home\templates\busify.html:44
+msgid "after-card-t2"
+msgstr "Book your adventure,pack your bags and let the exploration begin"
+
+#: .\home\templates\busify.html:63
+msgid "footer-country"
+msgstr "India"
+
+#: .\home\templates\card.html:9 .\home\templates\card.html:12
+msgid "t-card-from-city"
+msgstr "From"
+
+#: .\home\templates\card.html:18 .\home\templates\card.html:21
+msgid "t-card-to-city"
+msgstr "To"
+
+#: .\home\templates\card.html:29
+msgid "t-card-date"
+msgstr "Date"
+
+#: .\home\templates\card.html:36
+msgid "t-card-search"
+msgstr "Search"
+
+#: .\home\templates\carousel.html:10 .\home\templates\carousel.html:64
+msgid "t-carousel-h1"
+msgstr "It's all about travel!"
+
+#: .\home\templates\carousel.html:20 .\home\templates\carousel.html:38
+#: .\home\templates\carousel.html:56 .\home\templates\carousel.html:74
+#: .\home\templates\carousel.html:92 .\home\templates\carousel.html:110
+msgid "t-carousel-BusOffer"
+msgstr "VIEW BUSES WITH THIS OFFER"
+
+#: .\home\templates\carousel.html:28 .\home\templates\carousel.html:82
+msgid "t-carousel-h2"
+msgstr "Fastest Bus Booking"
+
+#: .\home\templates\carousel.html:46 .\home\templates\carousel.html:100
+msgid "t-carousel-h3"
+msgstr "Best Deal & Discount"
+
+#: .\home\templates\global.html:11
+msgid "t-languages"
+msgstr "Languages"
+
+#: .\home\templates\login.html:27 .\home\templates\signup.html:42
+msgid "dd-login-number"
+msgstr "Enter your phone number"
+
+#: .\home\templates\login.html:30 .\home\templates\signup.html:45
+msgid "dd-login-password"
+msgstr "Enter your password"
+
+#: .\home\templates\login.html:33
+msgid "dd-login-forget"
+msgstr "Forget Password ?"
+
+#: .\home\templates\login.html:36 .\home\templates\navbar.html:38
+#: .\home\templates\signup.html:54
+msgid "t-login"
+msgstr "Log in"
+
+#: .\home\templates\login.html:39
+#| msgid "t-login"
+msgid "dd-login-ques"
+msgstr "Log in"
+
+#: .\home\templates\login.html:39 .\home\templates\navbar.html:31
+#: .\home\templates\signup.html:51
+msgid "t-signup"
+msgstr "Sign up"
+
+#: .\home\templates\navbar.html:21
+msgid "t-download"
+msgstr "Download"
+
+#: .\home\templates\signup.html:36
+#| msgid "t-signup"
+msgid "dd-signup-name"
+msgstr "Sign up"
+
+#: .\home\templates\signup.html:39
+#| msgid "t-signup"
+msgid "dd-signup-email"
+msgstr "Sign up"
+
+#: .\home\templates\signup.html:48
+msgid "dd-signup-ref-code"
+msgstr "Enter Refrral Code (optional)"
+
+#: .\home\templates\signup.html:54
+#| msgid "t-signup"
+msgid "dd-signup-ques"
+msgstr "Sign up"
+
+#: .\home\templates\toggle.html:10
+msgid "dd-tb-t-1"
+msgstr "Dark Mode"
+
+#: .\home\templates\toggle.html:19
+msgid "dd-tb-t-2"
+msgstr "Privacy Policy"
+
+#: .\home\templates\toggle.html:23
+msgid "dd-tb-t-3"
+msgstr "Terms and Conditions"
+
+#: .\home\templates\toggle.html:27
+msgid "dd-tb-t-4"
+msgstr "Contact Us"
+
+#: .\home\templates\toggle.html:31
+msgid "dd-tb-t-5"
+msgstr "Cancellation Policy"
+
+#~ msgid "herotitle"
+#~ msgstr "Hello"
 
 #~ msgid "name_input"
 #~ msgstr "Name_Input"

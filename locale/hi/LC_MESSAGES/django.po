@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-19 16:46+0530\n"
-"PO-Revision-Date: 2025-03-20 11:17+0000\n"
+"POT-Creation-Date: 2025-03-24 16:39+0530\n"
+"PO-Revision-Date: 2025-03-24 16:49+0000\n"
 "Last-Translator:   <dollymahour282@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,37 +19,168 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.1\n"
 
-#: .\BusProject\settings.py:114
+#: .\BusProject\settings.py:115
 msgid "Hindi"
 msgstr "हिन्दी"
 
-#: .\BusProject\settings.py:115
+#: .\BusProject\settings.py:116
 msgid "English"
 msgstr "अंग्रेजी"
 
-#: .\BusProject\settings.py:116
+#: .\BusProject\settings.py:117
 msgid "Japnese"
 msgstr "जापानी"
 
-#: .\BusProject\settings.py:117
+#: .\BusProject\settings.py:118
 msgid "French"
 msgstr "फ़्रेंच"
 
-#: .\BusProject\settings.py:118
+#: .\BusProject\settings.py:119
 msgid "Spanish"
 msgstr "स्पैनिश"
 
-#: .\home\models.py:14
+#: .\home\models.py:7
 msgid "title"
 msgstr ""
 
-#: .\home\models.py:15
+#: .\home\models.py:8
 msgid "content"
 msgstr ""
 
-#: .\home\templates\busify.html:70
-msgid "herotitle"
-msgstr "स्वागत"
+#: .\home\templates\banner.html:7 .\home\templates\banner.html:20
+msgid "banner-t1"
+msgstr "ऑनलाइन बस टिकट बुकिंग"
+
+#: .\home\templates\banner.html:10 .\home\templates\banner.html:24
+msgid "banner-t2"
+msgstr "Busify के साथ एक सहज यात्रा अनुभव का आनंद लें"
+
+#: .\home\templates\banner.html:28
+msgid "banner-t-btn"
+msgstr "अभी बुक करें"
+
+#: .\home\templates\busify.html:31 .\home\templates\busify.html:41
+msgid "after-card-t1"
+msgstr "हमारे साथ यात्रा के अनुभव का आनंद लें"
+
+#: .\home\templates\busify.html:34 .\home\templates\busify.html:44
+msgid "after-card-t2"
+msgstr "अपना साहसिक कार्य बुक करें, अपना बैग पैक करें और अन्वेषण शुरू करें"
+
+#: .\home\templates\busify.html:63
+msgid "footer-country"
+msgstr "भारत"
+
+#: .\home\templates\card.html:9 .\home\templates\card.html:12
+msgid "t-card-from-city"
+msgstr "से"
+
+#: .\home\templates\card.html:18 .\home\templates\card.html:21
+msgid "t-card-to-city"
+msgstr "को"
+
+#: .\home\templates\card.html:29
+msgid "t-card-date"
+msgstr "तारीख"
+
+#: .\home\templates\card.html:36
+msgid "t-card-search"
+msgstr "खोज"
+
+#: .\home\templates\carousel.html:10 .\home\templates\carousel.html:64
+msgid "t-carousel-h1"
+msgstr "यह सब यात्रा के बारे में है!"
+
+#: .\home\templates\carousel.html:20 .\home\templates\carousel.html:38
+#: .\home\templates\carousel.html:56 .\home\templates\carousel.html:74
+#: .\home\templates\carousel.html:92 .\home\templates\carousel.html:110
+msgid "t-carousel-BusOffer"
+msgstr "इस ऑफर वाली बसें देखें"
+
+#: .\home\templates\carousel.html:28 .\home\templates\carousel.html:82
+msgid "t-carousel-h2"
+msgstr "सबसे तेज़ बस बुकिंग"
+
+#: .\home\templates\carousel.html:46 .\home\templates\carousel.html:100
+msgid "t-carousel-h3"
+msgstr "सर्वश्रेष्ठ डील और छूट"
+
+#: .\home\templates\global.html:11
+msgid "t-languages"
+msgstr "भाषा"
+
+#: .\home\templates\login.html:27 .\home\templates\signup.html:42
+msgid "dd-login-number"
+msgstr "अपना फोन नंबर डालें"
+
+#: .\home\templates\login.html:30 .\home\templates\signup.html:45
+msgid "dd-login-password"
+msgstr "अपना कूटशब्द भरें"
+
+#: .\home\templates\login.html:33
+msgid "dd-login-forget"
+msgstr "पासवर्ड भूल गए ?"
+
+#: .\home\templates\login.html:36 .\home\templates\navbar.html:38
+#: .\home\templates\signup.html:54
+msgid "t-login"
+msgstr "लॉग इन करें"
+
+#: .\home\templates\login.html:39
+#| msgid "t-login"
+msgid "dd-login-ques"
+msgstr "लॉग इन करें"
+
+#: .\home\templates\login.html:39 .\home\templates\navbar.html:31
+#: .\home\templates\signup.html:51
+msgid "t-signup"
+msgstr "साइन अप करें"
+
+#: .\home\templates\navbar.html:21
+msgid "t-download"
+msgstr "डाउनलोड"
+
+#: .\home\templates\signup.html:36
+#| msgid "t-signup"
+msgid "dd-signup-name"
+msgstr "साइन अप करें"
+
+#: .\home\templates\signup.html:39
+#| msgid "t-signup"
+msgid "dd-signup-email"
+msgstr "साइन अप करें"
+
+#: .\home\templates\signup.html:48
+msgid "dd-signup-ref-code"
+msgstr "रेफ़्ररल कोड दर्ज करें(वैकल्पिक)"
+
+#: .\home\templates\signup.html:54
+#| msgid "t-signup"
+msgid "dd-signup-ques"
+msgstr "साइन अप करें"
+
+#: .\home\templates\toggle.html:10
+msgid "dd-tb-t-1"
+msgstr "डार्क मोड"
+
+#: .\home\templates\toggle.html:19
+msgid "dd-tb-t-2"
+msgstr "गोपनीयता नीति"
+
+#: .\home\templates\toggle.html:23
+msgid "dd-tb-t-3"
+msgstr "नियम व शर्त"
+
+#: .\home\templates\toggle.html:27
+msgid "dd-tb-t-4"
+msgstr "हमसे संपर्क करें"
+
+#: .\home\templates\toggle.html:31
+msgid "dd-tb-t-5"
+msgstr "रद्दीकरण नीति"
+
+#~ msgid "herotitle"
+#~ msgstr "स्वागत"
 
 #~ msgid "name_input"
 #~ msgstr "नाम_इनपुट"

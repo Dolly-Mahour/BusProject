@@ -1,12 +1,13 @@
 {% load static %}
 {% load django_bootstrap5 %}
+{% load i18n %}
 <div class="d-lg-none d-sm-flex d-md-none " style="position: absolute; height: 100%; display: flex;margin-top: 30%; justify-content: center;" >
     <div style="display: block;" class="mx-4">
             <div style="justify-content: center; display: flex; ">
-                <p class="mx-4 mb-0" style="font-weight: bold;color: #975764;text-align: center;font-size: 35px;">Online Bus Ticket Booking</p>
+                <p class="mx-4 mb-0" style="font-weight: bold;color: #975764;text-align: center;font-size: 35px;">{% trans 'banner-t1' %}</p>
             </div>
             <div style="justify-content: center; display: flex;">
-                <p class="mx-5 " style="text-align: center;color: #975764;font-weight: bold;">Embark on a seamless travel experience with busify</p>
+                <p class="mx-5 " style="text-align: center;color: #975764;font-weight: bold;">{% trans 'banner-t2' %}</p>
             </div>
             <div style="justify-content: center; display: flex;width: auto;">
                 <button class="mb-0 p-1 px-4" style="text-align: center;background-color: #975764;font-weight: bold;color: white;border-radius: 20px;border: transparent;">Book now</button>
@@ -16,15 +17,15 @@
 <div class="d-sm-flex d-none d-md-flex" style="position: absolute; height: 100%; display: flex;align-items: center; justify-content: end;width: 100%;" >
     <div style="display: inline-block;">
             <div style="justify-content: end; display: flex; align-items: center;">
-                <p class="mx-5" style="font-weight: bold;color: #975764;text-align: center;font-size: 55px;">Online Bus Ticket Booking</p>
+                <p class="mx-5" style="font-weight: bold;color: #975764;text-align: center;font-size: 55px;">{% trans 'banner-t1' %}</p>
             </div>
             <div class="row" style="display: flex; align-items: center;justify-content: end;">
                 <div class="col-5"></div>
-                <p class="col" style="color: #975764;font-weight: bold;font-size: 30px;">Embark on a seamless travel experience with busify</p>
+                <p class="col" style="color: #975764;font-weight: bold;font-size: 30px;">{% trans 'banner-t2' %}</p>
             </div>
             <div class="row" style="display: flex; align-items: center;justify-content: end;height: 10%;">
                 <div class="col-8"></div>
-                <button class="col mx-5 py-2" style="background-color: #975764;font-weight: bold;color: white;border-radius: 30px;border: transparent;">Book now</button>
+                <button class="col mx-5 py-2" style="background-color: #975764;font-weight: bold;color: white;border-radius: 30px;border: transparent;">{% trans 'banner-t-btn' %}</button>
             </div>
    </div>
 </div>

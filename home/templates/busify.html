@@ -28,27 +28,26 @@
             <div class="container">
             <div class="row d-none d-lg-flex d-md-flex" style=" margin-top: 10%;">
                 <div style="justify-content: center; display: flex; align-items: center;">
-                  <p class="fs-1" style="font-weight: bold;margin-bottom: 0;">Enjoy the travell experience with us</p>
+                  <p class="fs-1" style="font-weight: bold;margin-bottom: 0;">{% trans 'after-card-t1' %}</p>
                 </div>
                 <div style="justify-content: center; display: flex; align-items: center;">
-                  <p style="font-weight: bold; font-size:large;color: grey;">Book your adventure,pack your bags and let the exploration begin</p>
+                  <p style="font-weight: bold; font-size:large;color: grey;">{% trans 'after-card-t2' %}</p>
                 </div>
                 <!--Carousel-->
                 {% include 'carousel.html' %}
             </div>
             <div class="row d-lg-none d-md-none d-sm-flex" style=" margin-top: 50%;">
               <div style="justify-content: center; display: flex; align-items: center;">
-                <p class="fs-1" style="font-weight: bold;margin-bottom: 0;text-align: center;">Enjoy the travell experience with us</p>
+                <p class="fs-1" style="font-weight: bold;margin-bottom: 0;text-align: center;">{% trans 'after-card-t1' %}</p>
               </div>
               <div style="justify-content: center; display: flex; align-items: center;">
-                <p style="font-weight: bold; font-size:large;color: grey;text-align: center;">Book your adventure,pack your bags and let the exploration begin</p>
+                <p style="font-weight: bold; font-size:large;color: grey;text-align: center;">{% trans 'after-card-t2' %}</p>
               </div>
               <!--Carousel-->
               {% include 'carousel.html' %}
           </div>
             <div class="my-3" style="display: flex;justify-content: center;align-items: center;">
-                <img src="{% static 'logo.png' %}" alt="lgo_end" style="height: 50px;width: 50px;">
-                <label style="color: #975764;font-weight: bold; font-family: cursive;font-size: 25px;">Busify</label>
+                {% include 'logo.html' %}
             </div>
             <div class="row" style="margin-bottom: 50px;">
               <div class="col-lg-4 col-md-12 col-sm-12" style="display: flex;justify-content: center;align-items: center;margin-bottom: 20px;">
@@ -61,19 +60,12 @@
               </div>
               <div class="col-lg-4 col-md-12 col-sm-12" style="display: flex;justify-content: center;align-items: center;margin-bottom: 20px;">
                 <img class="ms-lg-4" src="{% static 'location.png' %}" alt="lgo_end" style="height: 20px;width: 20px;">
-                <a class="link-underline link-underline-opacity-0 " href="#" style="color: grey;">India</a>
+                <a class="link-underline link-underline-opacity-0 " href="#" style="color: grey;">{% trans 'footer-country' %}</a>
               </div>
             </div>
             {% include 'footer.html' %}
           </div>
            
-          <h1>{% trans 'herotitle' %}</h1>
-          {% for people in peoples %}
-           <div class="card h-25 w-25">
-            <p>Name - {{people.title}}</p>
-            <p>CONTENT - {{people.content}}</p>
-           </div>
-          {%  endfor %}
         <!--MODAL OF TOGGLE BUTTON visible on large screens theme,languages,privacy,etc-->
         {% include 'toggle.html' %}
         <!--MODAL of signup form-->

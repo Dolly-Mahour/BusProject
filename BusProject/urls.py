@@ -20,13 +20,15 @@ from django.urls import path,include
 from home.views import *
 # from django.urls import
 urlpatterns = [
-    path('en/admin/', admin.site.urls),
-    path('en/', include('home.urls')),
+    # path('en/admin/', admin.site.urls),
+    # path('en/', include('home.urls')),
     
 ]
 urlpatterns += i18n_patterns(
+    path('i18n/', include('django.conf.urls.i18n')),
     path('rosetta/', include('rosetta.urls')),
     path('', include('home.urls')),
     path('admin/', admin.site.urls),
+    path('set/',set_session,name='home'),
     prefix_default_language=False
 )

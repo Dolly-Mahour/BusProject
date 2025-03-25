@@ -2,7 +2,7 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
 <!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE }}">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -170,7 +170,13 @@
             color: white;
             border-radius: 30px;
         }
-        
+        #signup_user_button:focus{
+              /* outline: 2px solid #975764;
+              border-radius: 10px; */
+              /* border-bottom: 2px green solid; */
+
+              border-bottom: 3px solid #000;
+            }
     </style>
 </head>
 <body>

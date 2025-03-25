@@ -21,33 +21,37 @@
                           {% include 'lottei.html' %}
                       </div>
                       <!--BUTTON FOR USER/INPUT-->
-                      <div class="my-4" style="width: 75%;margin-left: auto;margin-right: auto;display: flex;">
-                        <button id="signup_user_button" style="border: 0;background-color: transparent;margin-left: auto;margin-right: auto;">User</button>
-                        <button id="signup_user_button" style="border: 0;background-color: transparent;margin-left: auto;margin-right: auto;">Agent</button>
+                      <div class="row my-4" style="width: 75%;margin-left: auto;margin-right: auto;display: flex;">
+                        <div class="col w-100" style="margin-left: auto;margin-right: auto;display: flex">
+                          <button id="signup_user_button" style="border: 0;background-color: transparent;margin-left: auto;margin-right: auto;padding: 10px;width: auto;">User</button>
+                        </div>
+                        <div class="col w-100" style="margin-left: auto;margin-right: auto;display: flex">
+                          <button id="signup_user_button" style="border: 0;background-color: transparent;margin-left: auto;margin-right: auto;padding: 10px;width: auto;">Agent</button>
+                        </div>
                       </div>
                       <!--SIGN UP FORM-->
                       <form action="singup">
                         
                          <div class="p-2" style="border: 1px solid rgb(213, 205, 205);height: 40px;display: flex;align-items: center;border-radius: 10px;width: 75%;margin-left: auto;margin-right: auto;margin-bottom: 20px;">
-                          <input type="text" placeholder="Enter your Name" style="width: 100%;">
+                          <input type="text" placeholder="{% trans 'dd-signup-name' %}" style="width: 100%;">
                          </div>
                          <div class="p-2" style="border: 1px solid rgb(213, 205, 205);height: 40px;display: flex;align-items: center;border-radius: 10px;width: 75%;margin-left: auto;margin-right: auto;margin-bottom: 20px;">
-                          <input type="email" placeholder="Enter your Email" style="width: 100%;">
+                          <input type="email" placeholder="{% trans 'dd-signup-email' %}" style="width: 100%;">
                          </div>
                          <div class="p-2" style="border: 1px solid rgb(213, 205, 205);height: 40px;display: flex;align-items: center;border-radius: 10px;width: 75%;margin-left: auto;margin-right: auto;margin-bottom: 20px;">
-                          <input type="text" placeholder="Phone Number" style="width: 100%;">
+                          <input type="text" placeholder="{% trans 'dd-login-number' %}" style="width: 100%;">
                          </div>
                          <div class="p-2" style="border: 1px solid rgb(213, 205, 205);height: 40px;display: flex;align-items: center;border-radius: 10px;width: 75%;margin-left: auto;margin-right: auto;margin-bottom: 2%;">
-                          <input type="password" placeholder="Enter your Password" style="width: 100%;">
+                          <input type="password" placeholder="{% trans 'dd-login-password' %}" style="width: 100%;">
                          </div>
                          <div class="p-2" style="border: 1px solid rgb(213, 205, 205);height: 40px;display: flex;align-items: center;border-radius: 10px;width: 75%;margin-left: auto;margin-right: auto;margin-bottom: 20px;">
-                          <input type="text" placeholder="Enter Refferal Code (optional)" style="width: 100%;">
+                          <input type="text" placeholder="{% trans 'dd-signup-ref-code' %}" style="width: 100%;">
                          </div>
                          <div style="width: 30%;margin-left: auto;margin-right: auto;margin-top: 40px;margin-bottom: 40px;display: flex;justify-content: center;">
-                          <button class="p-2" style="color: white; background-color: #975764;border-radius: 50px;border: 0;width: 100%;">Sign Up</button>
+                          <button class="p-2" style="color: white; background-color: #975764;border-radius: 50px;border: 0;width: 100%;">{% trans 't-signup' %}</button>
                          </div>
                          <div style="display: flex;justify-content: center;">
-                            <p>Already have an account ?<button href="#" style="color: #975764;background-color: transparent; border-radius: 50px;border: 0;">Log in</button> </p>
+                            <p>{% trans 'dd-signup-ques' %}<button href="#" style="color: #975764;background-color: transparent; border-radius: 50px;border: 0;">{% trans 't-login' %}</button> </p>
                          </div>
                       </form>
                    </div>

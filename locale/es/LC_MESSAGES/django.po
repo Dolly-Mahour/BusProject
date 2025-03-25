@@ -8,45 +8,173 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-19 16:46+0530\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2025-03-24 16:39+0530\n"
+"PO-Revision-Date: 2025-03-24 17:03+0000\n"
+"Last-Translator:   <dollymahour282@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
-"1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"X-Translated-Using: django-rosetta 0.10.1\n"
 
-#: .\BusProject\settings.py:114
+#: .\BusProject\settings.py:115
 msgid "Hindi"
 msgstr "hindi"
 
-#: .\BusProject\settings.py:115
+#: .\BusProject\settings.py:116
 msgid "English"
 msgstr "inglesa"
 
-#: .\BusProject\settings.py:116
+#: .\BusProject\settings.py:117
 msgid "Japnese"
 msgstr "hindi"
 
-#: .\BusProject\settings.py:117
+#: .\BusProject\settings.py:118
 msgid "French"
 msgstr "francesa"
 
-#: .\BusProject\settings.py:118
+#: .\BusProject\settings.py:119
 msgid "Spanish"
 msgstr "japonesaS"
 
-#: .\home\models.py:14
+#: .\home\models.py:7
 msgid "title"
 msgstr ""
 
-#: .\home\models.py:15
+#: .\home\models.py:8
 msgid "content"
 msgstr ""
 
-#: .\home\templates\busify.html:70
-msgid "herotitle"
-msgstr ""
+#: .\home\templates\banner.html:7 .\home\templates\banner.html:20
+msgid "banner-t1"
+msgstr "reserva de billetes de autobús en línea"
+
+#: .\home\templates\banner.html:10 .\home\templates\banner.html:24
+msgid "banner-t2"
+msgstr "Embárcate en una experiencia de viaje perfecta con Busify"
+
+#: .\home\templates\banner.html:28
+msgid "banner-t-btn"
+msgstr "reservar ahora"
+
+#: .\home\templates\busify.html:31 .\home\templates\busify.html:41
+msgid "after-card-t1"
+msgstr "Disfruta de la experiencia de viajar con nosotros"
+
+#: .\home\templates\busify.html:34 .\home\templates\busify.html:44
+msgid "after-card-t2"
+msgstr "Reserva tu aventura, haz las maletas y que comience la exploración."
+
+#: .\home\templates\busify.html:63
+msgid "footer-country"
+msgstr "India"
+
+#: .\home\templates\card.html:9 .\home\templates\card.html:12
+msgid "t-card-from-city"
+msgstr "de"
+
+#: .\home\templates\card.html:18 .\home\templates\card.html:21
+msgid "t-card-to-city"
+msgstr "a"
+
+#: .\home\templates\card.html:29
+msgid "t-card-date"
+msgstr "fecha"
+
+#: .\home\templates\card.html:36
+msgid "t-card-search"
+msgstr "buscar"
+
+#: .\home\templates\carousel.html:10 .\home\templates\carousel.html:64
+msgid "t-carousel-h1"
+msgstr "¡Todo es cuestión de viajar!"
+
+#: .\home\templates\carousel.html:20 .\home\templates\carousel.html:38
+#: .\home\templates\carousel.html:56 .\home\templates\carousel.html:74
+#: .\home\templates\carousel.html:92 .\home\templates\carousel.html:110
+msgid "t-carousel-BusOffer"
+msgstr "VER AUTOBUSES CON ESTA OFERTA"
+
+#: .\home\templates\carousel.html:28 .\home\templates\carousel.html:82
+msgid "t-carousel-h2"
+msgstr "Reserva de autobús más rápida"
+
+#: .\home\templates\carousel.html:46 .\home\templates\carousel.html:100
+msgid "t-carousel-h3"
+msgstr "Mejor oferta y descuento"
+
+#: .\home\templates\global.html:11
+msgid "t-languages"
+msgstr "idiomas"
+
+#: .\home\templates\login.html:27 .\home\templates\signup.html:42
+msgid "dd-login-number"
+msgstr "ingresa tu número de teléfono"
+
+#: .\home\templates\login.html:30 .\home\templates\signup.html:45
+msgid "dd-login-password"
+msgstr "ingresa tu contraseña"
+
+#: .\home\templates\login.html:33
+msgid "dd-login-forget"
+msgstr "olvidar contraseña"
+
+#: .\home\templates\login.html:36 .\home\templates\navbar.html:38
+#: .\home\templates\signup.html:54
+msgid "t-login"
+msgstr "acceso"
+
+#: .\home\templates\login.html:39
+#| msgid "t-login"
+msgid "dd-login-ques"
+msgstr "acceso"
+
+#: .\home\templates\login.html:39 .\home\templates\navbar.html:31
+#: .\home\templates\signup.html:51
+msgid "t-signup"
+msgstr "inscribirse"
+
+#: .\home\templates\navbar.html:21
+msgid "t-download"
+msgstr "descargar"
+
+#: .\home\templates\signup.html:36
+#| msgid "t-signup"
+msgid "dd-signup-name"
+msgstr "inscribirse"
+
+#: .\home\templates\signup.html:39
+#| msgid "t-signup"
+msgid "dd-signup-email"
+msgstr "inscribirse"
+
+#: .\home\templates\signup.html:48
+msgid "dd-signup-ref-code"
+msgstr "Ingrese el código de referencia (opcional)"
+
+#: .\home\templates\signup.html:54
+#| msgid "t-signup"
+msgid "dd-signup-ques"
+msgstr "inscribirse"
+
+#: .\home\templates\toggle.html:10
+msgid "dd-tb-t-1"
+msgstr "modo oscuro"
+
+#: .\home\templates\toggle.html:19
+msgid "dd-tb-t-2"
+msgstr "privacidad y política"
+
+#: .\home\templates\toggle.html:23
+msgid "dd-tb-t-3"
+msgstr "término y condición"
+
+#: .\home\templates\toggle.html:27
+msgid "dd-tb-t-4"
+msgstr "Contacta con nosotras"
+
+#: .\home\templates\toggle.html:31
+msgid "dd-tb-t-5"
+msgstr "política de cancelación"
