@@ -22,12 +22,20 @@
                       </div>
                       <!--BUTTON FOR USER/INPUT-->
                       <div class="row my-4" style="width: 75%;margin-left: auto;margin-right: auto;display: flex;">
-                        <div class="col w-100" style="margin-left: auto;margin-right: auto;display: flex">
+                        <!-- <div class="col w-100" style="margin-left: auto;margin-right: auto;display: flex">
                           <button id="signup_user_button" style="border: 0;background-color: transparent;margin-left: auto;margin-right: auto;padding: 10px;width: auto;">User</button>
                         </div>
                         <div class="col w-100" style="margin-left: auto;margin-right: auto;display: flex">
                           <button id="signup_user_button" style="border: 0;background-color: transparent;margin-left: auto;margin-right: auto;padding: 10px;width: auto;">Agent</button>
-                        </div>
+                        </div> -->
+                        <ul class="nav nav-underline d-flex" style="justify-content: center;align-items: center;color: #975764;">
+                          <li class="nav-item col-6" style="color: #975764;">
+                            <a class="nav-link" href="#" style="width: 100%;">User</a>
+                          </li>
+                          <li class="nav-item col" style="display: flex;justify-content: center;align-items: center;">
+                            <a class="nav-link" href="#" style="width: 100%;">Agent</a>
+                          </li>
+                        </ul>
                       </div>
                       <!--SIGN UP FORM-->
                       <form action="singup">
@@ -51,7 +59,7 @@
                           <button class="p-2" style="color: white; background-color: #975764;border-radius: 50px;border: 0;width: 100%;">{% trans 't-signup' %}</button>
                          </div>
                          <div style="display: flex;justify-content: center;">
-                            <p>{% trans 'dd-signup-ques' %}<button href="#" style="color: #975764;background-color: transparent; border-radius: 50px;border: 0;">{% trans 't-login' %}</button> </p>
+                            <p>{% trans 'dd-signup-ques' %}<button  type="button" class="btn" data-bs-toggle="modal" data-bs-target="#loginModal" style="color: #975764;background-color: transparent;">{% trans 't-login' %}</button> </p>
                          </div>
                       </form>
                    </div>

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 16:39+0530\n"
-"PO-Revision-Date: 2025-03-24 17:03+0000\n"
+"PO-Revision-Date: 2025-03-26 16:05+0000\n"
 "Last-Translator:   <dollymahour282@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -129,7 +129,7 @@ msgstr "acceso"
 #: .\home\templates\login.html:39
 #| msgid "t-login"
 msgid "dd-login-ques"
-msgstr "acceso"
+msgstr "no tengo una cuenta"
 
 #: .\home\templates\login.html:39 .\home\templates\navbar.html:31
 #: .\home\templates\signup.html:51
@@ -157,7 +157,7 @@ msgstr "Ingrese el código de referencia (opcional)"
 #: .\home\templates\signup.html:54
 #| msgid "t-signup"
 msgid "dd-signup-ques"
-msgstr "inscribirse"
+msgstr "ya tienes una cuenta"
 
 #: .\home\templates\toggle.html:10
 msgid "dd-tb-t-1"

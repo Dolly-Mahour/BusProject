@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 16:39+0530\n"
-"PO-Revision-Date: 2025-03-24 16:49+0000\n"
+"PO-Revision-Date: 2025-03-26 16:02+0000\n"
 "Last-Translator:   <dollymahour282@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -129,7 +129,7 @@ msgstr "लॉग इन करें"
 #: .\home\templates\login.html:39
 #| msgid "t-login"
 msgid "dd-login-ques"
-msgstr "लॉग इन करें"
+msgstr "क्या आपके पास पहले से एक खाता मौजूद है"
 
 #: .\home\templates\login.html:39 .\home\templates\navbar.html:31
 #: .\home\templates\signup.html:51
@@ -157,7 +157,7 @@ msgstr "रेफ़्ररल कोड दर्ज करें(वैक�
 #: .\home\templates\signup.html:54
 #| msgid "t-signup"
 msgid "dd-signup-ques"
-msgstr "साइन अप करें"
+msgstr "कोई खाता नहीं है"
 
 #: .\home\templates\toggle.html:10
 msgid "dd-tb-t-1"

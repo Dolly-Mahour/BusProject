@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 16:39+0530\n"
-"PO-Revision-Date: 2025-03-24 16:44+0000\n"
+"PO-Revision-Date: 2025-03-26 16:01+0000\n"
 "Last-Translator:   <dollymahour282@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -119,7 +119,7 @@ msgstr "Enter your password"
 
 #: .\home\templates\login.html:33
 msgid "dd-login-forget"
-msgstr "Forget Password ?"
+msgstr "Forget Password?"
 
 #: .\home\templates\login.html:36 .\home\templates\navbar.html:38
 #: .\home\templates\signup.html:54
@@ -129,7 +129,7 @@ msgstr "Log in"
 #: .\home\templates\login.html:39
 #| msgid "t-login"
 msgid "dd-login-ques"
-msgstr "Log in"
+msgstr "Do not have an account?"
 
 #: .\home\templates\login.html:39 .\home\templates\navbar.html:31
 #: .\home\templates\signup.html:51
@@ -157,7 +157,7 @@ msgstr "Enter Refrral Code (optional)"
 #: .\home\templates\signup.html:54
 #| msgid "t-signup"
 msgid "dd-signup-ques"
-msgstr "Sign up"
+msgstr "Already have an account?"
 
 #: .\home\templates\toggle.html:10
 msgid "dd-tb-t-1"
