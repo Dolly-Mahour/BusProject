@@ -1,0 +1,269 @@
+
+/* LIGHT THEME COLOR PALATTE */
+:root{
+  --bg-color-white-black : white;
+  --text-color-brown-peach : #97575F;
+  --text-color-black-peach : black;
+  --text-color-white-black : white;
+  --main-brown : #975764;
+  --banner-bg : #FDD8B6;
+}
+/* DARK THEME COLOR PALATTE */
+[data-theme="dark"] {
+  --bg-color-white-black : #712e0c;
+  --text-color-black-peach : #FDD8B6;
+  --text-color-brown-peach : #FDD8B6;
+  --text-color-white-black : #712e0c;
+  --main-brown  : #97575F;
+  --banner-bg : #b8814d;
+}
+/* BODY--------------------------------------------------------------------------------------- */
+body{
+  background-color: var(--bg-color-white-black);
+}
+/* LOGO---------------------------------------------------------------------------------------- */
+#logo{
+  color: var( --text-color-brown-peach);
+  font-weight: bold;
+   font-family: cursive;
+   font-size: 25px
+}
+/* BANNER BACKGROUND-------------------------------------------------------------------------- */
+#banner-bg{
+  position: relative;
+   height: 82%;
+   background-color: var(--banner-bg);
+   border-bottom-right-radius: 200px;
+   border-bottom-left-radius: 200px;
+   display: flex;
+   justify-content: center;
+}
+/* NAVBAR ------------------------------------------------------------------------------------ */
+#this-is-navbar{
+  background-color: var(--bg-color-white-black);
+  height: 12%;
+}
+#download-modal{
+  background-color: var(--bg-color-white-black);
+}
+/* -Banner.html----------------------------------------------------------------------------------------- */
+
+#banner-div{
+  position: absolute; 
+  height: 100%;
+   display: flex;
+   margin-top: 30%; 
+   justify-content: center;
+}
+#center-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#banner-text-div{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  position: absolute;
+  height: 90%;
+  width: 100%;
+}
+
+#banner-text1{
+  font-weight: bold;
+  color: var(--text-color-brown-peach);
+  text-align: center;
+  font-size: 35px;
+}
+#banner-text2{
+  text-align: center;
+  color: var(--text-color-brown-peach);
+  font-weight: bold;
+}
+
+#banner-button{
+  text-align: center;
+  background-color: var(--text-color-brown-peach);
+  font-weight: bold;
+  color: var(--text-color-white-black);
+  border-radius: 20px;
+  border: transparent;
+}
+
+#banner-text1-lg{
+  font-weight: bold;
+  color: var(--text-color-brown-peach);
+  text-align: center;
+  font-size: 55px;
+}
+
+#banner-text2-lg{
+  color: var(--text-color-brown-peach);
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.bottomdiv{
+  display: flex;
+  justify-content: center;
+}
+/* P tag color ------------------------------------------------------------------------------------- */
+p{
+  color: var(--text-color-black-peach);
+}
+.sign-up{
+  color: var(--text-color-brown-peach);
+  background-color: transparent;
+  width: auto;
+}
+.login-button{
+  border-radius: 30px;
+   color: var(--text-color-white-black);
+   background-color: var(--text-color-brown-peach);
+}
+/* CARD--------------------------------------------------------------------------------------------- */
+.destiny_card{
+  /* background-color: green; */
+  position: absolute;
+  width: 90%;
+  border: solid rgb(242, 234, 234) 1px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 30px 0px white;
+  background-color: var(--bg-color-white-black);
+}
+
+.navbar-toggler {
+    margin-left: 150px;
+    &:focus,
+    &:active {
+    outline: none;
+    box-shadow: none;
+    border: 0;
+   }
+}
+.dropdown-toggle::after {
+
+        content: none;
+    }
+    #image_text
+    {
+      position: relative;
+      color: white;
+      text-align: right;
+    }
+    .headline
+    {
+      position: absolute;
+      top: 100px;
+      right: 80px;
+      font-weight: bold ;
+      font-size: xx-large;
+      justify-content: center;
+    }
+    .custom-modal {
+            top: 50px;
+            right: 80px;
+            width: 300px;
+            position: absolute;
+    }
+    .custom-modal-download {
+            top: 50px;
+            right: 400px;
+            width: 300px;
+            position: absolute;
+    }
+    @media only screen and (max-width: 540px) {
+            .destiny_card
+            {
+              margin-top: 90%;
+            }
+            .custom-modal {
+              max-width: 90%;
+            }
+            #navbar_text
+            {
+              font-size: small;
+            }
+          }
+    @media only screen and (min-width: 540px) {
+      .destiny_card
+            {
+              margin-top: 70%;
+            }
+            .custom-modal {
+              max-width: 90%;
+            }          
+          }
+
+    @media only screen and (min-width: 768px) {
+            .destiny_card
+            {
+              margin-top: 60%;
+            }
+            .custom-modal {
+              max-width: 90%;
+            }
+          }
+    @media only screen and (min-width: 1024px) {
+            .destiny_card
+            {
+              margin-top: 40%;
+            }
+            .custom-modal {
+              max-width: 90%;
+            }
+          }
+    @media only screen and (min-width: 1536px) {
+            .destiny_card
+            {
+              margin-top: 33%;
+            }
+            .custom-modal {
+              max-width: 90%;
+            }
+          }
+    input
+    {
+      border: 0;
+      outline: none;
+    }
+    input:focus + .cities_list{
+      display: block;
+    }
+    .custom-modal .modal-dialog-scrollable {
+        max-width: 60%; 
+    }
+    .welcome {
+      width: 90%;
+    height: 400px;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    scroll-behavior: smooth;
+    align-items: center;
+}
+.welcome::-webkit-scrollbar {
+    display: none;
+}
+div.item{
+    min-width: 370px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    border-radius: 30px;
+}
+#signup_user_button:focus{
+      border-bottom: 3px solid #000;
+    }
+    #Social-Icon:hover {
+            transform: scale(1.2);
+            }
+    .nav-underline .nav-link {
+              color:#975764 !important;
+              display: flex;
+              justify-content: center !important;
+            }

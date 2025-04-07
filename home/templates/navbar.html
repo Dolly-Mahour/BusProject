@@ -1,24 +1,23 @@
 {% load static %}
 {% load django_bootstrap5 %}
 {% load i18n %}
-<nav class="navbar navbar-expand-lg fixed-top pt-3" style="background-color: white;height: 12%;">
+<nav id="this-is-navbar" class="navbar navbar-expand-lg fixed-top pt-3">
   <!--CONTAINER of navbar-->
-  <div class="container-fluid">
-    <!-- <div class="row" style="width: 100vw;"> -->
+  <div class="container-fluid" >
       <!-------------------FIRST HALF OF NAVBAR-------------------->
     <div class="col-lg-6 col-md-6 col-sm-4 d-flex" >
-      <div class="navbar-brand m-0 p-0 ms-lg-5">
+      <div class="navbar-brand m-0 p-0 ms-lg-5 d-flex">
       {% include 'logo.html' %}
       </div>
     </div>
       <!-------------------SECOND HALF OF NAVBAR-------------------->
-    <div class="col-lg-6 col-md-6 col-sm-8 d-flex" style="align-items: center;">
+    <div class="col-lg-6 col-md-6 col-sm-8 d-flex align-items-center">
       <!--DIV of download and language not visible on small screen-->
-      <div class="col-6 d-lg-flex d-md-flex d-none" style="justify-content: end;">
+      <div class="col-6 d-lg-flex d-md-flex d-none justify-content-end">
         <!--DOWNLOAD SCANNER-->
             <div class="nav-item d-flex mx-lg-2 mx-md-2">
                 <img src="{% static 'download.png' %}" alt="download_img" class="img-fluid mt-1 mx-1" style="height: 20px;">
-                <a type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#downloadModal" class="nav-link active" href="#">{% trans 't-download' %}</a>
+                <a type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#downloadModal" class="nav-link active"><p style="margin-bottom: 0;">{% trans 't-download' %}</p></a>
             </div>
         <!--LANGUAGES -->
            {% include 'global.html' %}
@@ -28,14 +27,14 @@
         <!--ITEM 1-->
       <div class="col-lg-3 col-md-4 col-sm-4 d-flex mx-1" style="justify-content: end;">
       <div class="nav-item" >
-            <button id="navbar_text" type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#signupModal" style="color: #975764;background-color: transparent;width: auto;">{% trans 't-signup' %}</button>
+            <button id="navbar_text" type="button" class="btn p-0 sign-up" data-bs-toggle="modal" data-bs-target="#signupModal">{% trans 't-signup' %}</button>
       </div>
       </div>
       <!--login  button -->
       <!--ITEM 2-->
       <div class="col-lg-3 col-md-4 col-sm-4 d-flex mx-1"  style="justify-content: end;">
       <div class="nav-item">
-            <button id="navbar_text" type="button" class="btn p-1 px-3" data-bs-toggle="modal" data-bs-target="#loginModal" style="border-radius: 30px; color: white;background-color: #975764;">{% trans 't-login' %}</button>
+            <button id="navbar_text" type="button" class="btn p-1 px-3 login-button" data-bs-toggle="modal" data-bs-target="#loginModal">{% trans 't-login' %}</button>
       </div>
       </div>
       <!--toggle button of  NAVBAR  NOT  visible on small screen-->

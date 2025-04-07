@@ -8,7 +8,7 @@
   {% get_language_info_list for AVAILABLE_LANGUAGE as languages_in_app %}
     <img src="{% static 'planet-earth.png' %}" alt="download_img" class="img-fluid mt-1 mx-1" style="height: 20px;">
     <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      {% trans 't-languages' %}</a>
+      <p style="margin-bottom: 0;">{% trans 't-languages' %}</p></a>
     <ul class="dropdown-menu p-2">
       {% for language in languages_in_app %}
         <li class="d-flex mb-2">

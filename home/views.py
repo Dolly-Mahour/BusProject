@@ -1,11 +1,23 @@
-from django.shortcuts import render
-from .models import post
+from django.shortcuts import render,redirect
+from datetime import  date, datetime, time , timedelta
+from calendar import HTMLCalendar,mdays
 
-# Create your views here.
 
 def homepage(request):
-    peoples = post.objects.all()
-    return render(request,"busify.html", context={'peoples': peoples})
+    theme_ = "Light"
+    theme = "off"
+    if request.method == "POST":
+         theme = request.POST.get('theme_change')
+         if theme == "on" :
+             theme_ = "Dark"
+         else :
+             theme_ = "Light"
+                   
+    context = {
+        'theme_' :theme_,
+        'theme' : theme
+    }
+    return render(request,"busify.html",context)
 
 def set_session(request):
     # current_language = request.POST

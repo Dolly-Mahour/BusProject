@@ -30,5 +30,7 @@ urlpatterns += i18n_patterns(
     path('', include('home.urls')),
     path('admin/', admin.site.urls),
     path('set/',set_session,name='home'),
+    
+    # path('theme-change',theme_change,name='home'),
     prefix_default_language=False
 )

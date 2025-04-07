@@ -29,18 +29,18 @@
                          <div class="p-2" style="border: 1px solid rgb(213, 205, 205);height: 40px;display: flex;align-items: center;border-radius: 10px;width: 75%;margin-left: auto;margin-right: auto;margin-bottom: 2%;">
                           <input type="password" placeholder="{% trans 'dd-login-password' %}" style="width: 100%;">
                          </div>
-                         <div class="my-3" style="display: flex;justify-content: end;align-items: center;width: 75%;margin-left: auto;margin-right: auto;">
+                         <div class="my-3 mb-0" style="display: flex;justify-content: end;align-items: center;width: 75%;margin-left: auto;margin-right: auto;">
                           <!-- <a href="#" class="link-offset-2 link-underline link-underline-opacity-0" style="color: #975764;"> -->
                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#FP-Modal" style="color: #975764;">
                               {% trans 'dd-login-forget' %}
                             </button>
                           <!-- </a> -->
                          </div>
-                         <div style="width: 30%;margin-left: auto;margin-right: auto;margin-top: 40px;margin-bottom: 40px;display: flex;justify-content: center;">
-                          <button class="p-2" style="color: white; background-color: #975764;border-radius: 50px;border: 0;width: 100%;">{% trans 't-login' %}</button>
+                         <div style="width: 30%;height: 100px;margin-left: auto;margin-right: auto;display: flex;align-items: center;">
+                          <button class="p-2 h-50" style="color: white; background-color: #975764;border-radius: 50px;border: 0;width: 100%;">{% trans 't-login' %}</button>
                          </div>
-                         <div style="display: flex;justify-content: center;">
-                            <p>{% trans 'dd-login-ques' %}<button type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#signupModal" style="color: #975764;background-color: transparent;width: auto;">{% trans 't-signup' %}</button></p>
+                         <div style="display: flex;justify-content: center; align-items: center;">
+                          <p style="margin-bottom: 0;">{% trans 'dd-login-ques' %} </p><button  type="button" class="btn" data-bs-toggle="modal" data-bs-target="#loginModal" style="color: #975764;background-color: transparent;">{% trans 't-signup' %}</button>
                          </div>
                       </form>
                    </div>
