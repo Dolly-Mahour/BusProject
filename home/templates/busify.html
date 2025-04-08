@@ -3,48 +3,36 @@
 {% load static %}
 {% load django_bootstrap5 %}
 {% load i18n %}
-<link rel="stylesheet" href="{% static 'Design.css' %}" type="text/css">
-<!-- <div> -->
-        <div class="container-fluid" style="height: 100vh;position: relative;">
-          <!--ROW 1 -------------------------------------------------------------------------------------------------------->
+        <div class="container-fluid main-container">
+<!--ROW 1 -------------------------------------------------------------------------------------------------------->
             <div class="row">
               <!--  navbar   -->
                 {% include 'navbar.html' %}
             </div>
-            <!--Row 2------------------------------------------------------------------------------------------------------->
+<!--Row 2------------------------------------------------------------------------------------------------------->
             <!--BANNER-->
-            <div class="row" style=" height: 90%;background-color: white ;position: relative;display: flex;justify-content: center;">
-              <!---ILLUSTRATION---->
-            <div class="row" id="banner-bg">
-              {% include 'card.html' %}
+            <div class="row row1-of-banner center-div">
+                  {%  include 'banner.html' %}
             </div>
-            <div class="row d-none d-lg-flex d-md-none" style="position: absolute; height: 80%;align-items: center;display: flex;" >
-              <img class="img-fluid" src="{% static 'illustration_new.png' %}" alt="illustration" style="height:70%;width:40%;" >
-            </div>
-            <!--BANNER TEXT-->
-            {% include 'banner.html' %}
-            <!--Card-->
-            
-            </div>
-            <!--Row 3------------------------------------------------------------------------------------------------------->
+<!--Row 3------------------------------------------------------------------------------------------------------->
             <!--TEXT AFTER THE CARD-->
-            <div class="container">
-            <div class="row d-none d-lg-flex d-md-flex" style=" margin-top: 10%;">
-                <div style="justify-content: center; display: flex; align-items: center;">
-                  <p class="fs-1" style="font-weight: bold;margin-bottom: 0;">{% trans 'after-card-t1' %}</p>
+            <div class="container mt-5">
+            <div class="row d-none d-lg-flex d-md-flex">
+                <div class="center-div">
+                  <p class="fs-1 fw-bold mb-0">{% trans 'after-card-t1' %}</p>
                 </div>
-                <div style="justify-content: center; display: flex; align-items: center;">
-                  <p style="font-weight: bold; font-size:large;color: grey;">{% trans 'after-card-t2' %}</p>
+                <div class="center-div">
+                  <p class="fw-bold fs-5 grey-text">{% trans 'after-card-t2' %}</p>
                 </div>
                 <!--Carousel-->
                 {% include 'carousel.html' %}
             </div>
-            <div class="row d-lg-none d-md-none d-sm-flex" style=" margin-top: 50%;">
-              <div style="justify-content: center; display: flex; align-items: center;">
-                <p class="fs-1" style="font-weight: bold;margin-bottom: 0;text-align: center;">{% trans 'after-card-t1' %}</p>
+            <div class="row d-lg-none d-md-none d-sm-flex" style=" margin-top: 20%;">
+              <div class="center-div">
+                <p class="fs-1 fw-bold mb-0 text-center">{% trans 'after-card-t1' %}</p>
               </div>
-              <div style="justify-content: center; display: flex; align-items: center;">
-                <p style="font-weight: bold; font-size:large;color: grey;text-align: center;">{% trans 'after-card-t2' %}</p>
+              <div class="center-div">
+                <p class="fw-bold fs-6 grey-text text-center">{% trans 'after-card-t2' %}</p>
               </div>
               <!--Carousel-->
               {% include 'carousel.html' %}
@@ -52,18 +40,19 @@
             <div class="my-3 bottomdiv" >
                 {% include 'logo.html' %}
             </div>
-            <div class="row" style=" margin-bottom: 50px;display: flex;justify-content: center;">
-              <div id="bottom_contact" class="col-lg-2 col-md-12 col-sm-12" style="display: flex;align-items: center;margin-bottom: 20;justify-content :center;">
-                <img class="mx-2" src="{% static 'email (1).png' %}" alt="lgo_end" style="height: 20px;width: 20px;">
-                <a class="link-underline link-underline-opacity-0 "  href="mailto:dollymahour282@gmail.com" style="color: grey;">hello@probusify.com</a>
+<!-- Row 4 ------------------------------------------------------------------------------------------------ -->
+            <div class="row center-div margin-t">
+              <div class="col-lg-2 col-md-12 col-sm-12 center-div">
+                <img id="email-img" class="mx-2 image-height img-fluid" src="{% static 'email.png' %}" alt="lgo_end">
+                <a class="link-underline link-underline-opacity-0 grey-text"  href="mailto:dollymahour282@gmail.com">hello@probusify.com</a>
               </div>
-              <div id="bottom_contact" class="col-lg-2 col-md-12 col-sm-12" style="display: flex;align-items: center;margin-bottom: 20;justify-content :center;">
-                <img class="ms-lg-4 ms-md-3 ms-sm-1 mx-2" src="{% static 'phone.png' %}" alt="lgo_end" style="height: 20px;width: 20px;">
-              <a class="link-underline link-underline-opacity-0" href="tel:8287213874o" style="color: grey;">+91 1123298579</a>
+              <div class="col-lg-2 col-md-12 col-sm-12 center-div" >
+                <img id="call-img" class="ms-lg-4 ms-md-3 ms-sm-1 mx-2 image-height img-fluid" src="{% static 'phone.png' %}" alt="lgo_end">
+              <a class="link-underline link-underline-opacity-0 grey-text" href="tel:8287213874o">+91 1123298579</a>
               </div>
-              <div id="bottom_contact" class="col-lg-1 col-md-12 col-sm-12" style="display: flex;align-items: center;margin-bottom: 20;justify-content :center;">
-                <img class="ms-lg-4 mx-2" src="{% static 'location.png' %}" alt="lgo_end" style="height: 20px;width: 20px;">
-                <a class="link-underline link-underline-opacity-0 " href="https://www.google.com/maps/place/India" style="color: grey;">{% trans 'footer-country' %}</a>
+              <div class="col-lg-1 col-md-12 col-sm-12 center-div">
+                <img id="location-img" class="ms-lg-4 mx-2 img-fluid image-height" src="{% static 'location.png' %}" alt="lgo_end" >
+                <a class="link-underline link-underline-opacity-0 grey-text" href="https://www.google.com/maps/place/India">{% trans 'footer-country' %}</a>
               </div>
             </div>
             {% include 'footer.html' %}

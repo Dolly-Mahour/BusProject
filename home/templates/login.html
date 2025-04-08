@@ -5,13 +5,13 @@
          <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true" >
             <div class="modal-dialog modal-dialog-scrollable">
               <div class="modal-content">
-                <div class="modal-body" >
+                <div class="modal-body" id="login-modal-body">
                    <div class="container">
-                      <div class="row">
-                        <img class="img-fluid" src="{% static 'icon.png' %}" alt="icon" style="height: 50px;width: 70px;margin-left: auto; margin-right: auto;">
+                      <div class="row d-flex justify-content-center align-items-center">
+                        {% include 'busify-logo-img.html' %}
                       </div>
                       <div style="display: flex;justify-content: center;">
-                        <h4 style="color: #975764;font-family: cursive;font-weight: bold;">Busify</h4>
+                        {% include 'busify-text.html' %}
                       </div>
                       <div style="display: flex;justify-content: center;">
                         <p style="font-weight: bold;font-size: large;">Login on Busify</p>
@@ -21,26 +21,26 @@
                            {% include 'lottei.html' %}
                       </div>
                       <!--SIGN UP FORM-->
-                      <form action="login">
+                      <form>
                         
-                         <div class="p-2" style="border: 1px solid rgb(213, 205, 205);height: 40px;display: flex;align-items: center;border-radius: 10px;width: 75%;margin-left: auto;margin-right: auto;margin-bottom: 20px;">
+                         <div class="p-2" id="input-div" style="border: 1px solid rgb(213, 205, 205);height: 40px;display: flex;align-items: center;border-radius: 10px;width: 75%;margin-left: auto;margin-right: auto;margin-bottom: 20px;">
                           <input type="text" placeholder="{% trans 'dd-login-number' %}" style="width: 100%;">
                          </div>
-                         <div class="p-2" style="border: 1px solid rgb(213, 205, 205);height: 40px;display: flex;align-items: center;border-radius: 10px;width: 75%;margin-left: auto;margin-right: auto;margin-bottom: 2%;">
+                         <div class="p-2" id="input-div" style="border: 1px solid rgb(213, 205, 205);height: 40px;display: flex;align-items: center;border-radius: 10px;width: 75%;margin-left: auto;margin-right: auto;margin-bottom: 2%;">
                           <input type="password" placeholder="{% trans 'dd-login-password' %}" style="width: 100%;">
                          </div>
                          <div class="my-3 mb-0" style="display: flex;justify-content: end;align-items: center;width: 75%;margin-left: auto;margin-right: auto;">
                           <!-- <a href="#" class="link-offset-2 link-underline link-underline-opacity-0" style="color: #975764;"> -->
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#FP-Modal" style="color: #975764;">
+                            <button type="button" class="btn main-to-dark" data-bs-toggle="modal" data-bs-target="#FP-Modal">
                               {% trans 'dd-login-forget' %}
                             </button>
                           <!-- </a> -->
                          </div>
                          <div style="width: 30%;height: 100px;margin-left: auto;margin-right: auto;display: flex;align-items: center;">
-                          <button class="p-2 h-50" style="color: white; background-color: #975764;border-radius: 50px;border: 0;width: 100%;">{% trans 't-login' %}</button>
+                          <button class="p-2 h-50 w-100 banner-button">{% trans 't-login' %}</button>
                          </div>
-                         <div style="display: flex;justify-content: center; align-items: center;">
-                          <p style="margin-bottom: 0;">{% trans 'dd-login-ques' %} </p><button  type="button" class="btn" data-bs-toggle="modal" data-bs-target="#loginModal" style="color: #975764;background-color: transparent;">{% trans 't-signup' %}</button>
+                         <div class="center-div">
+                          <p class="mb-0">{% trans 'dd-login-ques' %} </p><button  type="button" class="btn main-to-dark" data-bs-toggle="modal" data-bs-target="#loginModal">{% trans 't-signup' %}</button>
                          </div>
                       </form>
                    </div>

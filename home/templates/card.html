@@ -6,35 +6,35 @@
     <div class="row p-3 px-4">
    <div class="col-lg-4 col-md-12 col-sm-12" style="height: 100%;">
     <div style="display: flex;">
-        <img class="img-fluid mt-1 me-3" src="{% static 'circle.png' %}" alt="from-image" style="height: 25px;">
+        <img class="img-fluid mt-1 me-3 image-height" src="{% static 'circle.png' %}" alt="from-image">
         <p style="font-size: 20px;font-weight: 500;">{% trans 't-card-from-city' %}</p>
       </div>
       <div>
-        <input placeholder="{% trans 't-card-from-city' %}" class="cities" type="text" name="City" style="border-bottom: 2px solid #FDD8B6;width: 80%;background-color: transparent;">
+        <input placeholder="{% trans 't-card-from-city' %}" type="text" style="border-bottom: 2px solid #FDD8B6;width: 80%;background-color: transparent;">
       </div>
    </div>
    <div class="col-lg-4 col-md-12 col-sm-12 px-3" style="height: 100%;border-left: 2px solid #FDD8B6;">
     <div style="display: flex;">
-      <img class="img-fluid mt-1 me-3" src="{% static 'circle.png' %}" alt="to-image" style="height: 25px;">
+      <img class="img-fluid mt-1 me-3 image-height" src="{% static 'circle.png' %}" alt="to-image">
       <p style="font-size: 20px;font-weight: 500;">{% trans 't-card-to-city' %}</p>
     </div>
     <div>
-      <input placeholder="{% trans 't-card-to-city' %}" class="cities" type="text" name="City" style="border-bottom: 2px solid #FDD8B6;width: 80%;background-color: transparent;">
+      <input placeholder="{% trans 't-card-to-city' %}" type="text" style="border-bottom: 2px solid #FDD8B6;width: 80%;background-color: transparent;">
     </div>
    </div>
    <div class="col-lg-4 col-md-12 col-sm-12 px-3" style="height: 100%; border-left: 2px solid #FDD8B6;">
     <div class="row">
       <div class="col-lg-7 col-md-12 col-sm-12">
           <div style="display: flex;">
-              <img class="img-fluid mt-1 me-3" src="{% static 'calendar.png' %}" alt="calendar-image" style="height: 25px;">
+              <img class="img-fluid mt-1 me-3 image-height" src="{% static 'calendar.png' %}" alt="calendar-image">
               <p style="font-size: 20px;font-weight: 500;">{% trans 't-card-date' %}</p>
           </div>
-          <div>
-              <input  type="date" style="border-bottom: 2px solid #FDD8B6;width: 80%;background-color: transparent;">
+          <div style="border-bottom: 2px solid #FDD8B6;width: 80%;">
+              <input type="date" required>
           </div>
       </div>
-      <div class="col-lg-5 col-12" style="justify-content: center; display: flex; align-items: center;">
-          <button type="button" class="btn w-100 m-2 me-0" style="border-radius: 10px;background-color: #975764;height: 40px;border: 0;color: white;">{% trans 't-card-search' %}</button>
+      <div class="col-lg-5 col-12 center-div">
+          <button type="button" class="btn w-100 m-2 me-0 h-75 banner-button" >{% trans 't-card-search' %}</button>
       </div>
     </div>
     <div>

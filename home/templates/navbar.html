@@ -16,7 +16,7 @@
       <div class="col-6 d-lg-flex d-md-flex d-none justify-content-end">
         <!--DOWNLOAD SCANNER-->
             <div class="nav-item d-flex mx-lg-2 mx-md-2">
-                <img src="{% static 'download.png' %}" alt="download_img" class="img-fluid mt-1 mx-1" style="height: 20px;">
+                <img id="download-img" src="{% static 'download.png' %}" alt="download_img" class="img-fluid mt-1 mx-1" style="height: 20px;">
                 <a type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#downloadModal" class="nav-link active"><p style="margin-bottom: 0;">{% trans 't-download' %}</p></a>
             </div>
         <!--LANGUAGES -->
@@ -40,7 +40,7 @@
       <!--toggle button of  NAVBAR  NOT  visible on small screen-->
       <!--ITEM 3-->
       <div class="col-lg-3 col-md-4 col-sm-4 d-flex"  style="justify-content: center;">
-      <button type="button" class="navbar-toggler-icon btn d-none d-lg-flex d-md-flex" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+      <button  type="button" class="btn d-none d-lg-flex d-md-flex" data-bs-toggle="modal" data-bs-target="#exampleModal"><img id="toggle-btn-img" src="{% static 'hamburger.png' %}" alt="toggle_button" style="height: 60px;"></button>
       <!--toggle button of OFFCANVAS visible only on small screen-->
       <button class="navbar-toggler-icon btn d-lg-none d-sm-flex d-md-none " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></button>
       </div>

@@ -2,11 +2,10 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
 <div class="nav-item dropdown d-flex  ms-lg-3" name="next_language">
-  <!-- <form action="set_language" method="post" > -->
   {% get_current_language as CURRENT_LANGUAGE %}
   {% get_available_languages as AVAILABLE_LANGUAGE %}
   {% get_language_info_list for AVAILABLE_LANGUAGE as languages_in_app %}
-    <img src="{% static 'planet-earth.png' %}" alt="download_img" class="img-fluid mt-1 mx-1" style="height: 20px;">
+    <img id="globe-image" src="{% static 'planet-earth.png' %}" alt="download_img" class="img-fluid mt-1 mx-1 image-height">
     <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       <p style="margin-bottom: 0;">{% trans 't-languages' %}</p></a>
     <ul class="dropdown-menu p-2">
@@ -21,5 +20,4 @@
         </li>
         {% endfor %}
     </ul>
-  <!-- </form> -->
 </div>
