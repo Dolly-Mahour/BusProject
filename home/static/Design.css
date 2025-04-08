@@ -2,12 +2,12 @@
 /* LIGHT THEME COLOR PALATTE */
 :root{
   --bg-color-white-black : white;
-  --text-color-brown-peach : #97575F;
+  --text-color-brown-peach : #8e8ee6;
   --text-color-black-peach : black;
   --text-color-white-black : white;
   --main-brown : #975764;
   --main-brown-dark-bg-color : #975764;
-  --banner-bg : #FDD8B6;
+  --banner-bg : #8e8ee6;
   --modal-bg : white;
   --text-color-black-brown :black;
   --main-to-dark : #975764;
@@ -15,16 +15,16 @@
 }
 /* DARK THEME COLOR PALATTE */
 [data-theme="dark"] {
-  --bg-color-white-black : #712e0c;
-  --text-color-black-peach : #FDD8B6;
-  --text-color-brown-peach : #FDD8B6;
-  --text-color-white-black : #712e0c;
+  --bg-color-white-black : #393969;
+  --text-color-black-peach : white;
+  --text-color-brown-peach : #8e8ee6;
+  --text-color-white-black : #393969;
   --main-brown-dark-bg-color : #b8814d;
   --main-brown  : #97575F;
-  --banner-bg : #b8814d;
-  --modal-bg : #b8814d;
-  --text-color-black-brown :#712e0c;
-  --main-to-dark : #712e0c;
+  --banner-bg : #8e8ee6;
+  --modal-bg : #8e8ee6;
+  --text-color-black-brown :#393969;
+  --main-to-dark : #393969;
   --grey : rgb(208, 204, 204);
 }
 /* BODY--------------------------------------------------------------------------------------- */
