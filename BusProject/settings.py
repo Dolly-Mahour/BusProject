@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'rosetta',
     'parler',
     'django_bootstrap5',
+    'API',
+    'signup_API',
+    'rest_framework',
     # 'tailwind',
 ]
 

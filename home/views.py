@@ -1,25 +1,37 @@
 from django.shortcuts import render,redirect
 from datetime import  date, datetime, time , timedelta
-from calendar import HTMLCalendar,mdays
-
+import requests
+# from .api_consumer import register_user
+from .api_consumer import post_to_external_api
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 def homepage(request):
-    theme_ = "Light"
-    theme = "off"
-    if request.method == "POST":
-         theme = request.POST.get('theme_change')
-         if theme == "on" :
-             theme_ = "Dark"
-         else :
-             theme_ = "Light"
-                   
-    context = {
-        'theme_' :theme_,
-        'theme' : theme
-    }
-    return render(request,"busify.html",context)
+    return render(request,"busify.html")
 
-def set_session(request):
-    # current_language = request.POST
-    request.session['language_to_set'] = 'hindi'
-    return render(request,"working.html",)
+@csrf_exempt
+def external_api_view(request):
+    if request.method == 'POST':
+        print(request.body)
+        try:
+            data ={
+                "id": 1,
+                "Username": request.POST.get('username'),
+                "User_or_Agent": True,
+                "Email": request.POST.get('email'),
+                "Phone_number": request.POST.get('number'),
+                "Password": request.POST.get('password'),
+                "Referral_code": request.POST.get('ref-code')
+            }
+            print(data)
+            result = post_to_external_api(data)
+            return JsonResponse(result or {"error": "API call failed"}, safe=False)
+        except json.JSONDecodeError:
+            # data = json.loads(request.body)
+            # print(request.body)
+            # print(data)
+            return JsonResponse({"error": "Invalid JSON"}, status=400)
+    
+
+    return JsonResponse({"error": "Only POST allowed"}, status=405)
