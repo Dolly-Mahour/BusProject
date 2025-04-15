@@ -6,11 +6,11 @@ from API.serializers import*
 # Create your views here.
 
 
-class Application_Users_View(generics.ListCreateAPIView):
+class Application_Users_View(generics.CreateAPIView):
     queryset = Application_Users.objects.all()
     serializer_class = Application_Users_Serializers
 
-class Application_Users_Details(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Application_Users.objects.all()
-    serializer_class = Application_Users_Serializers
-    lookup_field= 'pk'
+# class Application_Users_Details(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Application_Users.objects.all()
+#     serializer_class = Application_Users_Serializers
+#     lookup_field= 'pk'

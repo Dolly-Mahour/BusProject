@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'API',
     'signup_API',
+    'login_API',
     'rest_framework',
+    # 'django-filters',
     # 'tailwind',
 ]
 

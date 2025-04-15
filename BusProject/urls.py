@@ -29,7 +29,8 @@ urlpatterns += i18n_patterns(
     path('rosetta/', include('rosetta.urls')),
     path('', include('home.urls')),
     path('admin/', admin.site.urls),
-    path('signup/',external_api_view,name='home'),
+    path('signup/',signup_api_view,name='home'),
+    path('login/',login_api_view,name='home'),
     path('api/v1/', include('API.urls')),
     # path('theme-change',theme_change,name='home'),
     prefix_default_language=False
