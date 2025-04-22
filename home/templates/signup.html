@@ -57,9 +57,7 @@
                             <p style="margin-bottom: 0;">{% trans 'dd-signup-ques' %} </p><button  type="button" class="btn main-to-dark" data-bs-toggle="modal" data-bs-target="#loginModal">{% trans 't-login' %}</button>
                          </div>
                          <div>
-                          {% if error %}
-                          <p class="error">{{ error }}</p>
-                          {% endif %}
+                          {% include 'messages.html' %}
                          </div>
                       </form>
                    </div>

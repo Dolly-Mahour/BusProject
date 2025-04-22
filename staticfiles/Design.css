@@ -1,0 +1,364 @@
+
+/* LIGHT THEME COLOR PALATTE */
+:root{
+  --bg-color-white-black : white;
+  --text-color-brown-peach : #90C67C;
+  --text-color-black-peach : black;
+  --text-color-white-black : white;
+  --main-brown : #975764;
+  --main-brown-dark-bg-color : #975764;
+  --banner-bg : #90C67C;
+  --modal-bg : white;
+  --text-color-black-brown :black;
+  --main-to-dark : #975764;
+  --grey : grey;
+  --blue-white :#90C67C;
+}
+/* DARK THEME COLOR PALATTE */
+[data-theme="dark"] {
+  --bg-color-white-black : #393969;
+  --text-color-black-peach : white;
+  --text-color-brown-peach : #7171B8;
+  --text-color-white-black : #393969;
+  --main-brown-dark-bg-color : #b8814d;
+  --main-brown  : #97575F;
+  --banner-bg : #7171B8;
+  --modal-bg : #7171B8;
+  --text-color-black-brown :#393969;
+  --main-to-dark : #393969;
+  --grey : rgb(208, 204, 204);
+  --blue-white : white;
+}
+/* BODY--------------------------------------------------------------------------------------- */
+body{
+  background-color: var(--bg-color-white-black);
+}
+.main-to-dark{
+  color: var( --main-to-dark);
+}
+/* MAin container  with relative position --------------------------------------------------------*/
+.main-container{
+  height: 100vh;
+  position: relative;
+}
+/* first row of the container-------------------------------------------------------------------- */
+.row1-of-banner{
+  height: 80%;
+  margin-top: 6%;
+  background-color: var(--bg-color-white-black) ;
+  position: relative;
+}
+/* INPUT tag background transparent--------------------------------------------------------------- */
+input{
+  background-color: transparent;
+  border: 0;
+  outline: none;
+}
+/* changing the color of the placeholder with css variable--------------------------------------- */
+::placeholder{
+  color: var(--text-color-black-peach);
+}
+/* Div in which all the inputs are-------------------------------------------------------------- */
+#input-div{
+  background-color: var(--bg-color-white-black) ;
+}
+/* image height for the iamges having 20px height ------------------------------------------------ */
+.image-height{
+  height: 20px;
+}
+/* changing the color of date placeholder---------------------------------------------------------- */
+input[type=date]:invalid::-webkit-datetime-edit {
+  color: var(--text-color-black-peach);
+}
+/* LOGO---------------------------------------------------------------------------------------- */
+#logo{
+  color: var( --text-color-brown-peach);
+  font-weight: bold;
+   font-family: cursive;
+   font-size: 25px
+}
+/* margin top 50px ------------------------------------------------------------------------------ */
+.margin-t{
+  margin-top: 50px;
+}
+/* changing the gray color text with the css variable-------------------------------------------- */
+.grey-text{
+  color: var(--grey);
+}
+/* BANNER BACKGROUND-------------------------------------------------------------------------- */
+#banner-bg{
+  position: relative;
+   height: 75%;
+   background-color: var(--banner-bg);
+   /* border-bottom-right-radius: 100px;
+   border-bottom-left-radius: 100px; */
+   display: flex;
+   justify-content: center;
+}
+/* SOCIAL MEDIA FOOTER------------------------------------------------------------------------- */
+.SocialMedia-Link{
+  height: 35px;
+  width: 35px;
+  border-radius: 35px;
+  border: 1px solid rgb(202, 195, 195);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+/* NAVBAR ------------------------------------------------------------------------------------ */
+#this-is-navbar{
+  background-color: var(--bg-color-white-black);
+  height: 12%;
+}
+/* download modal content------------------------------------------------------------------------ */
+#download-modal{
+  border-radius: 10px;
+}
+/* body of the login modal---------------------------------------------------------------------- */
+#login-modal-body{
+  overflow-y: hidden;
+}
+/* chnaging the color pf all the modal body with the changing of the theme---------------------- */
+.modal-body{
+  background-color: var(--modal-bg);
+  border-radius: 20px;
+  border: 2px solid grey;
+}
+/* corner radius to outer modal content-------------------------------------------------------------- */
+.modal-content{
+  border-radius: 20px;
+  border: 0;
+}
+/* -Banner.html----------------------------------------------------------------------------------------- */
+
+#banner-div{
+  position: absolute; 
+  height: 100%;
+   display: flex;
+   margin-top: 35%; 
+   justify-content: center;
+}
+/* CLASS FOR CENTERIGN THE DIV ELEMENTS ----------------------------------------------------------------- */
+.center-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* BANNER ----------------------------------------------------------------------------------------------------- */
+#banner-text-div{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  position: absolute;
+  height: 90%;
+  width: 100%;
+}
+#banner-text1{
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  font-size: 35px;
+}
+#banner-text2{
+  text-align: center;
+  color: black;
+  font-weight: bold;
+}
+.banner-button{
+  text-align: center;
+  background-color: var(--text-color-brown-peach);
+  font-weight: bold;
+  color: var(--text-color-white-black);
+  border-radius: 20px;
+  border: transparent;
+}
+#banner-text1-lg{
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  font-size: 55px;
+}
+#banner-text2-lg{
+  color: black;
+  font-weight: bold;
+  font-size: 30px;
+}
+/* illustration size------------------------------------------------------------------------------------------ */
+#illustration{
+  height:80%;
+  width:40%;
+}
+.illustration-size{
+  position: absolute; 
+  height: 90%;
+  align-items: center;
+  display: flex;
+}
+.bottomdiv{
+  display: flex;
+  justify-content: center;
+}
+/* P tag color ------------------------------------------------------------------------------------- */
+p{
+  color: var(--text-color-black-peach);
+}
+.sign-up{
+  color: var(--text-color-brown-peach);
+  background-color: transparent;
+  width: auto;
+}
+.login-button{
+  border-radius: 30px;
+   color: var(--text-color-white-black);
+   background-color: var(--text-color-brown-peach);
+}
+/* CARD--------------------------------------------------------------------------------------------- */
+.destiny_card{
+  /* background-color: green; */
+  position: relative;
+  width: 90%;
+  border: 1px solid rgb(219, 213, 213);
+  border-radius: 30px;
+  /* box-shadow: 0px 0px 30px 0px white; */
+  background-color: var(--bg-color-white-black);
+}
+
+/* about the input in the card -------------------------------- */
+.style-of-card-input{
+  width: 80%;
+  background-color: transparent;
+  border: 0;
+  /* border-bottom: 2px;
+  border-color:  var(--blue-white);
+  border-style: solid; */
+  outline: none;
+
+}
+.navbar-toggler {
+    margin-left: 150px;
+    &:focus,
+    &:active {
+    outline: none;
+    box-shadow: none;
+    border: 0;
+   }
+}
+.dropdown-toggle::after {
+
+        content: none;
+    }
+    #image_text
+    {
+      position: relative;
+      color: white;
+      text-align: right;
+    }
+    .headline
+    {
+      position: absolute;
+      top: 100px;
+      right: 80px;
+      font-weight: bold ;
+      font-size: xx-large;
+      justify-content: center;
+    }
+    .custom-modal {
+            top: 50px;
+            right: 80px;
+            width: 300px;
+            position: absolute;
+    }
+    .custom-modal-download {
+            top: 50px;
+            right: 400px;
+            width: 300px;
+            position: absolute;
+    }
+    @media only screen and (max-width: 540px) {
+            .destiny_card
+            {
+              margin-top: 90%;
+            }
+            .custom-modal {
+              max-width: 90%;
+            }
+            #navbar_text
+            {
+              font-size: small;
+            }
+          }
+    @media only screen and (min-width: 540px) {
+      .destiny_card
+            {
+              margin-top: 75%;
+            }
+            .custom-modal {
+              max-width: 90%;
+            }          
+          }
+
+    @media only screen and (min-width: 768px) {
+            .destiny_card
+            {
+              margin-top: 65%;
+            }
+            .custom-modal {
+              max-width: 90%;
+            }
+          }
+    @media only screen and (min-width: 1024px) {
+            .destiny_card
+            {
+              margin-top: 45%;
+            }
+            .custom-modal {
+              max-width: 90%;
+            }
+          }
+    @media only screen and (min-width: 1536px) {
+            .destiny_card
+            {
+              margin-top: 28.5%;
+            }
+            .custom-modal {
+              max-width: 90%;
+            }
+          }
+   
+    .custom-modal .modal-dialog-scrollable {
+        max-width: 60%; 
+    }
+    .welcome {
+      width: 90%;
+    height: 400px;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    scroll-behavior: smooth;
+    align-items: center;
+}
+.welcome::-webkit-scrollbar {
+    display: none;
+}
+div.item{
+    min-width: 370px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    border-radius: 30px;
+}
+#signup_user_button:focus{
+      border-bottom: 3px solid #000;
+    }
+    .Social-Icon:hover {
+            transform: scale(1.2);
+            }
+    .nav-underline .nav-link {
+              color:#975764 !important;
+              display: flex;
+              justify-content: center !important;
+            }

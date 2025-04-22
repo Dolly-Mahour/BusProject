@@ -6,34 +6,49 @@ from API.serializers import*
 from rest_framework.response import Response
 from signup_API.models import Application_Users
 from rest_framework.decorators import APIView
+from django.contrib.auth import authenticate
+from API.Token_Generate import get_tokens_for_user
+from rest_framework_simplejwt.tokens import RefreshToken
 # Create your views here.
 
 class Login_User_Views(APIView):
     def post(self,request):
+      try :      
         data = request.data
         print(data)
-        phone = request.data['Phone_number']
-        password = request.data['Password']
-        # number = Application_Users.objects.filter(Phone_number_in = request.POST.get('Phone_number'))
-        isExist = Application_Users.objects.filter(Phone_number = phone , Password = password).exists()
-        object = Application_Users.objects.filter(Phone_number = phone , Password = password).first()
+        Phone_number = request.data['Phone_number']
+        Password = request.data['Password']
+        isExist = Application_Users.objects.filter(Phone_number = Phone_number , Password = Password).exists()
         if isExist:
-            print(isExist)
+            
+            object = Application_Users.objects.filter(Phone_number = Phone_number , Password = Password).first()
+            
+            tokens = get_tokens_for_user(object)
+            refresh = tokens["refresh"]
+            access = tokens["access"]
+            if object is None :
+               return Response({
+                    "status" : 400,
+                    "message" : "enter valid information",
+                    "data" :{}, 
+                    
+               })
             return Response({
-                "status" : True,
-                "data" : {
-                    "Username": object.Username,
-                    "User_or_Agent": object.User_or_Agent,
-                    "Email": object.Email,
-                    "Phone_number": object.Phone_number,
-                    "Referral_code": object.Referral_code
-                }  
+                "status" : 200,
+                "data" :"login",
+                "message": "Login Successfully",
+                "access" : access,
+                "refresh" : refresh,
+                "token" :tokens,
              })
         else :
             return Response({
-                "status" : False,
+                "status" : 400,
+                "message" : "something went wrong",
                 "data" : "NO Data Found", 
              })
+      except Exception as e:
+         print(e)
         
         
 

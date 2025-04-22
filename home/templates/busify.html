@@ -11,11 +11,12 @@
             </div>
 <!--Row 2------------------------------------------------------------------------------------------------------->
             <!--BANNER-->
-            <div class="row row1-of-banner">
-                  {%  include 'banner.html' %}
+            <div class="row1-of-banner">
+                  {%  include 'banner.html'  with list=combined_list %}
             </div>
 <!--Row 3------------------------------------------------------------------------------------------------------->
             <!--TEXT AFTER THE CARD-->
+            {% include 'messages.html' %}
             <div class="container mt-5">
             <div class="row d-none d-lg-flex d-md-flex">
                 <div class="center-div">
@@ -67,7 +68,12 @@
         {% include 'download.html' %}
         <!-- MODAL of forget password  -->
         {% include 'forget-pass-modal.html' %}
-        
+        <!-- {% include 'footer.html' %}
+        {% include 'footer.html' %}
+        {% include 'footer.html' %}
+        {% include 'footer.html' %}
+         -->
+        {{access_token}}
         </div>
 
     {% endblock%}

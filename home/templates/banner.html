@@ -25,10 +25,10 @@
 <!-- LARGE SCREEN ON THE BANNER TEXT  --------------------------------------------------------->
   <div class="d-sm-flex d-none d-md-flex" id="banner-text-div">
       <div class="d-inline-block">
-              <div class="center-div">
+              <div>
                   <p class="mx-5" id="banner-text1-lg">{% trans 'banner-t1' %}</p>
               </div>
-              <div class="row center-div">
+              <div class="w-75 ms-auto me-auto">
                   <div class="col-5"></div>
                   <p class="col" id="banner-text2-lg">{% trans 'banner-t2' %}</p>
               </div>
@@ -38,5 +38,5 @@
               </div>
      </div>
   </div>
-    {% include 'card.html' %}
+    {% include 'card.html'  with list=list %}
   </div>

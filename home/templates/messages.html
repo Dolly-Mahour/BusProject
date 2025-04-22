@@ -1,0 +1,14 @@
+{% load static %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% if messages %}
+<!-- <ul class="messages"> -->
+    {% for message in messages %}
+    <div style=" border: 1px solid green;">
+        <p>{{message}}</p>
+    </div>
+    
+    <!-- <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li> -->
+    {% endfor %}
+<!-- </ul> -->
+{% endif %}

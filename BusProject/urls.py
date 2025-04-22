@@ -18,6 +18,9 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.urls import path,include
 from home.views import *
+from django.conf import settings
+from django.conf.urls.static import static
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView ,TokenVerifyView
 # from django.urls import
 urlpatterns = [
     # path('en/admin/', admin.site.urls),
@@ -31,7 +34,16 @@ urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('signup/',signup_api_view,name='home'),
     path('login/',login_api_view,name='home'),
+    path('places/',cities_api_view,name='home'),
     path('api/v1/', include('API.urls')),
+
+    path('gettoken/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('refreshtoken/', TokenRefreshView.as_view(), name='token_refresh'),   
+    path('verifytoken/', TokenVerifyView.as_view(),name='veify_token'), 
+
     # path('theme-change',theme_change,name='home'),
     prefix_default_language=False
 )
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

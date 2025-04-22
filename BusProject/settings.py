@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
+from datetime import timedelta 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -46,6 +47,10 @@ INSTALLED_APPS = [
     'signup_API',
     'login_API',
     'rest_framework',
+    'cities_API',
+    'rest_framework.authtoken',
+    'rest_framework_simplejwt',
+    # 'custom_filter',
     # 'django-filters',
     # 'tailwind',
 ]
@@ -78,6 +83,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.i18n',
             ],
+            
         },
     },
 ]
@@ -154,9 +160,10 @@ USE_TZ = True
 
 STATIC_URL = 'home/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'), 
+    os.path.join(BASE_DIR, 'home/static'), 
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'home/static')
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 LOCALE_PATHS = [
@@ -168,3 +175,20 @@ LOCALE_PATHS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+
+REST_FRAMEWORK = {
+    # 'DEFAULT_PERMISSION_CLASSES': (
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+    'SLIDING_TOKEN_LIFETIME': timedelta(days=30),
+    'SLIDING_TOKEN_REFRESH_LIFETIME_LATE_USER': timedelta(days=1),
+    'SLIDING_TOKEN_LIFETIME_LATE_USER': timedelta(days=30),
+}
