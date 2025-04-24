@@ -15,6 +15,8 @@ class Places_Serializers(serializers.ModelSerializer):
 
 
 class Login_Users_Serializers(serializers.Serializer):
+
+# particularly each feild to handle 
     # number = serializers.IntegerField()
     # password = serializers.CharField()
     class Meta:

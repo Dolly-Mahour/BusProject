@@ -67,9 +67,7 @@ input{
   color: var(--text-color-black-peach);
 }
 /* Div in which all the inputs are-------------------------------------------------------------- */
-#input-div{
-  background-color: var(--bg-color-white-black) ;
-}
+
 /* image height for the iamges having 20px height ------------------------------------------------ */
 .image-height{
   height: 20px;
@@ -177,7 +175,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
   text-align: center;
   background-color: black;
   font-weight: bold;
-  color: var(--text-color-white-black);
+  color: white;
   border-radius: 20px;
   border: transparent;
 }
@@ -222,7 +220,7 @@ p{
 }
 .login-button{
   border-radius: 30px;
-   color: var(--text-color-white-black);
+   color: white;
    background-color: var(--text-color-brown-peach);
 }
 /* CARD--------------------------------------------------------------------------------------------- */
@@ -247,6 +245,22 @@ p{
   outline: none;
 
 }
+
+
+.input-style-box{
+  border: 1px solid rgb(213, 205, 205);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  background-color: var(--bg-color-white-black) ;
+}
+
+
 .navbar-toggler {
     margin-left: 150px;
     &:focus,
@@ -367,10 +381,10 @@ div.item{
       border-bottom: 3px solid #000;
     }
     .Social-Icon:hover {
-            transform: scale(1.2);
+            transform: scale(1.3);
             }
     .nav-underline .nav-link {
-              color:#975764 !important;
+              color:#292952 !important;
               display: flex;
               justify-content: center !important;
             }

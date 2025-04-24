@@ -21,29 +21,45 @@ from home.views import *
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView ,TokenVerifyView
-# from django.urls import
+
+
 urlpatterns = [
-    # path('en/admin/', admin.site.urls),
-    # path('en/', include('home.urls')),
+    
     
 ]
 urlpatterns += i18n_patterns(
+    # url for languages and the internationalisation 
     path('i18n/', include('django.conf.urls.i18n')),
+
+    # url for the rosetta framework or for the languages additions 
     path('rosetta/', include('rosetta.urls')),
+
+    # including url of the main function view of the site
     path('', include('home.urls')),
+
+    # url of the admin pannel 
     path('admin/', admin.site.urls),
-    path('signup/',signup_api_view,name='home'),
-    path('login/',login_api_view,name='home'),
-    path('places/',cities_api_view,name='home'),
+
+    # url of the signup form with api 
+    path('signup/',signup_api_view,name='signup_api_view'),
+
+    # url of the login form 
+    path('login/',login_api_view,name='login_api_view'),
+
+    #searching trips views
+    path ('searchTrips/',search_trips,name='searching_trips'),
+
+    # including the api urls 
     path('api/v1/', include('API.urls')),
 
+    # JWT token urls for the restframework-jwt  for  get, refresh and verifying the token
     path('gettoken/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('refreshtoken/', TokenRefreshView.as_view(), name='token_refresh'),   
     path('verifytoken/', TokenVerifyView.as_view(),name='veify_token'), 
 
-    # path('theme-change',theme_change,name='home'),
     prefix_default_language=False
 )
 
+# static debugging 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

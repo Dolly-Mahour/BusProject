@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 16:39+0530\n"
-"PO-Revision-Date: 2025-03-26 16:02+0000\n"
+"PO-Revision-Date: 2025-04-24 16:30+0000\n"
 "Last-Translator:   <dollymahour282@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -143,12 +143,12 @@ msgstr "डाउनलोड"
 #: .\home\templates\signup.html:36
 #| msgid "t-signup"
 msgid "dd-signup-name"
-msgstr "साइन अप करें"
+msgstr "अपना नाम दर्ज करें"
 
 #: .\home\templates\signup.html:39
 #| msgid "t-signup"
 msgid "dd-signup-email"
-msgstr "साइन अप करें"
+msgstr "अपना ईमेल दर्ज करें"
 
 #: .\home\templates\signup.html:48
 msgid "dd-signup-ref-code"

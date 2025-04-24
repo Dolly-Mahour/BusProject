@@ -1,50 +1,50 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
-from datetime import  date, datetime, time , timedelta
-import requests
-# from .api_consumer import register_user
-from .api_consumer import post_to_signup_api,post_login_data,get_from_place_api  #,verify_token
+from .api_consumer import post_to_signup_api,post_login_data,get_from_place_api
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from django.contrib import messages
 
-def get_cities(request):
-    data = cities_api_view(request)
-    # print(type(data.content))
-    decoded_data = data.content.decode('utf-8')
-    places = data.content
-    parsed_json = json.loads(decoded_data)
+# from django.http import HttpResponse
+# from datetime import  date, datetime, time , timedelta
+# import requests
 
-    cities =[]
-    states =[]
-    combined =[]
-    for i in parsed_json:
-        cities.append(i["cities"])
-        states.append(i["states"])
+token_exist = False 
+jwt_token = None
+
+
+def to_check_jwt():
+    if jwt_token is not None :
+        token_exist = True
+    else :
+        token_exist = False
     
-    combined.append(cities+states)
-    print(len(cities))
-    size = len(cities)
-    combined_list = zip(cities,states)
-    context = {
-        'cities' : cities,
-        'states' : states,
-        'combined_list' : combined_list,
-        # 'range' : range(size)
-    }
-    return context
-
-
+    return token_exist
+# MAIN HOME PAGE FUNTION CALLING AT THE START OF THE SITE
 def homepage(request):
     context = get_cities(request)
-    return render(request,"busify.html",context)
+    global token_exist
+    global jwt_token
 
+    # jwt_token = None
+    token_exists_or_not = to_check_jwt()
+    
+    print("this is the token boolean",token_exists_or_not)
+    data = {
+        'cities' : context["cities"],
+        'states': context["states"],
+        'token': token_exists_or_not,
+    }
+    return render(request,"busify.html",data)
+
+
+# user signup function calling the api for signup
 @csrf_exempt
 def signup_api_view(request):
+    #if the method is post 
     if request.method == 'POST':
-        print(request.body)
         try:
+            #converting the data into the json to sent it to api 
             data ={
                 "Username": request.POST.get('username'),
                 "User_or_Agent": True,
@@ -53,47 +53,40 @@ def signup_api_view(request):
                 "Password": request.POST.get('password'),
                 "Referral_code": request.POST.get('ref-code')
             }
-            print(data)
-            # result is getting all the details of the user created
+            # SIGNUP API RESPONSE and calling the api for the user signup
             result = post_to_signup_api(data)
-            # print("this  is the result ---------",result)
-            # if result["status"] == 200 :
-            #   messages.success(request,"User created successfully")
-            # else :
-            #   messages.success(request,"User exists")
-            # print("this is the",result)
-            print(result)
             return JsonResponse(result or {"error": "Invalid JSON"}, status=400)
         except json.JSONDecodeError:
             return JsonResponse({"error": "Invalid JSON"}, status=400)
-    
-
     return JsonResponse({"error": "Only POST allowed"}, status=405)
 
 
-
+#LOGIN Api calling and storing the jwt token into the session
 @csrf_exempt
 def login_api_view(request):
+    #if the method is post 
     if request.method == 'POST':
-        print(request.body)
         try:
+            #converting the data into the json to sent it to api 
             data ={
                 "Phone_number": request.POST.get('number'),
                 "Password": request.POST.get('password'),
             }
+            #calling the api consuming fuction for user login
             result = post_login_data(data)
+            print(result)
             if result["status"] == 200 :
-                jwt_token = result["token"]
+                if result["token"] is not None:
+                    global jwt_token
+                    jwt_token = result["token"]
+                else :
+                    
+                    jwt_token = None
+                #jwt token to session
                 request.session["jwt_token"] = jwt_token
-                print("session token ---------------",request.session["jwt_token"])
-                context = get_cities(request)
-                # print(context["cities"])
-                # data={
-                #     'cities' : context["cities"],
-                #     'states' : context["states"],
-                # }
-            # return JsonResponse(result or {"error": "API call failed"}, safe=False)
-                return redirect('homepage')
+                #redirecting tp the homepage
+                return redirect('/')
+            
         except json.JSONDecodeError:
             return JsonResponse({"error": "Invalid JSON"}, status=400)
     
@@ -102,14 +95,33 @@ def login_api_view(request):
 
 
 
-
-
+#Funtion calling the cities api and getting the data from the api also converting it to the lists
 @csrf_exempt
-def cities_api_view(request):
-    # if request.method == 'POST':
-        print(request.body)
-        try:
-            result = get_from_place_api()
-            return JsonResponse(result or {"error": "API call failed"}, safe=False)
-        except json.JSONDecodeError:
-            return JsonResponse({"error": "Invalid JSON"}, status=400)
+def get_cities(request):
+    data = get_from_place_api(request)
+    cities =[]#list of cities 
+    states =[]#list of states
+    
+    #loop for entering the cities and states to the list 
+    for i in data:
+        cities.append(i["cities"])
+        # print(cities)
+        states.append(i["states"])
+    
+    #data context dictoinary 
+    context = {
+        'cities' : cities,
+        'states' : states,
+    }
+    return context
+
+
+#to check the jwt exists or not 
+def search_trips(request):
+    global token_exist 
+    if token_exist :
+        print("yes")
+        
+    else :
+        print("no")
+    return redirect('homepage')

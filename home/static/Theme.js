@@ -5,42 +5,65 @@ function setTheme()
        if (checkBox?.checked)
         {
             localStorage.setItem('theme', 'dark')
-            console.log('checked')
-            set_dark_theme_elements();
+            dark_theme();
         } 
         else
         {
-          console.log("unchecked")
-          localStorage.setItem('theme', 'light')
-          set_light_theme_elements();
+            localStorage.setItem('theme', 'light')
+            light_theme();
         }
     }
 
-    function load(){
-        console.log('script loaded');
+
+
+
+function show_modal(){
+
+    let exists = document.getElementById("search_button_of_card").value;
+    console.log("calling pop up",exists);
+    if (exists == "True"){
+        console.log("Yay ! logged in");
+    }
+    else{
+        console.log("please login");
+        var modal = new bootstrap.Modal(document.getElementById('loginModal'));
+        modal.show();
+    }
+}
+
+
+// function bottom_border(){
+//     console.log("hello");
+// }
+
+
+function load(){
+        // console.log('script loaded');
         if (localStorage.getItem('theme') === 'dark')
         {
             document.getElementById('themeSwitch').checked = true;
-            set_dark_theme_elements();
+            dark_theme();
+
         }
         else{
-            document.documentElement.setAttribute('data-theme', 'light');
-            set_light_theme_elements();
+            
+            document.getElementById('themeSwitch').checked = false;
+            light_theme();
         }
     }
-function set_dark_theme_elements(){
-    document.documentElement.setAttribute('data-theme', 'dark');
-    document.getElementById('download-img').src = "../home/static/download-white.png";
-    document.getElementById('globe-image').src = "../home/static/earth-white.png";
-    document.getElementById('toggle-btn-img').src = "../home/static/toggle-white.png";
+load();
 
-    document.getElementById('email-img').src = "../home/static/email-dark-theme.png";
-    document.getElementById('call-img').src = "../home/static/call-dark-theme.png";
-    document.getElementById('location-img').src = "../home/static/location-dark-theme.png";
 
-}
-function set_light_theme_elements(){
-    document.getElementById('themeSwitch').checked = false;
+
+
+
+
+
+
+function light_theme(){
+
+    document.documentElement.setAttribute('data-theme', 'light');
+
     document.getElementById('download-img').src = "../home/static/download.png";
     document.getElementById('globe-image').src = "../home/static/planet-earth.png";
     document.getElementById('toggle-btn-img').src = "../home/static/hamburger.png";
@@ -49,4 +72,16 @@ function set_light_theme_elements(){
     document.getElementById('call-img').src = "../home/static/phone.png";
     document.getElementById('location-img').src = "../home/static/location.png";
 }
-    load();
+function dark_theme(){
+
+    document.documentElement.setAttribute('data-theme', 'dark');
+
+    document.getElementById('download-img').src = "../home/static/download-white.png";
+    document.getElementById('globe-image').src = "../home/static/earth-white.png";
+    document.getElementById('toggle-btn-img').src = "../home/static/toggle-white.png";
+
+
+    document.getElementById('email-img').src = "../home/static/email-dark-theme.png";
+    document.getElementById('call-img').src = "../home/static/call-dark-theme.png";
+    document.getElementById('location-img').src = "../home/static/location-dark-theme.png";
+}
