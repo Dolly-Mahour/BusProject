@@ -51,7 +51,7 @@ def signup_api_view(request):
                 "Email": request.POST.get('email'),
                 "Phone_number": request.POST.get('number'),
                 "Password": request.POST.get('password'),
-                "Referral_code": request.POST.get('ref-code')
+                # "Referral_code": request.POST.get('ref-code')
             }
             # SIGNUP API RESPONSE and calling the api for the user signup
             result = post_to_signup_api(data)
@@ -117,11 +117,11 @@ def get_cities(request):
 
 
 #to check the jwt exists or not 
-def search_trips(request):
-    global token_exist 
-    if token_exist :
-        print("yes")
+# def search_trips(request):
+#     global token_exist 
+#     if token_exist :
+#         print("yes")
         
-    else :
-        print("no")
-    return redirect('homepage')
+#     else :
+#         print("no")
+#     return redirect('homepage')

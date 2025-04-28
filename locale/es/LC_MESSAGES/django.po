@@ -29,7 +29,7 @@ msgstr "inglesa"
 
 #: .\BusProject\settings.py:117
 msgid "Japnese"
-msgstr "hindi"
+msgstr "japonesaS"
 
 #: .\BusProject\settings.py:118
 msgid "French"

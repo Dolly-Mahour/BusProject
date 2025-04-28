@@ -3,21 +3,25 @@
 {% load i18n %}
 <div class="modal fade" id="downloadModal" tabindex="-1" aria-labelledby="downloadModalLabel" aria-hidden="true" >
     <div class="modal-dialog custom-modal-download d-flex" >
-      <div class="modal-content" style="border-radius: 20px;">
+      <div class="modal-content border-2">
         <div class="modal-body" id="download-modal" >
            <div class="container" >
               <div class="row">
                 <div class="col-6">
                   <div>
-                    <p>Download App</p>
+                    <div class="center-div">
+                        <p>Download App</p>
+                    </div>
                     <img class="img-fluid" src="{% static 'as.png' %}" alt="QR" style="height: auto;width: auto;margin-top: 10px;">
                     <img class="img-fluid" src="{% static 'ps.png' %}" alt="QR" style="height: auto;width: auto;margin-top: 30%;">
                   </div>
                 </div>
                 <div class="col">
                   <div>
-                    <p>Scan Code</p>
-                    <img class="img-fluid p-2 mt-0" src="{% static 'qr1.png' %}" alt="QR" style="height: 110px;width: auto;">
+                    <div class="center-div">
+                      <p>Scan Code</p>
+                    </div>
+                    <img class="img-fluid p-2 mt-0  w-auto h-50" src="{% static 'qr1.png' %}" alt="QR">
                   </div>
                 </div>
               </div>

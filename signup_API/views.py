@@ -26,34 +26,33 @@ class Application_Users_View(APIView):
         isEmail_Exist = Application_Users.objects.filter(Email=Email, ).exists()
         user = Application_Users.objects.filter(Phone_number = Phone_number ,Email=Email, ).first()
 
-        if isPhoneNumber_Exist :
-            return Response(
-                 {
-                      'status' : status.HTTP_400_BAD_REQUEST,
-                       data  :{},
-                      'message' : "user with same mobile number exists",
-                 }
-            )
         
-        if isEmail_Exist :
-            return Response(
-                 {
-                      'status' : status.HTTP_400_BAD_REQUEST,
-                       data  :{},
-                      'message' : "user with same email exists",
-                 }
-                 
-             )
         
         serializer = Application_Users_Serializers(data=request.data)
         
 # if there is any problem is the serialisation or user existance 
         if serializer.is_valid():
-                serializer.save()
-                return Response(
+          if isPhoneNumber_Exist :
+            return Response(
+                 {
+                      'status' : status.HTTP_400_BAD_REQUEST,
+                      'message' : "user with same mobile number exists",
+                 }
+            )
+        
+          if isEmail_Exist :
+            return Response(
+                 {
+                      'status' : status.HTTP_400_BAD_REQUEST,
+                      'message' : "user with same email exists",
+                 }
+                 
+             )
+          serializer.save()
+          return Response(
                     {
                       'status' : status.HTTP_201_CREATED,
-                       data  :{user},
+                       'data'  :user,
                       'message' : "User created successfully",
                  }
                 )
@@ -61,7 +60,6 @@ class Application_Users_View(APIView):
                 return Response(
                     {
                       'status' : status.HTTP_400_BAD_REQUEST,
-                       data  :{},
                       'message' : "something went wrong",
                  }
                 )

@@ -16,33 +16,35 @@
       <div class="col-6 d-lg-flex d-md-flex d-none justify-content-end">
         <!--DOWNLOAD SCANNER-->
             <div class="nav-item d-flex mx-lg-2 mx-md-2">
-                <img id="download-img" src="{% static 'download.png' %}" alt="download_img" class="img-fluid mt-1 mx-1" style="height: 20px;">
-                <a type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#downloadModal" class="nav-link active"><p style="margin-bottom: 0;">{% trans 't-download' %}</p></a>
+              <img id="download-img" src="{% static 'download.png' %}" alt="download_img" class="mt-1 mx-1 image-height">
+                {% include 'download_button.html' %}
             </div>
         <!--LANGUAGES -->
            {% include 'global.html' %}
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-12 ms-2" style="align-items: center;display: flex;">
+      <div class="col-lg-6 col-md-6 col-sm-12 ms-2 center-div">
         <!--Signup  button -->
         <!--ITEM 1-->
-      <div class="col-lg-3 col-md-4 col-sm-4 d-flex mx-1" style="justify-content: end;">
+      <div class="col-lg-3 col-md-4 col-sm-4 d-flex mx-1 justify-content-end">
       <div class="nav-item" >
             <button id="navbar_text" type="button" class="btn p-0 sign-up" data-bs-toggle="modal" data-bs-target="#signupModal">{% trans 't-signup' %}</button>
       </div>
       </div>
       <!--login  button -->
       <!--ITEM 2-->
-      <div class="col-lg-3 col-md-4 col-sm-4 d-flex mx-1"  style="justify-content: end;">
+      <div class="col-lg-3 col-md-4 col-sm-4 d-flex mx-1 justify-content-end">
       <div class="nav-item">
             <button id="navbar_text" type="button" class="btn p-1 px-3 login-button" data-bs-toggle="modal" data-bs-target="#loginModal">{% trans 't-login' %}</button>
       </div>
       </div>
       <!--toggle button of  NAVBAR  NOT  visible on small screen-->
       <!--ITEM 3-->
-      <div class="col-lg-3 col-md-4 col-sm-4 d-flex"  style="justify-content: center;">
+      <div class="col-lg-3 col-md-4 col-sm-4 center-div" >
       <button  type="button" class="btn d-none d-lg-flex d-md-flex" data-bs-toggle="modal" data-bs-target="#exampleModal"><img id="toggle-btn-img" src="{% static 'hamburger.png' %}" alt="toggle_button" style="height: 60px;"></button>
       <!--toggle button of OFFCANVAS visible only on small screen-->
-      <button class="navbar-toggler-icon btn d-lg-none d-sm-flex d-md-none " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></button>
+      <button class="btn d-lg-none d-sm-flex d-md-none "  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+        <img id="offcanvas_toggle_button" src="{% static 'hamburger.png' %}" alt="toggle_button" style="height: 60px;">
+      </button>
       </div>
        <!--OFF CANVAS-->
         {% include 'offcanvas.html' %}

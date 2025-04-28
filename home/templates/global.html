@@ -6,16 +6,20 @@
   {% get_available_languages as AVAILABLE_LANGUAGE %}
   {% get_language_info_list for AVAILABLE_LANGUAGE as languages_in_app %}
     <img id="globe-image" src="{% static 'planet-earth.png' %}" alt="download_img" class="img-fluid mt-1 mx-1 image-height">
-    <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      <p style="margin-bottom: 0;">{% trans 't-languages' %}</p></a>
-    <ul class="dropdown-menu p-2">
+    <a class="nav-link active dropdown-toggle d-none d-lg-flex d-md-flex" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <p class="mb-0">{% trans 't-languages' %}</p>
+    </a>
+    <a class="nav-link active dropdown-toggled-lg-none d-sm-flex d-md-none " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <div class="mb-0">{% trans 't-languages' %}</div>
+    </a>
+    <ul class="dropdown-menu p-2"  id="languages-div">
       {% for language in languages_in_app %}
         <li class="d-flex mb-2">
           <!-- <img src="{% static '{{ language.flag }}' %}" class="col-2 p-0 py-1" style="height: auto;"></img> -->
            {% if language.name_local == "English" %}
-          <a class="dropdown-item" href="/">{{ language.name_local }}</a>
+          <a class="dropdown-item black-to-white" href="/">{{ language.name_local }}</a>
           {% else %}
-          <a class="dropdown-item" href="/{{ language.code }}/">{{ language.name_local }}</a>
+          <a class="dropdown-item black-to-white" href="/{{ language.code }}/">{{ language.name_local }}</a>
           {% endif %}
         </li>
         {% endfor %}

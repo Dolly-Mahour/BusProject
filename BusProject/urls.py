@@ -47,7 +47,7 @@ urlpatterns += i18n_patterns(
     path('login/',login_api_view,name='login_api_view'),
 
     #searching trips views
-    path ('searchTrips/',search_trips,name='searching_trips'),
+    # path ('searchTrips/',search_trips,name='searching_trips'),
 
     # including the api urls 
     path('api/v1/', include('API.urls')),

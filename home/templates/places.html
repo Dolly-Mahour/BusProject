@@ -1,8 +1,8 @@
 {% load static %}
 {% load django_bootstrap5 %}
 {% load i18n %}
-<select name="places" type="text" class="style-of-card-input" style="width: 80%;background-color: transparent;border: 0;outline: none;border-bottom: 2px solid #7171B8;">
-      <option value="place">select place</option>
+<select name="places" type="text" class="style-of-card-input black-to-white" id="select_place_option">
+      <option value="place" class="w-50">select place</option>
       {% for city in cities %}
           {% for state in states %}
             {% if forloop.parentloop.counter == forloop.counter %}

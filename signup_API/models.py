@@ -8,7 +8,7 @@ class Application_Users(models.Model):
     Email = models.EmailField()
     Phone_number = models.IntegerField()
     Password = models.CharField(max_length=8)
-    Referral_code = models.CharField(max_length=255)
+    # Referral_code = models.CharField(max_length=255)
 
     def __str__(self):
         return self.Username

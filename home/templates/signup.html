@@ -2,28 +2,28 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
         <!--MODAL OF SIGNUP FORM-->
-        <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true" >
+        <div class="modal" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true" >
             <div class="modal-dialog modal-dialog-scrollable " id="modal-scrollbar">
               <div class="modal-content">
-                <div class="modal-body" style="overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none;" >
+                <div class="modal-body" id="signup_model_body">
                    <div class="container">
                       <div class="row">
                         <div class="center-div">
                           {% include 'busify-logo-img.html' %}
                         </div>
                       </div>
-                      <div style="display: flex;justify-content: center;">
+                      <div class="center-div">
                         {% include 'busify-text.html' %}
                       </div>
-                      <div style="display: flex;justify-content: center;">
-                        <p style="font-weight: bold;font-size: large;">Signup on Busify</p>
+                      <div class="center-div">
+                        <p class="fw-bold fs-5">Signup on Busify</p>
                       </div>
                       <!--CAROUSEL VIEW-->
                       <div>
                           {% include 'lottei.html' %}
                       </div>
                       <!--BUTTON FOR USER/INPUT-->
-                      <div class="row w-100 center-div m-0 p-0 mb-4" style="height: 50px;">
+                      <div class="row w-100 center-div m-0 p-0 mb-4">
                         <ul class="nav nav-underline center-div w-75 m-0 p-0">
                           <li class="nav-item col">
                             <p class="nav-link">User</p>
@@ -34,27 +34,51 @@
                         </ul>
                       </div>
                       <!--SIGN UP FORM-->
-                      <form method="post" action="/signup/">
+                      <form method="post" action="/signup/" id="signup_form">
+
+
                          <div class="p-2 input-style-box">
-                          <input name="username" type="text" placeholder="{% trans 'dd-signup-name' %}" style="width: 100%;">
+                          <input class="w-100" id="name" name="username" type="text" placeholder="{% trans 'dd-signup-name' %}">
                          </div>
+                        <div class="error-style-box">
+                          <div id="nameError" class="error"></div><br>
+                        </div>
+
                          <div class="p-2 input-style-box">
-                          <input name="email" type="email" placeholder="{% trans 'dd-signup-email' %}" style="width: 100%;">
+                          <input class="w-100" id="email" name="email" type="email" placeholder="{% trans 'dd-signup-email' %}">
                          </div>
+
+                         <div class="error-style-box">
+                          <div id="emailError" class="error"></div><br>
+                        </div>
+
                          <div class="p-2 input-style-box">
-                          <input name="number" type="text" placeholder="{% trans 'dd-login-number' %}" style="width: 100%;">
+                          <input class="w-100" id="number" name="number" type="text" placeholder="{% trans 'dd-login-number' %}">
                          </div>
+
+                         <div class="error-style-box">
+                          <div id="numberError" class="error"></div><br>
+                         </div>
+                         
                          <div class="p-2 input-style-box">
-                          <input name="password" type="password" placeholder="{% trans 'dd-login-password' %}" style="width: 100%;">
+                          <input class="w-100" id="password" name="password" type="password" placeholder="{% trans 'dd-login-password' %}">
                          </div>
+
+                         <div class="error-style-box">
+                          <div id="passwordError" class="error"></div><br>
+                         </div>
+                         
                          <div class="p-2 input-style-box">
-                          <input name="ref-code" type="text" placeholder="{% trans 'dd-signup-ref-code' %}" style="width: 100%;">
+                          <input class="w-100"  name="ref-code" type="text" placeholder="{% trans 'dd-signup-ref-code' %}">
                          </div>
+
                          <div class="center-div" style="width: 30%;height: 100px;margin-left: auto;margin-right: auto;">
-                          <button type="submit" class="p-2 h-50 w-100 banner-button">{% trans 't-signup' %}</button>
+                          <button type="submit" id="signup_form_submit_button" class="p-2 h-50 w-100 banner-button">{% trans 't-signup' %}</button>
                          </div>
-                         <div style="display: flex;justify-content: center;align-items: center;">
-                            <p style="margin-bottom: 0;">{% trans 'dd-signup-ques' %} </p><button  type="button" class="btn main-to-dark" data-bs-toggle="modal" data-bs-target="#loginModal">{% trans 't-login' %}</button>
+                         
+                         <div class="center-div">
+                            <p class="mb-0">{% trans 'dd-signup-ques' %}</p>
+                            <button  type="button" class="btn black-to-white" data-bs-toggle="modal" data-bs-target="#loginModal">{% trans 't-login' %}</button>
                          </div>
                          <div>
                           {% include 'messages.html' %}
