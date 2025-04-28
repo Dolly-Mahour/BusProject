@@ -51,7 +51,7 @@ def signup_api_view(request):
                 "Email": request.POST.get('email'),
                 "Phone_number": request.POST.get('number'),
                 "Password": request.POST.get('password'),
-                # "Referral_code": request.POST.get('ref-code')
+                "Referral_code": request.POST.get('ref-code')
             }
             # SIGNUP API RESPONSE and calling the api for the user signup
             result = post_to_signup_api(data)

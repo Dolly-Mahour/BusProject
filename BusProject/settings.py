@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'cities_API',
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
+    'Search_Places_API',
     # 'custom_filter',
     # 'django-filters',
     # 'tailwind',
