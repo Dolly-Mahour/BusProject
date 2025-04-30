@@ -3,14 +3,25 @@
 {% load i18n %}
 <link rel="stylesheet" href="{% static 'Design.css' %}">
 <div class="destiny_card" id="destiny-card">
+  <form action="search_trips/" method="post" id="Search_form">
     <div class="row px-3 py-3">
+      
    <div class="col-lg-4 col-md-12 col-sm-12  h-100">
     <div class="d-flex pt-3 px-4">
         <img class="img-fluid mt-1 me-3 image-height" src="{% static 'circle.png' %}" alt="from-image">
         <p class="fs-5 fw-bold">{% trans 't-card-from-city' %}</p>
       </div>
       <div class="px-4">
-          {% include 'places.html'  with list=list %}
+        <select name="from_place" type="text" class="style-of-card-input black-to-white select_place_option">
+          <option value="place" class="w-50">select place</option>
+          {% for city in cities %}
+              {% for state in states %}
+                {% if forloop.parentloop.counter == forloop.counter %}
+                <option value="{{forloop.parentloop.counter}}">{{city}}, {{state}}</option>
+                {% endif %}
+              {% endfor %}
+          {% endfor %}
+        </select>
       </div>
    </div>
    <div class="col-lg-4 col-md-12 col-sm-12 h-100 border_left_of_card ">
@@ -19,7 +30,16 @@
       <p class="fs-5 fw-bold" >{% trans 't-card-to-city' %}</p>
     </div>
     <div class="px-4">
-        {% include 'places.html'  with list=list %}
+      <select name="to_place" type="text" class="style-of-card-input black-to-white select_place_option">
+        <option value="place" class="w-50">select place</option>
+        {% for city in cities %}
+            {% for state in states %}
+              {% if forloop.parentloop.counter == forloop.counter %}
+              <option value="{{forloop.parentloop.counter}}">{{city}}, {{state}}</option>
+              {% endif %}
+            {% endfor %}
+        {% endfor %}
+      </select>
     </div>
    </div>
    <div class="col-lg-2 col-md-12 col-sm-12 h-100 border_left_of_card">
@@ -29,7 +49,7 @@
     </div>
     <div>
         <div class="px-4" id="border_bottom_of_card">
-            <input type="date" required>
+            <input name="date" type="date" required>
         </div>
     </div>
    </div>
@@ -37,6 +57,11 @@
     <button id="search_button_of_card" type="button" class="btn w-100 m-2 me-0 h-75 banner-button pt-3" value="{{token}}" onclick="show_modal()" >
       <p>{% trans 't-card-search' %}</p>
     </button>
+    <!-- <button id="search_button_of_card" type="submit" class="btn w-100 m-2 me-0 h-75 banner-button pt-3" value="{{token}}">
+      <p>{% trans 't-card-search' %}</p>
+    </button> -->
    </div>
+  
   </div>
+</form>
   </div>

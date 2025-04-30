@@ -47,10 +47,11 @@ urlpatterns += i18n_patterns(
     path('login/',login_api_view,name='login_api_view'),
 
     #searching trips views
-    # path ('searchTrips/',search_trips,name='searching_trips'),
+    path ('search_trips/',search_api_view,name='searching_trips'),
 
     # including the api urls 
     path('api/v1/', include('API.urls')),
+    
 
     # JWT token urls for the restframework-jwt  for  get, refresh and verifying the token
     path('gettoken/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

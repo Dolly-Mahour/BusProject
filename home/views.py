@@ -1,9 +1,12 @@
 from django.shortcuts import render,redirect
-from .api_consumer import post_to_signup_api,post_login_data,get_from_place_api
-from django.http import JsonResponse
+from .api_consumer import post_to_signup_api,post_login_data,get_from_place_api,post_to_search_api
+from django.http import JsonResponse    
 from django.views.decorators.csrf import csrf_exempt
 import json
 from django.contrib import messages
+
+import winrt.windows.devices.geolocation as wdg
+import asyncio
 
 # from django.http import HttpResponse
 # from datetime import  date, datetime, time , timedelta
@@ -20,12 +23,34 @@ def to_check_jwt():
         token_exist = False
     
     return token_exist
+
+
+
+# --------------------LOCATION---------------------------------------------------------
+
+async def get_coords():
+        locator = wdg.Geolocator()
+        pos = await locator.get_geoposition_async()
+        return [pos.coordinate.latitude, pos.coordinate.longitude]
+
+def get_location():
+        return asyncio.run(get_coords())
+
+
+#---------------------------------------------------------------------------------------
+
+
+
 # MAIN HOME PAGE FUNTION CALLING AT THE START OF THE SITE
 def homepage(request):
     context = get_cities(request)
     global token_exist
     global jwt_token
 
+
+    latitude, longitude = get_location()
+    print(f"here is the -----------Latitude: {latitude}, Longitude: {longitude}")
+    
     # jwt_token = None
     token_exists_or_not = to_check_jwt()
     
@@ -115,13 +140,22 @@ def get_cities(request):
     }
     return context
 
-
-#to check the jwt exists or not 
-# def search_trips(request):
-#     global token_exist 
-#     if token_exist :
-#         print("yes")
-        
-#     else :
-#         print("no")
-#     return redirect('homepage')
+@csrf_exempt
+def search_api_view(request):
+    #if the method is post 
+    # print(request)
+    if request.method == 'POST':
+        print(request)
+        try:
+            #converting the data into the json to sent it to api 
+            data ={
+                "from_place_id": request.POST.get('from_place'),
+                "to_place_id": request.POST.get('to_place'),
+                "date": request.POST.get('date'),
+            }
+            # SIGNUP API RESPONSE and calling the api for the user signup
+            result = post_to_search_api(data)
+            return JsonResponse(result or {"error": "Invalid JSON"}, status=400)
+        except json.JSONDecodeError:
+            return JsonResponse({"error": "Invalid JSON"}, status=400)
+    return JsonResponse({"error": "Only POST allowed"}, status=405)

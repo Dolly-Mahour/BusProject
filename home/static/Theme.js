@@ -20,9 +20,12 @@ function setTheme()
 function show_modal(){
 
     let exists = document.getElementById("search_button_of_card").value;
-    console.log("calling pop up",exists);
+    // console.log("calling pop up",exists);
     if (exists == "True"){
         console.log("Yay ! logged in");
+        // fetch('/search_trips/')
+        // window.location.href = '/search_trips/';
+        document.getElementById("Search_form").submit();
     }
     else{
         console.log("please login");

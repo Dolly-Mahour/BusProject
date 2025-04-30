@@ -40,3 +40,16 @@ def get_from_place_api(request):
     except requests.exceptions.RequestException as e:
         print(f"POST request failed: {e}")
         return None
+    
+# api searchig the trip in the places database through the primary key 
+def post_to_search_api(request):
+    url = 'http://127.0.0.1:8000/api/v1/search_trip/'
+    headers = {'Content-Type': 'application/json',}
+    
+    try:
+        response = requests.post(url,json=request, headers=headers)
+        response.raise_for_status()  
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"POST request failed: {e}")
+        return None
