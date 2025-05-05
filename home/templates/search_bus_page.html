@@ -1,0 +1,29 @@
+{% extends "common.html"%}
+{% block start%}
+{% load static %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+        <div class="container-fluid main-container">
+<!--ROW 1 -------------------------------------------------------------------------------------------------------->
+            <div class="row">
+              <!--  navbar   -->
+                {% include 'navbar.html' %}
+            </div>
+
+            <!--MODAL OF TOGGLE BUTTON visible on large screens theme,languages,privacy,etc-->
+        {% include 'toggle.html' %}
+        <!--MODAL of signup form-->
+        {% include 'signup.html' %}
+        <!--MODAL of login form-->
+        {% include 'login.html' %}
+        <!-- MODAL of download  -->
+        {% include 'download.html' %}
+        <!-- MODAL of forget password  -->
+        {% include 'forget-pass-modal.html' %}
+        <!-- Toast of Success login -->
+        {% include 'Login_Toast.html' %}
+        <!-- Toast of Success signup -->
+        {% include 'Signup_Toast.html' %}
+        </div>
+
+    {% endblock%}

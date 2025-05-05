@@ -23,7 +23,7 @@ class Login_User_Views(APIView):
         if isExist:
             
             object = Application_Users.objects.filter(Phone_number = Phone_number , Password = Password).first()
-            
+            User_data = Application_Users.objects.filter(Phone_number = Phone_number , Password = Password).values()
             tokens = get_tokens_for_user(object)
             refresh = tokens["refresh"]
             access = tokens["access"]
@@ -37,6 +37,7 @@ class Login_User_Views(APIView):
                 "status" : 200,
                 "message": "Login Successfully",
                 "token" :tokens,
+                "User" :User_data,
              })
         else :
             return Response({

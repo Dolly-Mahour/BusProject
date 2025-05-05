@@ -5,8 +5,8 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from django.contrib import messages
 
-import winrt.windows.devices.geolocation as wdg
-import asyncio
+# import winrt.windows.devices.geolocation as wdg
+# import asyncio
 
 # from django.http import HttpResponse
 # from datetime import  date, datetime, time , timedelta
@@ -14,7 +14,8 @@ import asyncio
 
 token_exist = False 
 jwt_token = None
-
+http_code_of_singup_api = 400
+profile = None
 
 def to_check_jwt():
     if jwt_token is not None :
@@ -28,13 +29,13 @@ def to_check_jwt():
 
 # --------------------LOCATION---------------------------------------------------------
 
-async def get_coords():
-        locator = wdg.Geolocator()
-        pos = await locator.get_geoposition_async()
-        return [pos.coordinate.latitude, pos.coordinate.longitude]
+# async def get_coords():
+#         locator = wdg.Geolocator()
+#         pos = await locator.get_geoposition_async()
+#         return [pos.coordinate.latitude, pos.coordinate.longitude]
 
-def get_location():
-        return asyncio.run(get_coords())
+# def get_location():
+#         return asyncio.run(get_coords())
 
 
 #---------------------------------------------------------------------------------------
@@ -46,20 +47,26 @@ def homepage(request):
     context = get_cities(request)
     global token_exist
     global jwt_token
+    global http_code_of_singup_api
+    global profile
 
-
-    latitude, longitude = get_location()
-    print(f"here is the -----------Latitude: {latitude}, Longitude: {longitude}")
+    # latitude, longitude = get_location()
+    # print(f"here is the -----------Latitude: {latitude}, Longitude: {longitude}")
     
     # jwt_token = None
     token_exists_or_not = to_check_jwt()
     
     print("this is the token boolean",token_exists_or_not)
+    print("------------success code ----------------------------------",http_code_of_singup_api)
+
     data = {
         'cities' : context["cities"],
         'states': context["states"],
         'token': token_exists_or_not,
+        'http_code_of_singup_api' : http_code_of_singup_api,
+        'profile' : profile
     }
+    http_code_of_singup_api = 400
     return render(request,"busify.html",data)
 
 
@@ -80,7 +87,9 @@ def signup_api_view(request):
             }
             # SIGNUP API RESPONSE and calling the api for the user signup
             result = post_to_signup_api(data)
-            return JsonResponse(result or {"error": "Invalid JSON"}, status=400)
+            global http_code_of_singup_api
+            http_code_of_singup_api = result['status']
+            return redirect('/')
         except json.JSONDecodeError:
             return JsonResponse({"error": "Invalid JSON"}, status=400)
     return JsonResponse({"error": "Only POST allowed"}, status=405)
@@ -107,9 +116,25 @@ def login_api_view(request):
                 else :
                     
                     jwt_token = None
+
+
                 #jwt token to session
                 request.session["jwt_token"] = jwt_token
-                #redirecting tp the homepage
+
+
+
+                #redirecting to the homepage
+
+
+                User = result["User"]
+                User = User[0]
+
+                Username = User["Username"]
+                global profile
+                profile = Username[0]
+
+                print("This is the getting the object",profile)
+                
                 return redirect('/')
             
         except json.JSONDecodeError:
@@ -155,7 +180,8 @@ def search_api_view(request):
             }
             # SIGNUP API RESPONSE and calling the api for the user signup
             result = post_to_search_api(data)
-            return JsonResponse(result or {"error": "Invalid JSON"}, status=400)
+            # return JsonResponse(result or {"error": "Invalid JSON"}, status=400)
+            return render(request,"search_bus_page.html")
         except json.JSONDecodeError:
             return JsonResponse({"error": "Invalid JSON"}, status=400)
     return JsonResponse({"error": "Only POST allowed"}, status=405)

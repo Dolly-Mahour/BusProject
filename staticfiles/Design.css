@@ -1,31 +1,43 @@
 
 /* LIGHT THEME COLOR PALATTE */
 :root{
+
+  --black-to-white : black ;
+  --white-to-black : white ;
+  --lightblue-to-darkblue : #7171B8;
+  --white-to-darkblue : #292952 ;
+
+
+
   --bg-color-white-black : white;
-  --text-color-brown-peach : #90C67C;
+  --text-color-brown-peach : #7171B8;
   --text-color-black-peach : black;
   --text-color-white-black : white;
   --main-brown : #975764;
   --main-brown-dark-bg-color : #975764;
-  --banner-bg : #90C67C;
+  --banner-bg : #5f5faf;
   --modal-bg : white;
   --text-color-black-brown :black;
   --main-to-dark : #975764;
   --grey : grey;
-  --blue-white :#90C67C;
+  --blue-white :#7171B8;
 }
 /* DARK THEME COLOR PALATTE */
 [data-theme="dark"] {
-  --bg-color-white-black : #393969;
+
+  --black-to-white : white ;
+
+
+  --bg-color-white-black : #292952;
   --text-color-black-peach : white;
   --text-color-brown-peach : #7171B8;
-  --text-color-white-black : #393969;
+  --text-color-white-black : #292952;
   --main-brown-dark-bg-color : #b8814d;
   --main-brown  : #97575F;
-  --banner-bg : #7171B8;
-  --modal-bg : #7171B8;
-  --text-color-black-brown :#393969;
-  --main-to-dark : #393969;
+  --banner-bg : #5f5faf;
+  --modal-bg : #292952;
+  --text-color-black-brown :#292952;
+  --main-to-dark : #292952;
   --grey : rgb(208, 204, 204);
   --blue-white : white;
 }
@@ -43,7 +55,7 @@ body{
 }
 /* first row of the container-------------------------------------------------------------------- */
 .row1-of-banner{
-  height: 80%;
+  height: 88%;
   margin-top: 6%;
   background-color: var(--bg-color-white-black) ;
   position: relative;
@@ -59,9 +71,7 @@ input{
   color: var(--text-color-black-peach);
 }
 /* Div in which all the inputs are-------------------------------------------------------------- */
-#input-div{
-  background-color: var(--bg-color-white-black) ;
-}
+
 /* image height for the iamges having 20px height ------------------------------------------------ */
 .image-height{
   height: 20px;
@@ -88,10 +98,10 @@ input[type=date]:invalid::-webkit-datetime-edit {
 /* BANNER BACKGROUND-------------------------------------------------------------------------- */
 #banner-bg{
   position: relative;
-   height: 75%;
+   height: 68%;
    background-color: var(--banner-bg);
-   /* border-bottom-right-radius: 100px;
-   border-bottom-left-radius: 100px; */
+   /* border-bottom-right-radius: 250px;
+   border-bottom-left-radius: 250px; */
    display: flex;
    justify-content: center;
 }
@@ -123,7 +133,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
 .modal-body{
   background-color: var(--modal-bg);
   border-radius: 20px;
-  border: 2px solid grey;
+  border: 1px solid #536872;
 }
 /* corner radius to outer modal content-------------------------------------------------------------- */
 .modal-content{
@@ -152,7 +162,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
   align-items: center;
   position: absolute;
   height: 90%;
-  width: 100%;
+  width: 90%;
 }
 #banner-text1{
   font-weight: bold;
@@ -167,11 +177,12 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 .banner-button{
   text-align: center;
-  background-color: var(--text-color-brown-peach);
+  background-color: #7171B8;
   font-weight: bold;
-  color: var(--text-color-white-black);
+  color: white;
   border-radius: 20px;
   border: transparent;
+  /* opacity: 0.2; */
 }
 #banner-text1-lg{
   font-weight: bold;
@@ -183,11 +194,15 @@ input[type=date]:invalid::-webkit-datetime-edit {
   color: black;
   font-weight: bold;
   font-size: 30px;
+  text-align: center;
+  /* margin-left: auto;
+  margin-right: auto; */
+ 
 }
 /* illustration size------------------------------------------------------------------------------------------ */
 #illustration{
-  height:80%;
-  width:40%;
+  height:90%;
+  width:43%;
 }
 .illustration-size{
   position: absolute; 
@@ -210,7 +225,7 @@ p{
 }
 .login-button{
   border-radius: 30px;
-   color: var(--text-color-white-black);
+   color: white;
    background-color: var(--text-color-brown-peach);
 }
 /* CARD--------------------------------------------------------------------------------------------- */
@@ -218,9 +233,9 @@ p{
   /* background-color: green; */
   position: relative;
   width: 90%;
-  border: 1px solid rgb(219, 213, 213);
+  border: 1px solid #536872;
   border-radius: 30px;
-  /* box-shadow: 0px 0px 30px 0px white; */
+  /* box-shadow: 0px 0px 30px 0px rgb(186, 179, 179); */
   background-color: var(--bg-color-white-black);
 }
 
@@ -235,6 +250,22 @@ p{
   outline: none;
 
 }
+
+
+.input-style-box{
+  border: 1px solid rgb(213, 205, 205);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-bottom: 20px; */
+  background-color: var(--bg-color-white-black) ;
+}
+
+
 .navbar-toggler {
     margin-left: 150px;
     &:focus,
@@ -269,12 +300,6 @@ p{
             width: 300px;
             position: absolute;
     }
-    .custom-modal-download {
-            top: 50px;
-            right: 400px;
-            width: 300px;
-            position: absolute;
-    }
     @media only screen and (max-width: 540px) {
             .destiny_card
             {
@@ -283,10 +308,22 @@ p{
             .custom-modal {
               max-width: 90%;
             }
-            #navbar_text
+            .navbar_text
             {
               font-size: small;
             }
+            .custom-modal-download {
+              top: 100px;
+              right: 7%;
+              width: 300px;
+              position: absolute;
+      }
+      .border_left_of_card{
+        border: none;
+      }
+      #search_button_div{
+        width: 100%;
+      }
           }
     @media only screen and (min-width: 540px) {
       .destiny_card
@@ -295,7 +332,19 @@ p{
             }
             .custom-modal {
               max-width: 90%;
-            }          
+            } 
+            .custom-modal-download {
+              top: 50px;
+              right: 200px;
+              width: 300px;
+              position: absolute;
+      }      
+      .border_left_of_card{
+        border: none;
+      }   
+      #search_button_div{
+        width: 100%;
+      }
           }
 
     @media only screen and (min-width: 768px) {
@@ -306,6 +355,18 @@ p{
             .custom-modal {
               max-width: 90%;
             }
+            .custom-modal-download {
+              top: 50px;
+              right: 400px;
+              width: 300px;
+              position: absolute;
+            }
+            .border_left_of_card{
+                border: none;
+            }
+              #search_button_div{
+                width: 100%;
+              }
           }
     @media only screen and (min-width: 1024px) {
             .destiny_card
@@ -315,6 +376,18 @@ p{
             .custom-modal {
               max-width: 90%;
             }
+            .custom-modal-download {
+              top: 50px;
+              right: 400px;
+              width: 300px;
+              position: absolute;
+            }
+            .border_left_of_card{
+              border: none;
+            }
+            #search_button_div{
+              width: 15%;
+            }
           }
     @media only screen and (min-width: 1536px) {
             .destiny_card
@@ -323,6 +396,18 @@ p{
             }
             .custom-modal {
               max-width: 90%;
+            }
+            .custom-modal-download {
+              top: 50px;
+              right: 400px;
+              width: 300px;
+              position: absolute;
+            }
+          .border_left_of_card{
+              border-left: 2px solid #7171B8;
+            }
+            #search_button_div{
+              width: 15%;
             }
           }
    
@@ -355,10 +440,84 @@ div.item{
       border-bottom: 3px solid #000;
     }
     .Social-Icon:hover {
-            transform: scale(1.2);
+            transform: scale(1.3);
             }
     .nav-underline .nav-link {
-              color:#975764 !important;
+              color:#292952 !important;
               display: flex;
               justify-content: center !important;
             }
+#signup_model_body{
+  overflow-y: auto; 
+  scrollbar-width: none;
+   -ms-overflow-style: none;
+}
+
+
+.height_50px{
+  height: 50px;
+}
+
+
+
+#border_bottom_of_card{
+  border-bottom: 2px solid #7171B8;
+  width: 100%;
+}
+
+#forget-pass-next-button{
+  background-color:#7171B8;
+  color: white;
+  border-radius: 20px;
+  width: 20%;
+  border: 0;
+}
+#forgot-pass-input{
+  border: 1px solid rgb(213, 205, 205);
+  height: 40px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-bottom: 2%; */
+}
+#offcanvasRight{
+  background-color: var(--modal-bg);
+}
+#languages-div{
+  background-color: var(--modal-bg);
+}banner-button
+
+
+.error-style-box{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+.error {
+  color: red;
+  font-size: 0.9em;
+  
+}
+
+/* #signup_form_submit_button{
+  opacity: 0.3;
+}
+#login_form_submit_button{
+  opacity: 0.3;
+} */
+
+.black-to-white{
+  color: var(--black-to-white);
+}
+
+.select_place_option{
+  width: 100%;
+  border: 0;
+  outline: none;
+  border-bottom: 2px solid #7171B8;
+  background-color: var(--modal-bg);
+}
+#copyright_footer{
+  color: rgb(177, 168, 168);
+}

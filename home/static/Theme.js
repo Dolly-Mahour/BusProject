@@ -20,29 +20,75 @@ function setTheme()
 function show_modal(){
 
     let exists = document.getElementById("search_button_of_card").value;
-    // console.log("calling pop up",exists);
+
+
     if (exists == "True"){
         console.log("Yay ! logged in");
-        // fetch('/search_trips/')
-        // window.location.href = '/search_trips/';
         document.getElementById("Search_form").submit();
     }
     else{
         console.log("please login");
         var modal = new bootstrap.Modal(document.getElementById('loginModal'));
+        localStorage.setItem("showLoginToast", "true");
         modal.show();
     }
 }
 
 
-// function bottom_border(){
-//     console.log("hello");
-// }
 
+function singup_taost(){
+    let exists = document.getElementById("signup_form_submit_button").value;
+    
+    if (exists == 201){
+        console.log("Yay ! signup");
+        const toastElement = document.getElementById('signupToast');
+        const toast = new bootstrap.Toast(toastElement);
+        toast.show();
+        return exists;
+    }
+}
+function show_login_taost(){
+    let exists = document.getElementById("search_button_of_card").value;
+    if (exists == "True"){
+        console.log("Yay ! logged in");
+        const toastElement = document.getElementById('loginToast');
+        const toast = new bootstrap.Toast(toastElement);
+        toast.show();
+        return true;
+    }
+        return false;
+}
 
-function load(){
-        // console.log('script loaded');
-        if (localStorage.getItem('theme') === 'dark')
+// -------------------------THE MAIN EVENT LITSENER-----------------------------------------------------------------------------------------------------
+
+document.addEventListener('DOMContentLoaded', function() {
+
+console.log("calling the load function ");
+
+let exists = document.getElementById("search_button_of_card").value;
+
+if (exists != null){
+    let profile = document.getElementById('div_of_profile_btn');
+    profile.style.display = "flex";
+
+    let signup = document.getElementById('div_of_singup_btn');
+    let login = document.getElementById('div_of_login_btn');
+
+    signup.style.display = "none";
+    login.style.display = "none";
+}
+else{
+    let profile = document.getElementById('div_of_profile_btn');
+    profile.style.display = "none";
+
+    let signup = document.getElementById('div_of_singup_btn');
+    let login = document.getElementById('div_of_login_btn');
+
+    signup.style.display = "flex";
+    login.style.display = "flex";
+}
+
+    if (localStorage.getItem('theme') === 'dark')
         {
             document.getElementById('themeSwitch').checked = true;
             dark_theme();
@@ -53,62 +99,30 @@ function load(){
             document.getElementById('themeSwitch').checked = false;
             light_theme();
         }
-    }
-load();
+
+        const shouldShowToast = localStorage.getItem("showLoginToast");
+        if (shouldShowToast === "true") {
+          localStorage.removeItem("showLoginToast"); 
 
 
+          let profile = document.getElementById('div_of_profile_btn');
+          profile.style.display = "flex";
 
-function light_theme(){
+          let signup = document.getElementById('div_of_singup_btn');
+          let login = document.getElementById('div_of_login_btn');
 
-    document.documentElement.setAttribute('data-theme', 'light');
+          signup.style.display = "none";
+          login.style.display = "none";
+        //   console.log(signup.style.display,login.style.display)
 
-    document.getElementById('download-img').src = "../home/static/download.png";
-    document.getElementById('globe-image').src = "../home/static/planet-earth.png";
-    document.getElementById('toggle-btn-img').src = "../home/static/hamburger.png";
+        //   console.log("This is the profile display now ",profile.style.display);
+        //   showToast("Login Successful!");
+        show_login_taost();
+        }
 
-    document.getElementById('email-img').src = "../home/static/email.png";
-    document.getElementById('call-img').src = "../home/static/phone.png";
-    document.getElementById('location-img').src = "../home/static/location.png";
-
-    document.getElementById('offcanvas_toggle_button').src = "../home/static/hamburger.png";
-
-    document.getElementById('moonImage').src = "../home/static/moon.png";
-    document.getElementById('docImage1').src = "../home/static/google-docs.png";
-    document.getElementById('docImage2').src = "../home/static/google-docs.png";
-    document.getElementById('docImage3').src = "../home/static/google-docs.png";
-    document.getElementById('docImage4').src = "../home/static/google-docs.png";
-
-}
-function dark_theme(){
-
-    document.documentElement.setAttribute('data-theme', 'dark');
-
-    document.getElementById('download-img').src = "../home/static/download-white.png";
-    document.getElementById('globe-image').src = "../home/static/earth-white.png";
-    document.getElementById('toggle-btn-img').src = "../home/static/toggle-white.png";
-
-
-    document.getElementById('email-img').src = "../home/static/email-dark-theme.png";
-    document.getElementById('call-img').src = "../home/static/call-dark-theme.png";
-    document.getElementById('location-img').src = "../home/static/location-dark-theme.png";
-
-    document.getElementById('offcanvas_toggle_button').src = "../home/static/toggle-white.png";
-
-
-
-    document.getElementById('moonImage').src = "../home/static/moon-white.png";
-    document.getElementById('docImage1').src = "../home/static/google-doc-white.png";
-    document.getElementById('docImage2').src = "../home/static/google-doc-white.png";
-    document.getElementById('docImage3').src = "../home/static/google-doc-white.png";
-    document.getElementById('docImage4').src = "../home/static/google-doc-white.png";
-
-
-}
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
+        let code = 400
+        code = singup_taost();
+        console.log("This is all about the code response of the success code of signup api",code);
     
     const emailInput = document.getElementById('email');
     const numberInput = document.getElementById('number');
@@ -206,3 +220,67 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+function light_theme(){
+
+    document.documentElement.setAttribute('data-theme', 'light');
+
+    document.getElementById('download-img').src = "../home/static/download.png";
+    document.getElementById('globe-image').src = "../home/static/planet-earth.png";
+    document.getElementById('toggle-btn-img').src = "../home/static/hamburger.png";
+
+    document.getElementById('email-img').src = "../home/static/email.png";
+    document.getElementById('call-img').src = "../home/static/phone.png";
+    document.getElementById('location-img').src = "../home/static/location.png";
+
+    document.getElementById('offcanvas_toggle_button').src = "../home/static/hamburger.png";
+
+    document.getElementById('moonImage').src = "../home/static/moon.png";
+    document.getElementById('docImage1').src = "../home/static/google-docs.png";
+    document.getElementById('docImage2').src = "../home/static/google-docs.png";
+    document.getElementById('docImage3').src = "../home/static/google-docs.png";
+    document.getElementById('docImage4').src = "../home/static/google-docs.png";
+
+
+    document.getElementById('card_calendar').src = "../home/static/calendar (2).png";
+
+}
+function dark_theme(){
+
+    document.documentElement.setAttribute('data-theme', 'dark');
+
+    document.getElementById('download-img').src = "../home/static/download-white.png";
+    document.getElementById('globe-image').src = "../home/static/earth-white.png";
+    document.getElementById('toggle-btn-img').src = "../home/static/toggle-white.png";
+
+
+    document.getElementById('email-img').src = "../home/static/email-dark-theme.png";
+    document.getElementById('call-img').src = "../home/static/call-dark-theme.png";
+    document.getElementById('location-img').src = "../home/static/location-dark-theme.png";
+
+    document.getElementById('offcanvas_toggle_button').src = "../home/static/toggle-white.png";
+
+
+
+    document.getElementById('moonImage').src = "../home/static/moon-white.png";
+    document.getElementById('docImage1').src = "../home/static/google-doc-white.png";
+    document.getElementById('docImage2').src = "../home/static/google-doc-white.png";
+    document.getElementById('docImage3').src = "../home/static/google-doc-white.png";
+    document.getElementById('docImage4').src = "../home/static/google-doc-white.png";
+
+    document.getElementById('card_calendar').src = "../home/static/white-calendar.png";
+
+
+}
+

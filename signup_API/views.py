@@ -14,7 +14,7 @@ class Application_Users_View(APIView):
     def post(self,request):
         
         data = request.data
-
+          
         # took the field out from the reuest that sent
         Phone_number = data['Phone_number']
         Email = data['Email']

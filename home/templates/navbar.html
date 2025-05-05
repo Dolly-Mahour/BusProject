@@ -25,18 +25,42 @@
       <div class="col-lg-6 col-md-6 col-sm-12 ms-2 center-div">
         <!--Signup  button -->
         <!--ITEM 1-->
-      <div class="col-lg-3 col-md-4 col-sm-4 d-flex mx-1 justify-content-end">
+
+
+        
+      <div id="div_of_singup_btn" class="col-lg-3 col-md-4 col-sm-4 mx-1 justify-content-end" style="display: flex;">
       <div class="nav-item" >
-            <button id="navbar_text" type="button" class="btn p-0 sign-up" data-bs-toggle="modal" data-bs-target="#signupModal">{% trans 't-signup' %}</button>
+            <button id="navbar_signup_btn" type="button" class="btn p-0 sign-up navbar_text" data-bs-toggle="modal" data-bs-target="#signupModal">{% trans 't-signup' %}</button>
       </div>
       </div>
+
+
+
       <!--login  button -->
       <!--ITEM 2-->
-      <div class="col-lg-3 col-md-4 col-sm-4 d-flex mx-1 justify-content-end">
+
+
+      <div id="div_of_login_btn" class="col-lg-3 col-md-4 col-sm-4 mx-1 justify-content-end" style="display: flex;">
       <div class="nav-item">
-            <button id="navbar_text" type="button" class="btn p-1 px-3 login-button" data-bs-toggle="modal" data-bs-target="#loginModal">{% trans 't-login' %}</button>
+            <button id="navbar_login_btn" type="button" class="btn p-1 px-3 login-button navbar_text" data-bs-toggle="modal" data-bs-target="#loginModal">{% trans 't-login' %}</button>
       </div>
       </div>
+
+
+
+      <!-- PROFILE BUTTON THAT WOULD BE SHOWN AFTER LOGIN  -->
+
+
+      <div id="div_of_profile_btn" class="col-lg-3 col-md-4 col-sm-4 mx-1 justify-content-end" style="display: none;">
+        <div class="nav-item">
+               <div class="center-div" style="border-radius: 50%; height: 50px;width: 50px;background-color: #8b8ea6;">
+                <p class="mb-0 fs-4">{{profile}}</p>
+               </div>
+        </div>
+        </div>
+
+
+
       <!--toggle button of  NAVBAR  NOT  visible on small screen-->
       <!--ITEM 3-->
       <div class="col-lg-3 col-md-4 col-sm-4 center-div" >
