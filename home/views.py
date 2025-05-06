@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from django.template.response import TemplateResponse
 from .api_consumer import post_to_signup_api,post_login_data,get_from_place_api,post_to_search_api
 from django.http import JsonResponse    
 from django.views.decorators.csrf import csrf_exempt
@@ -15,7 +16,7 @@ from django.contrib import messages
 token_exist = False 
 jwt_token = None
 http_code_of_singup_api = 400
-profile = None
+profile = ""
 
 def to_check_jwt():
     if jwt_token is not None :
@@ -25,20 +26,6 @@ def to_check_jwt():
     
     return token_exist
 
-
-
-# --------------------LOCATION---------------------------------------------------------
-
-# async def get_coords():
-#         locator = wdg.Geolocator()
-#         pos = await locator.get_geoposition_async()
-#         return [pos.coordinate.latitude, pos.coordinate.longitude]
-
-# def get_location():
-#         return asyncio.run(get_coords())
-
-
-#---------------------------------------------------------------------------------------
 
 
 
@@ -113,8 +100,8 @@ def login_api_view(request):
                 if result["token"] is not None:
                     global jwt_token
                     jwt_token = result["token"]
+                    print("This is the jwt tokn after the login that is changing to the globar variable",jwt_token)
                 else :
-                    
                     jwt_token = None
 
 
@@ -178,10 +165,55 @@ def search_api_view(request):
                 "to_place_id": request.POST.get('to_place'),
                 "date": request.POST.get('date'),
             }
-            # SIGNUP API RESPONSE and calling the api for the user signup
             result = post_to_search_api(data)
+            context = get_cities(request)
+            global token_exist
+            global jwt_token
+            global http_code_of_singup_api
+            global profile
+            
+            token_exists_or_not = to_check_jwt()
+            # http_code_of_singup_api = 200
+            print("this is the token boolean",token_exists_or_not)
+            print("------------success code ----------------------------------",http_code_of_singup_api)
+            print("This is the jwt tokn after the login that is changing to the globar variable",jwt_token)
+
+            data = {
+                    'cities' : context["cities"],
+                    'states': context["states"],
+                    'token': token_exists_or_not,
+                    'http_code_of_singup_api' : http_code_of_singup_api,
+                    'profile' : profile
+            }
+            http_code_of_singup_api = 400
             # return JsonResponse(result or {"error": "Invalid JSON"}, status=400)
-            return render(request,"search_bus_page.html")
+            return render(request,"search_bus_page.html",data)
         except json.JSONDecodeError:
             return JsonResponse({"error": "Invalid JSON"}, status=400)
     return JsonResponse({"error": "Only POST allowed"}, status=405)
+
+
+
+
+
+
+
+
+
+
+
+
+
+# --------------------LOCATION---------------------------------------------------------
+
+# async def get_coords():
+#         locator = wdg.Geolocator()
+#         pos = await locator.get_geoposition_async()
+#         return [pos.coordinate.latitude, pos.coordinate.longitude]
+
+# def get_location():
+#         return asyncio.run(get_coords())
+
+
+#---------------------------------------------------------------------------------------
+

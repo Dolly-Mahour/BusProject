@@ -19,7 +19,7 @@ function setTheme()
 
 function show_modal(){
 
-    let exists = document.getElementById("search_button_of_card").value;
+    let exists = "{{token}}";
 
 
     if (exists == "True"){
@@ -37,7 +37,7 @@ function show_modal(){
 
 
 function singup_taost(){
-    let exists = document.getElementById("signup_form_submit_button").value;
+    let exists = "{{token}}";
     
     if (exists == 201){
         console.log("Yay ! signup");
@@ -48,7 +48,7 @@ function singup_taost(){
     }
 }
 function show_login_taost(){
-    let exists = document.getElementById("search_button_of_card").value;
+    let exists = "{{token}}";
     if (exists == "True"){
         console.log("Yay ! logged in");
         const toastElement = document.getElementById('loginToast');
@@ -65,25 +65,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 console.log("calling the load function ");
 
-let exists = document.getElementById("search_button_of_card").value;
+let exists = "{{token}}";
 
-if (exists != null){
-    let profile = document.getElementById('div_of_profile_btn');
+let profile = document.getElementById('div_of_profile_btn');
+let signup = document.getElementById('div_of_singup_btn');
+let login = document.getElementById('div_of_login_btn');
+
+
+console.log("This is to check that the token exists or not",exists);
+if (exists == "True"){
+    
     profile.style.display = "flex";
-
-    let signup = document.getElementById('div_of_singup_btn');
-    let login = document.getElementById('div_of_login_btn');
-
     signup.style.display = "none";
     login.style.display = "none";
 }
 else{
-    let profile = document.getElementById('div_of_profile_btn');
     profile.style.display = "none";
-
-    let signup = document.getElementById('div_of_singup_btn');
-    let login = document.getElementById('div_of_login_btn');
-
     signup.style.display = "flex";
     login.style.display = "flex";
 }
@@ -92,12 +89,14 @@ else{
         {
             document.getElementById('themeSwitch').checked = true;
             dark_theme();
+            console.log("Entering the theme at dark-------------------------------------------------------------------------------------")
 
         }
         else{
             
             document.getElementById('themeSwitch').checked = false;
             light_theme();
+            console.log("Entering the theme at light-------------------------------------------------------------------------------------")
         }
 
         const shouldShowToast = localStorage.getItem("showLoginToast");
@@ -105,14 +104,14 @@ else{
           localStorage.removeItem("showLoginToast"); 
 
 
-          let profile = document.getElementById('div_of_profile_btn');
-          profile.style.display = "flex";
+        //   let profile = document.getElementById('div_of_profile_btn');
+        //   profile.style.display = "flex";
 
-          let signup = document.getElementById('div_of_singup_btn');
-          let login = document.getElementById('div_of_login_btn');
+        //   let signup = document.getElementById('div_of_singup_btn');
+        //   let login = document.getElementById('div_of_login_btn');
 
-          signup.style.display = "none";
-          login.style.display = "none";
+        //   signup.style.display = "none";
+        //   login.style.display = "none";
         //   console.log(signup.style.display,login.style.display)
 
         //   console.log("This is the profile display now ",profile.style.display);

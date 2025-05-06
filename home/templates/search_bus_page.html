@@ -10,6 +10,96 @@
                 {% include 'navbar.html' %}
             </div>
 
+<!--ROW 2 -------------------------------------------------------------------------------------------------------->
+<div class="row center-div Search_Bus_Card_div" style="margin-top: -320px;">
+
+  {% include 'card.html' %}
+
+</div>
+<!--ROW 3 -------------------------------------------------------------------------------------------------------->
+<div class="row center-div h-75 mb-5">
+<div class="container-fluid h-100 w-100 d-flex">
+  <div class="row h-100 w-100 m-0">
+    <div class="col-lg-4 col-md-4 col-sm-12 mt-2" style="margin-left: 5%;padding-top: auto;">
+      <div class="mt-3 p-2" style="height: 40%;background-color: #7171B8;width: 85%;border-radius: 10px;">
+        <h5>Sort by -</h5>
+        <div class="row m-0 p-0" style="height: 20%;">
+          <div class="col-6 d-flex justify-content-start align-items-center">
+            <p >Price- Low to high</p>
+          </div>
+          <div class="col-6 d-flex justify-content-end align-items-center">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 p-0" style="height: 20%;">
+          <div class="col-6 d-flex justify-content-start align-items-center">
+            <p >Best rated first</p>
+          </div>
+          <div class="col-6 d-flex justify-content-end align-items-center">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 p-0" style="height: 20%;">
+          <div class="col-6 d-flex justify-content-start align-items-center">
+            <p >Early departure</p>
+          </div>
+          <div class="col-6 d-flex justify-content-end align-items-center">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 p-0" style=" height: 20%;">
+          <div class="col-6 d-flex justify-content-start align-items-center">
+            <p >Late departure</p>
+          </div>
+          <div class="col-6 d-flex justify-content-end align-items-center">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-3" style="height: 10%;background-color: #7171B8;width: 85%;border-radius: 10px;">2</div>
+      <div class="mt-3" style="height: 10%;background-color: #7171B8;width: 85%;border-radius: 10px;">2</div>
+      <div class="mt-3" style="height: 10%;background-color: #7171B8;width: 85%;border-radius: 10px;">2</div>
+      <div class="mt-3" style="height: 10%;background-color: #7171B8;width: 85%;border-radius: 10px;">2</div>
+
+    </div>
+    
+    <div class="col-lg-6 col-md-6 col-sm-12 center-div" >
+      <img src="{% static 'mechanic.png' %}" alt="mechanic" class="img-fluid w-75">
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!--ROW 4 -------------------------------------------------------------------------------------------------------->
+<div class="my-3 bottomdiv" >
+  {% include 'logo.html' %}
+</div>
+<div class="row center-div">
+  <div class="col-lg-2 col-md-12 col-sm-12 center-div">
+    <img id="email-img" class="mx-2 image-height img-fluid" src="{% static 'email.png' %}" alt="lgo_end">
+    <a class="link-underline link-underline-opacity-0 grey-text"  href="mailto:dollymahour282@gmail.com">hello@probusify.com</a>
+  </div>
+  <div class="col-lg-2 col-md-12 col-sm-12 center-div" >
+    <img id="call-img" class="ms-lg-4 ms-md-3 ms-sm-1 mx-2 image-height img-fluid" src="{% static 'phone.png' %}" alt="lgo_end">
+  <a class="link-underline link-underline-opacity-0 grey-text" href="tel:8287213874o">+91 1123298579</a>
+  </div>
+  <div class="col-lg-1 col-md-12 col-sm-12 center-div">
+    <img id="location-img" class="ms-lg-4 mx-2 img-fluid image-height" src="{% static 'location.png' %}" alt="lgo_end" >
+    <a class="link-underline link-underline-opacity-0 grey-text" href="https://www.google.com/maps/place/India">{% trans 'footer-country' %}</a>
+  </div>
+</div>
+{% include 'footer.html' %}
+</div>
+
             <!--MODAL OF TOGGLE BUTTON visible on large screens theme,languages,privacy,etc-->
         {% include 'toggle.html' %}
         <!--MODAL of signup form-->

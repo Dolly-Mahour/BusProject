@@ -251,7 +251,9 @@ p{
 
 }
 
-
+p{
+  margin-bottom: 0;
+}
 .input-style-box{
   border: 1px solid rgb(213, 205, 205);
   height: 40px;

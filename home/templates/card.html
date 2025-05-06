@@ -1,7 +1,7 @@
 {% load static %}
 {% load django_bootstrap5 %}
 {% load i18n %}
-<link rel="stylesheet" href="{% static 'Design.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'Design.css' %}"> -->
 <div class="destiny_card" id="destiny-card">
   <form action="search_trips/" method="post" id="Search_form">
     <div class="row px-3 py-3">
@@ -59,7 +59,7 @@
    <div class="col-lg-2 col-md-12 col-sm-12 h-100 border_left_of_card">
     <div class="d-flex pt-3 px-4">
       <img  id="card_calendar" class="img-fluid mt-1 me-3 image-height" src="{% static 'calendar (2).png' %}" alt="to-image">
-      <p class="fs-5 fw-bold">{% trans 't-card-to-city' %}</p>
+      <p class="fs-5 fw-bold">{% trans 't-card-date' %}</p>
     </div>
     <div>
         <div class="px-4" id="border_bottom_of_card">
