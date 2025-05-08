@@ -166,6 +166,7 @@ def search_api_view(request):
                 "date": request.POST.get('date'),
             }
             result = post_to_search_api(data)
+            print("Result gettting from searching buses----------------",result)
             context = get_cities(request)
             global token_exist
             global jwt_token
@@ -174,16 +175,20 @@ def search_api_view(request):
             
             token_exists_or_not = to_check_jwt()
             # http_code_of_singup_api = 200
-            print("this is the token boolean",token_exists_or_not)
-            print("------------success code ----------------------------------",http_code_of_singup_api)
-            print("This is the jwt tokn after the login that is changing to the globar variable",jwt_token)
+            # print("this is the token boolean",token_exists_or_not)
+            # print("------------success code ----------------------------------",http_code_of_singup_api)
+            # print("This is the jwt tokn after the login that is changing to the globar variable",jwt_token)
+            if "data" not in result :
+                result["data"] = None
 
             data = {
                     'cities' : context["cities"],
                     'states': context["states"],
                     'token': token_exists_or_not,
                     'http_code_of_singup_api' : http_code_of_singup_api,
-                    'profile' : profile
+                    'profile' : profile,
+                    'search_results':result["data"],
+
             }
             http_code_of_singup_api = 400
             # return JsonResponse(result or {"error": "Invalid JSON"}, status=400)

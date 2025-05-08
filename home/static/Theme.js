@@ -103,19 +103,6 @@ else{
         if (shouldShowToast === "true") {
           localStorage.removeItem("showLoginToast"); 
 
-
-        //   let profile = document.getElementById('div_of_profile_btn');
-        //   profile.style.display = "flex";
-
-        //   let signup = document.getElementById('div_of_singup_btn');
-        //   let login = document.getElementById('div_of_login_btn');
-
-        //   signup.style.display = "none";
-        //   login.style.display = "none";
-        //   console.log(signup.style.display,login.style.display)
-
-        //   console.log("This is the profile display now ",profile.style.display);
-        //   showToast("Login Successful!");
         show_login_taost();
         }
 
@@ -282,4 +269,3 @@ function dark_theme(){
 
 
 }
-

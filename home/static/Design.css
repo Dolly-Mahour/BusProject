@@ -231,6 +231,7 @@ p{
 /* CARD--------------------------------------------------------------------------------------------- */
 .destiny_card{
   /* background-color: green; */
+  /* height: 20%; */
   position: relative;
   width: 90%;
   border: 1px solid #536872;
@@ -523,3 +524,16 @@ div.item{
 #copyright_footer{
   color: rgb(177, 168, 168);
 }
+
+/* #arrival_time_plus:focus{
+  height: 500px;
+} */
+ #arrival_time_div{
+  transition: 2s;
+ }
+ /* input[type="date"]::-webkit-calendar-picker-indicator{
+  color-scheme: dark;
+} */
+/* input[type="date"] {
+  accent-color: red;
+} */
