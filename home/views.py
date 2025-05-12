@@ -172,14 +172,11 @@ def search_api_view(request):
             global jwt_token
             global http_code_of_singup_api
             global profile
-            
+            print(context["cities"])
             token_exists_or_not = to_check_jwt()
-            # http_code_of_singup_api = 200
-            # print("this is the token boolean",token_exists_or_not)
-            # print("------------success code ----------------------------------",http_code_of_singup_api)
-            # print("This is the jwt tokn after the login that is changing to the globar variable",jwt_token)
+           
             if "data" not in result :
-                result["data"] = None
+                result["data"] = None   
 
             data = {
                     'cities' : context["cities"],

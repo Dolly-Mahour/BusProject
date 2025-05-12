@@ -49,10 +49,10 @@ body{
   color: var( --main-to-dark);
 }
 /* MAin container  with relative position --------------------------------------------------------*/
-.main-container{
-  height: 100vh;
-  position: relative;
-}
+/* .main-container{ */
+  /* height: auto; */
+  /* position: relative; */
+/* } */
 /* first row of the container-------------------------------------------------------------------- */
 .row1-of-banner{
   height: 88%;
@@ -217,6 +217,8 @@ input[type=date]:invalid::-webkit-datetime-edit {
 /* P tag color ------------------------------------------------------------------------------------- */
 p{
   color: var(--text-color-black-peach);
+  padding: 0;
+  margin: 0;
 }
 .sign-up{
   color: var(--text-color-brown-peach);
@@ -308,6 +310,9 @@ p{
             {
               margin-top: 90%;
             }
+            .Search_Bus_Card_div{
+              margin-top: -250px;
+            }
             .custom-modal {
               max-width: 90%;
             }
@@ -336,6 +341,9 @@ p{
             .custom-modal {
               max-width: 90%;
             } 
+            .Search_Bus_Card_div{
+              margin-top: -270px;
+            }
             .custom-modal-download {
               top: 50px;
               right: 200px;
@@ -358,6 +366,9 @@ p{
             .custom-modal {
               max-width: 90%;
             }
+            .Search_Bus_Card_div{
+              margin-top: -300px;
+            }
             .custom-modal-download {
               top: 50px;
               right: 400px;
@@ -375,6 +386,9 @@ p{
             .destiny_card
             {
               margin-top: 45%;
+            }
+            .Search_Bus_Card_div{
+              margin-top: -320px;
             }
             .custom-modal {
               max-width: 90%;
@@ -396,6 +410,9 @@ p{
             .destiny_card
             {
               margin-top: 28.5%;
+            }
+            .Search_Bus_Card_div{
+              margin-top: -320px;
             }
             .custom-modal {
               max-width: 90%;
@@ -537,3 +554,16 @@ div.item{
 /* input[type="date"] {
   accent-color: red;
 } */
+ .search_box_sorting{
+  height: 9%;
+  background-color: #7171B8;
+  border-radius: 10px;
+ }
+ .card_of_bus_details{
+  background-color: #7171B8;border-radius: 20px;height: 40%;
+ }
+ .profile_div{
+  border-radius: 50%;
+  background-color: white;
+
+ }
