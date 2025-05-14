@@ -132,6 +132,8 @@ LANGUAGES = [
     ("es", _("Spanish")),
 ]
 
+ROSETTA_LANGUAGES = LANGUAGES
+
 PARLER_LANGUAGES ={
     None :(
         {'code' : 'en',},

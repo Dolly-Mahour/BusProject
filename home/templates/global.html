@@ -14,14 +14,18 @@
     </a>
     <ul class="dropdown-menu p-2"  id="languages-div">
       {% for language in languages_in_app %}
+        {% for lang in flag_and_language %}
+        {% if forloop.counter == forloop.parentloop.counter %}
         <li class="d-flex mb-2">
-          <!-- <img src="{% static '{{ language.flag }}' %}" class="col-2 p-0 py-1" style="height: auto;"></img> -->
+          <img src="{% static lang.src %}" class="col-2 p-0 py-1" style="height: auto;"></img>
            {% if language.name_local == "English" %}
-          <a class="dropdown-item black-to-white" href="/">{{ language.name_local }}</a>
+          <a class="dropdown-item black-to-white" href="/">{{ lang.name }}</a>
           {% else %}
-          <a class="dropdown-item black-to-white" href="/{{ language.code }}/">{{ language.name_local }}</a>
+          <a class="dropdown-item black-to-white" href="/{{ language.code }}/">{{ lang.name }}</a>
           {% endif %}
         </li>
+        {% endif %}
         {% endfor %}
+      {% endfor %}
     </ul>
 </div>

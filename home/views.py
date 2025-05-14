@@ -36,6 +36,19 @@ def homepage(request):
     global jwt_token
     global http_code_of_singup_api
     global profile
+    flag_and_language=[
+
+        {'name':"Hindi",
+         'src':"flag.png"},
+         {'name':"English",
+         'src':"united-kingdom.png"},
+         {'name':"Japnese",
+         'src':"japan.png"},
+         {'name':"French",
+         'src':"france.png"},
+         {'name':"Spanish",
+         'src':"spain.png"},
+    ]
 
     # latitude, longitude = get_location()
     # print(f"here is the -----------Latitude: {latitude}, Longitude: {longitude}")
@@ -51,7 +64,8 @@ def homepage(request):
         'states': context["states"],
         'token': token_exists_or_not,
         'http_code_of_singup_api' : http_code_of_singup_api,
-        'profile' : profile
+        'profile' : profile,
+        'flag_and_language':flag_and_language
     }
     http_code_of_singup_api = 400
     return render(request,"busify.html",data)
@@ -101,6 +115,7 @@ def login_api_view(request):
                     global jwt_token
                     jwt_token = result["token"]
                     print("This is the jwt tokn after the login that is changing to the globar variable",jwt_token)
+                    to_check_jwt()
                 else :
                     jwt_token = None
 
@@ -166,17 +181,46 @@ def search_api_view(request):
                 "date": request.POST.get('date'),
             }
             result = post_to_search_api(data)
-            print("Result gettting from searching buses----------------",result)
+
+            # print("Result gettting from searching buses----------------",result)
+
             context = get_cities(request)
             global token_exist
             global jwt_token
             global http_code_of_singup_api
             global profile
-            print(context["cities"])
+
+            # print(context["cities"])
+
+            city_obj = None
+            state_obj = None
             token_exists_or_not = to_check_jwt()
            
             if "data" not in result :
-                result["data"] = None   
+                result["data"] = None 
+            else:
+                search_result_objects = result["data"]
+
+                from_id = request.POST.get('from_place')
+                from_id = int(from_id)
+                to_id = request.POST.get('to_place')
+                to_id = int(to_id)
+
+                cities = context["cities"]
+                states = context["states"]
+            
+                city_obj = {
+                    "from":cities[from_id],
+                    "to":cities[to_id],
+                }
+                state_obj = {
+                    "from":states[from_id],
+                    "to":states[to_id],
+                }
+                token_exists_or_not = to_check_jwt()
+
+
+
 
             data = {
                     'cities' : context["cities"],
@@ -185,6 +229,8 @@ def search_api_view(request):
                     'http_code_of_singup_api' : http_code_of_singup_api,
                     'profile' : profile,
                     'search_results':result["data"],
+                    'city_obj':city_obj,
+                    'state_obj':state_obj,
 
             }
             http_code_of_singup_api = 400
@@ -197,6 +243,27 @@ def search_api_view(request):
 
 
 
+def myprofile(request):
+    # context = get_cities(request)
+    global token_exist
+    global jwt_token
+    global http_code_of_singup_api
+    global profile
+    token_exists_or_not = to_check_jwt()
+    
+    # print("this is the token boolean",token_exists_or_not)
+    # print("------------success code ----------------------------------",http_code_of_singup_api)
+
+    data = {
+        # 'cities' : context["cities"],
+        # 'states': context["states"],
+        'token': token_exists_or_not,
+        'http_code_of_singup_api' : http_code_of_singup_api,
+        'profile' : profile
+    }
+    http_code_of_singup_api = 400
+
+    return render(request,"myprofile.html",data)
 
 
 

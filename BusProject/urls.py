@@ -49,6 +49,9 @@ urlpatterns += i18n_patterns(
     #searching trips views
     path ('search_trips/',search_api_view,name='searching_trips'),
 
+    #My profile views
+    path ('myprofile/',myprofile,name='searching_trips'),
+
     # including the api urls 
     path('api/v1/', include('API.urls')),
     

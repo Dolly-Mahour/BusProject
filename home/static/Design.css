@@ -49,10 +49,10 @@ body{
   color: var( --main-to-dark);
 }
 /* MAin container  with relative position --------------------------------------------------------*/
-/* .main-container{ */
-  /* height: auto; */
-  /* position: relative; */
-/* } */
+.main-container{
+  height: 100vh;
+  position: relative;
+}
 /* first row of the container-------------------------------------------------------------------- */
 .row1-of-banner{
   height: 88%;
@@ -65,6 +65,7 @@ input{
   background-color: transparent;
   border: 0;
   outline: none;
+  color: var(--black-to-white);
 }
 /* changing the color of the placeholder with css variable--------------------------------------- */
 ::placeholder{
@@ -98,7 +99,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
 /* BANNER BACKGROUND-------------------------------------------------------------------------- */
 #banner-bg{
   position: relative;
-   height: 68%;
+   height: 72%;
    background-color: var(--banner-bg);
    /* border-bottom-right-radius: 250px;
    border-bottom-left-radius: 250px; */
@@ -271,6 +272,7 @@ p{
 }
 
 
+
 .navbar-toggler {
     margin-left: 150px;
     &:focus,
@@ -409,7 +411,7 @@ p{
     @media only screen and (min-width: 1536px) {
             .destiny_card
             {
-              margin-top: 28.5%;
+              margin-top: 30%;
             }
             .Search_Bus_Card_div{
               margin-top: -320px;
@@ -505,7 +507,7 @@ div.item{
 }
 #languages-div{
   background-color: var(--modal-bg);
-}banner-button
+}
 
 
 .error-style-box{
@@ -558,12 +560,40 @@ div.item{
   height: 9%;
   background-color: #7171B8;
   border-radius: 10px;
+   /* transition:height 2s; */
  }
  .card_of_bus_details{
-  background-color: #7171B8;border-radius: 20px;height: 40%;
+  background-color: #7171B8;
+  border-radius: 20px;
+  height: 230px;
  }
  .profile_div{
   border-radius: 50%;
   background-color: white;
 
  }
+ /* div.search_box_sorting:hover{
+  height: 200px;
+
+ } */
+  .myprofile_input_box{
+  height: 50px;
+  border: 2px solid rgb(118, 117, 117);
+   border-radius: 10px;
+
+}
+#myprofile_page_confirm_button{
+background-color: #7171B8;
+color: white;
+border-radius: 10px;
+width: 200px;
+outline: none;
+border: none;
+height: 40px;
+}
+#profile_heading{
+  color: var(--text-color-black-peach);
+}
+/* input{
+  color: var(--black-to-white);
+} */

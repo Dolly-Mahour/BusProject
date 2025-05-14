@@ -37,7 +37,7 @@ function show_modal(){
 
 
 function singup_taost(){
-    let exists = "{{token}}";
+    let exists = "{{http_code_of_singup_api}}";
     
     if (exists == 201){
         console.log("Yay ! signup");
