@@ -1,81 +1,86 @@
-{% load static %}
-{% load django_bootstrap5 %}
-{% load i18n %}
-<nav id="this-is-navbar" class="navbar navbar-expand-lg fixed-top pt-3">
+{% load static %} {% load django_bootstrap5 %} {% load i18n %}
+<nav id="this-is-navbar" class="navbar navbar-expand-lg fixed-top pt-2">
   <!--CONTAINER of navbar-->
-  <div class="container-fluid" >
-      <!-------------------FIRST HALF OF NAVBAR-------------------->
-    <div class="col-lg-6 col-md-6 col-sm-4 d-flex" >
+  <div class="container-fluid">
+    <!-------------------FIRST HALF OF NAVBAR-------------------->
+    <div class="col-lg-6 col-md-6 col-sm-4 d-flex">
       <div class="navbar-brand m-0 p-0 ms-lg-5 d-flex">
-      {% include 'logo.html' %}
+        {% include 'logo.html' %}
       </div>
     </div>
-      <!-------------------SECOND HALF OF NAVBAR-------------------->
+
+    <!-------------------SECOND HALF OF NAVBAR-------------------->
     <div class="col-lg-6 col-md-6 col-sm-8 d-flex align-items-center">
       <!--DIV of download and language not visible on small screen-->
       <div class="col-6 d-lg-flex d-md-flex d-none justify-content-end">
         <!--DOWNLOAD SCANNER-->
-            <div class="nav-item d-flex mx-lg-2 mx-md-2">
-              <img id="download-img" src="{% static 'download.png' %}" alt="download_img" class="mt-1 mx-1 image-height">
-                {% include 'download_button.html' %}
-            </div>
+        <div class="nav-item d-flex">
+          <img id="download-img" src="{% static 'download.png' %}" alt="download_img" class="mt-1 mx-1 image-height" />
+          {% include 'download_button.html' %}
+        </div>
         <!--LANGUAGES -->
-           {% include 'global.html' %}
+        {% include 'global.html' %}
       </div>
       <div class="col-lg-6 col-md-6 col-sm-12 ms-2 center-div">
         <!--Signup  button -->
         <!--ITEM 1-->
 
-
-        
-      <div id="div_of_singup_btn" class="col-lg-3 col-md-4 col-sm-4 mx-1 justify-content-end" style="display: flex;">
-      <div class="nav-item" >
-            <button id="navbar_signup_btn" type="button" class="btn p-0 sign-up navbar_text" data-bs-toggle="modal" data-bs-target="#signupModal">{% trans 't-signup' %}</button>
-      </div>
-      </div>
-
-
-
-      <!--login  button -->
-      <!--ITEM 2-->
-
-
-      <div id="div_of_login_btn" class="col-lg-3 col-md-4 col-sm-4 mx-1 justify-content-end" style="display: flex;">
-      <div class="nav-item">
-            <button id="navbar_login_btn" type="button" class="btn p-1 px-3 login-button navbar_text" data-bs-toggle="modal" data-bs-target="#loginModal">{% trans 't-login' %}</button>
-      </div>
-      </div>
-
-
-
-      <!-- PROFILE BUTTON THAT WOULD BE SHOWN AFTER LOGIN  -->
-
-
-      <div id="div_of_profile_btn" class="col-lg-3 col-md-4 col-sm-4 mx-1 justify-content-end" style="display: none;">
-        <div class="nav-item">
-               <a href="/myprofile/" style="text-decoration: none;">
-                  <div class="center-div" style="border-radius: 50%; height: 50px;width: 50px;background-color: #8b8ea6;">
-                    <p class="mb-0 fs-4">{{profile}}</p>
-                  </div>
-               </a>
-        </div>
+        <div id="div_of_singup_btn" class="col-lg-3 col-md-4 col-sm-4 mx-1 justify-content-end" style="display: flex">
+          <div class="nav-item">
+            <button id="navbar_signup_btn" type="button" class="btn p-0 sign-up navbar_text" data-bs-toggle="modal"
+              data-bs-target="#signupModal">
+              {% trans 't-signup' %}
+            </button>
+          </div>
         </div>
 
+        <!--login  button -->
+        <!--ITEM 2-->
 
+        <div id="div_of_login_btn" class="col-lg-3 col-md-4 col-sm-4 mx-1 justify-content-end" style="display: flex">
+          <div class="nav-item">
+            <button id="navbar_login_btn" type="button" class="btn p-1 px-3 login-button navbar_text"
+              data-bs-toggle="modal" data-bs-target="#loginModal">
+              {% trans 't-login' %}
+            </button>
+          </div>
+        </div>
 
-      <!--toggle button of  NAVBAR  NOT  visible on small screen-->
-      <!--ITEM 3-->
-      <div class="col-lg-3 col-md-4 col-sm-4 center-div" >
-      <button  type="button" class="btn d-none d-lg-flex d-md-flex" data-bs-toggle="modal" data-bs-target="#exampleModal"><img id="toggle-btn-img" src="{% static 'hamburger.png' %}" alt="toggle_button" style="height: 60px;"></button>
-      <!--toggle button of OFFCANVAS visible only on small screen-->
-      <button class="btn d-lg-none d-sm-flex d-md-none "  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-        <img id="offcanvas_toggle_button" src="{% static 'hamburger.png' %}" alt="toggle_button" style="height: 60px;">
-      </button>
-      </div>
-       <!--OFF CANVAS-->
+        <!-- PROFILE BUTTON THAT WOULD BE SHOWN AFTER LOGIN  -->
+
+        <div id="div_of_profile_btn" class="col-lg-3 col-md-4 col-sm-4 mx-1 justify-content-end" style="display: none">
+          <div class="nav-item">
+            <a href="/myprofile/" style="text-decoration: none">
+              <div class="center-div" style="
+                  border-radius: 50%;
+                  height: 50px;
+                  width: 50px;
+                  background-color: #8b8ea6;
+                ">
+                <p class="mb-0 fs-4">{{profile}}</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!--toggle button of  NAVBAR  NOT  visible on small screen-->
+        <!--ITEM 3-->
+        <div class="col-lg-3 col-md-4 col-sm-4 center-div">
+          <button type="button" class="btn d-none d-lg-flex d-md-flex" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">
+            <img id="toggle-btn-img" src="{% static 'hamburger.png' %}" alt="toggle_button" style="height: 60px" />
+          </button>
+          <!--toggle button of OFFCANVAS visible only on small screen-->
+          <button class="btn d-lg-none d-sm-flex d-md-none" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <img id="offcanvas_toggle_button" src="{% static 'hamburger.png' %}" alt="toggle_button"
+              style="height: 60px" />
+          </button>
+        </div>
+        <!--OFF CANVAS-->
         {% include 'offcanvas.html' %}
       </div>
     </div>
-  <!-- </div> -->
+    <!-- </div> -->
   </div>
-</nav> 
+</nav>

@@ -6,7 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from django.contrib import messages
 
-# import winrt.windows.devices.geolocation as wdg
+# import winrt.windows.devices.geolocation as wdg    #this is for geolocation and for the current location  
 # import asyncio
 
 # from django.http import HttpResponse
@@ -17,6 +17,7 @@ token_exist = False
 jwt_token = None
 http_code_of_singup_api = 400
 profile = ""
+User ={}
 
 def to_check_jwt():
     if jwt_token is not None :
@@ -58,14 +59,16 @@ def homepage(request):
     
     print("this is the token boolean",token_exists_or_not)
     print("------------success code ----------------------------------",http_code_of_singup_api)
-
+    global User
+    print("THIS IS THE GLOBAL USER",User)
     data = {
         'cities' : context["cities"],
         'states': context["states"],
         'token': token_exists_or_not,
         'http_code_of_singup_api' : http_code_of_singup_api,
         'profile' : profile,
-        'flag_and_language':flag_and_language
+        'flag_and_language':flag_and_language,
+        'User':User
     }
     http_code_of_singup_api = 400
     return render(request,"busify.html",data)
@@ -90,6 +93,7 @@ def signup_api_view(request):
             result = post_to_signup_api(data)
             global http_code_of_singup_api
             http_code_of_singup_api = result['status']
+            print("after the signup this is the success code",http_code_of_singup_api)
             return redirect('/')
         except json.JSONDecodeError:
             return JsonResponse({"error": "Invalid JSON"}, status=400)
@@ -109,8 +113,11 @@ def login_api_view(request):
             }
             #calling the api consuming fuction for user login
             result = post_login_data(data)
-            print(result)
-            if result["status"] == 200 :
+            global User
+            print("the result we are getting from the login api--------",result)
+            User =  result['User'][0]
+            print("yuppy===========user",User)
+            if result["status"] == 200 : 
                 if result["token"] is not None:
                     global jwt_token
                     jwt_token = result["token"]
@@ -259,7 +266,8 @@ def myprofile(request):
         # 'states': context["states"],
         'token': token_exists_or_not,
         'http_code_of_singup_api' : http_code_of_singup_api,
-        'profile' : profile
+        'profile' : profile,
+        'User':User
     }
     http_code_of_singup_api = 400
 

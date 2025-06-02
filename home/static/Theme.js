@@ -38,8 +38,8 @@ function show_modal(){
 
 function singup_taost(){
     let exists = "{{http_code_of_singup_api}}";
-    
-    if (exists == 201){
+    console.log(typeof exists,"This is the type of the success code we are getting from the signup api")
+    if (exists == "201"){
         console.log("Yay ! signup");
         const toastElement = document.getElementById('signupToast');
         const toast = new bootstrap.Toast(toastElement);
@@ -62,8 +62,8 @@ function show_login_taost(){
 // -------------------------THE MAIN EVENT LITSENER-----------------------------------------------------------------------------------------------------
 
 document.addEventListener('DOMContentLoaded', function() {
-
-console.log("calling the load function ");
+let code_ = "{{http_code_of_singup_api}}"
+console.log("calling the load function ",typeof(code_));
 
 let exists = "{{token}}";
 
@@ -223,6 +223,7 @@ function light_theme(){
     document.documentElement.setAttribute('data-theme', 'light');
 
     document.getElementById('download-img').src = "../home/static/download.png";
+    document.getElementById('download-img-sm').src = "../home/static/download.png";
     document.getElementById('globe-image').src = "../home/static/planet-earth.png";
     document.getElementById('toggle-btn-img').src = "../home/static/hamburger.png";
 
@@ -247,6 +248,7 @@ function dark_theme(){
     document.documentElement.setAttribute('data-theme', 'dark');
 
     document.getElementById('download-img').src = "../home/static/download-white.png";
+    document.getElementById('download-img-sm').src = "../home/static/download-white.png";
     document.getElementById('globe-image').src = "../home/static/earth-white.png";
     document.getElementById('toggle-btn-img').src = "../home/static/toggle-white.png";
 

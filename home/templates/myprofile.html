@@ -11,23 +11,23 @@
   </div>
 
 <!--ROW 2 -------------------------------------------------------------------------------------------------------->
-    <div class="row d-flex justify-content-center" style="margin-top: 7%;height: 68%;">
-        <div class="w-75" >
+    <div class="row d-flex justify-content-center myprofile_div" style="height: 68%;">
+        <div class="w-75 mt-5" >
             <h1 id="profile_heading">My Profile</h1>
             <div class=" d-flex" >
-                <div class="col-lg-6 my col-md-6 col-sm-12 px-3 my-3 myprofile_input_box">
-                    <input  type="text" placeholder="hello" class="w-100 h-100">
+                <div class="col-lg-6 my col-md-6 col-sm-12 px-3 m-1 my-3 myprofile_input_box">
+                    <input  type="text" value="{{User.Username}}" class="w-100 h-100">
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 px-3 my-3 myprofile_input_box">
-                    <input  type="text"  placeholder="hello" class="w-100 h-100">
+                <div class="col-lg-6 col-md-6 col-sm-12 px-3 m-1 my-3 myprofile_input_box">
+                    <input  type="password"  value="{{User.Password}}" class="w-100 h-100">
                 </div>
             </div>
-            <div class=" d-flex">
-                <div class="col-lg-6 col-md-6 col-sm-12 px-3  myprofile_input_box">
-                    <input  type="text" placeholder="hello" class="w-100 h-100">
+            <div class="d-flex">
+                <div class="col-lg-6 col-md-6 col-sm-12 px-3 m-1 myprofile_input_box">
+                    <input  type="text" value="{{User.Email}}" class="w-100 h-100">
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 px-3  myprofile_input_box">
-                    <input  type="text" placeholder="hello" class="w-100 h-100">
+                <div class="col-lg-6 col-md-6 col-sm-12 px-3 m-1 myprofile_input_box">
+                    <input  type="text" value="+91 {{User.Phone_number}}" class="w-100 h-100">
                 </div>
             </div>
             <div class="center-div my-3 w">
