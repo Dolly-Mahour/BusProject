@@ -120,7 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-ALLOWED_HOSTS = ['192.168.1.7','192.168.5.8', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['192.168.1.7','192.168.5.8', 'localhost', '127.0.0.1','192.168.1.12']
 
 
 # Internationalization

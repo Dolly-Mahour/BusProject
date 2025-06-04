@@ -230,8 +230,7 @@ function light_theme(){
     document.getElementById('email-img').src = "../home/static/email.png";
     document.getElementById('call-img').src = "../home/static/phone.png";
     document.getElementById('location-img').src = "../home/static/location.png";
-
-    document.getElementById('offcanvas_toggle_button').src = "../home/static/hamburger.png";
+    document.getElementById('earth-img-sm').src = "../home/static/planet-earth.png";
 
     document.getElementById('moonImage').src = "../home/static/moon.png";
     document.getElementById('docImage1').src = "../home/static/google-docs.png";
@@ -251,13 +250,12 @@ function dark_theme(){
     document.getElementById('download-img-sm').src = "../home/static/download-white.png";
     document.getElementById('globe-image').src = "../home/static/earth-white.png";
     document.getElementById('toggle-btn-img').src = "../home/static/toggle-white.png";
+    document.getElementById('earth-img-sm').src = "../home/static/earth-white.png";
 
 
     document.getElementById('email-img').src = "../home/static/email-dark-theme.png";
     document.getElementById('call-img').src = "../home/static/call-dark-theme.png";
     document.getElementById('location-img').src = "../home/static/location-dark-theme.png";
-
-    document.getElementById('offcanvas_toggle_button').src = "../home/static/toggle-white.png";
 
 
 

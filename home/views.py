@@ -18,6 +18,19 @@ jwt_token = None
 http_code_of_singup_api = 400
 profile = ""
 User ={}
+flag_and_language=[
+
+        {'name':"Hindi",
+         'src':"flag.png"},
+         {'name':"English",
+         'src':"united-kingdom.png"},
+         {'name':"Japnese",
+         'src':"japan.png"},
+         {'name':"French",
+         'src':"france.png"},
+         {'name':"Spanish",
+         'src':"spain.png"},
+    ]
 
 def to_check_jwt():
     if jwt_token is not None :
@@ -37,19 +50,7 @@ def homepage(request):
     global jwt_token
     global http_code_of_singup_api
     global profile
-    flag_and_language=[
-
-        {'name':"Hindi",
-         'src':"flag.png"},
-         {'name':"English",
-         'src':"united-kingdom.png"},
-         {'name':"Japnese",
-         'src':"japan.png"},
-         {'name':"French",
-         'src':"france.png"},
-         {'name':"Spanish",
-         'src':"spain.png"},
-    ]
+    
 
     # latitude, longitude = get_location()
     # print(f"here is the -----------Latitude: {latitude}, Longitude: {longitude}")
@@ -60,6 +61,7 @@ def homepage(request):
     print("this is the token boolean",token_exists_or_not)
     print("------------success code ----------------------------------",http_code_of_singup_api)
     global User
+    global flag_and_language
     print("THIS IS THE GLOBAL USER",User)
     data = {
         'cities' : context["cities"],
@@ -225,7 +227,7 @@ def search_api_view(request):
                     "to":states[to_id],
                 }
                 token_exists_or_not = to_check_jwt()
-
+            global flag_and_language
 
 
 
@@ -238,6 +240,7 @@ def search_api_view(request):
                     'search_results':result["data"],
                     'city_obj':city_obj,
                     'state_obj':state_obj,
+                    'flag_and_language':flag_and_language,
 
             }
             http_code_of_singup_api = 400
@@ -256,6 +259,7 @@ def myprofile(request):
     global jwt_token
     global http_code_of_singup_api
     global profile
+    global flag_and_language
     token_exists_or_not = to_check_jwt()
     
     # print("this is the token boolean",token_exists_or_not)
@@ -267,7 +271,8 @@ def myprofile(request):
         'token': token_exists_or_not,
         'http_code_of_singup_api' : http_code_of_singup_api,
         'profile' : profile,
-        'User':User
+        'User':User,
+        'flag_and_language':flag_and_language,
     }
     http_code_of_singup_api = 400
 

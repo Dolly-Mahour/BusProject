@@ -1,13 +1,66 @@
 {% load static %}
 {% load django_bootstrap5 %}
 {% load i18n %}
-<div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-    
-    <div class="modal-dialog custom-modal d-none d-lg-flex d-md-flex" id="modal-scrollbar">
-                            <div class="modal-content" style="border-radius: 20px;" >
-                              <div class="modal-body">
-                                  {% include 'common-toggle.html' %}
-                              </div>
-                            </div>
-    </div> 
+<div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+  <div class="modal-dialog toggle-modal" id="modal-scrollbar">
+    <div class="modal-content" style="border-radius: 20px;">
+      <div class="modal-body">
+        <div class="row m-2">
+          <img id="moonImage" src="{% static 'moon.png' %}" class="col-1 p-0" style="height: auto;"></img>
+          <div class="col-8 black-to-white">{% trans 'dd-tb-t-1' %}</div>
+          <div class="col-2">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" name="theme_change" id="themeSwitch" onclick="setTheme()">
+            </div>
+          </div>
+        </div>
+        <div class="row m-2">
+          <img id="docImage1" src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
+          <div class="col black-to-white">{% trans 'dd-tb-t-2' %}</div>
+        </div>
+        <div class="row m-2">
+          <img id="docImage2" src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
+          <div class="col black-to-white">{% trans 'dd-tb-t-3' %}</div>
+        </div>
+        <div class="row m-2">
+          <img id="docImage3" src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
+          <div class="col black-to-white">{% trans 'dd-tb-t-4' %}</div>
+        </div>
+        <div class="row m-2">
+          <img id="docImage4" src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
+          <div class="col black-to-white">{% trans 'dd-tb-t-5' %}</div>
+        </div>
+         <div class="row m-2 ">
+          <img id="download-img-sm" src="{% static 'download.png' %}" class="col-1 p-0" style="height: auto;"></img>
+          <div class="col-8">
+         {% include 'download_button.html' %}
+      </div>
+    </div>
+    <div class="row m-2">
+      <img id="earth-img-sm" src="{% static 'planet-earth.png' %}" class="col-1 p-0 m-0" style="height: auto;"></img>
+      <div class="col-8">
+        {% include 'global.html' %}
+      </div>
+    </div>
+    <div class="row m-2">
+          <img id="docImage3" src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
+          <div class="col black-to-white">My Ticket</div>
+        </div>
+        <div class="row m-2">
+          <img id="docImage3" src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
+          <div class="col black-to-white">My Wallet</div>
+        </div>
+        <div class="row m-2">
+          <img id="docImage3" src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
+          <div class="col black-to-white">Reffer & Earn</div>
+        </div>
+        <hr class=" black-to-white">
+        <div class="row m-2">
+          <img id="docImage3" src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
+          <div class="col black-to-white">Logout</div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>

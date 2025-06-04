@@ -15,11 +15,15 @@
       <div class="col-6 d-lg-flex d-md-flex d-none justify-content-end">
         <!--DOWNLOAD SCANNER-->
         <div class="nav-item d-flex">
-          <img id="download-img" src="{% static 'download.png' %}" alt="download_img" class="mt-1 mx-1 image-height" />
+          <img id="download-img" src="{% static 'download.png' %}" alt="download_img" class="image-height ms-3 me-2 mt-1" />
           {% include 'download_button.html' %}
         </div>
         <!--LANGUAGES -->
-        {% include 'global.html' %}
+        <div class="nav-item d-flex">
+          <img id="globe-image" src="{% static 'planet-earth.png' %}" alt="download_img" class="ms-3 me-2 mt-1 image-height">
+          {% include 'global.html' %}
+        </div>
+        
       </div>
       <div class="col-lg-6 col-md-6 col-sm-12 ms-2 center-div">
         <!--Signup  button -->
@@ -66,19 +70,17 @@
         <!--toggle button of  NAVBAR  NOT  visible on small screen-->
         <!--ITEM 3-->
         <div class="col-lg-3 col-md-4 col-sm-4 center-div">
-          <button type="button" class="btn d-none d-lg-flex d-md-flex" data-bs-toggle="modal"
-            data-bs-target="#exampleModal">
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <img id="toggle-btn-img" src="{% static 'hamburger.png' %}" alt="toggle_button" style="height: 60px" />
           </button>
           <!--toggle button of OFFCANVAS visible only on small screen-->
-          <button class="btn d-lg-none d-sm-flex d-md-none" type="button" data-bs-toggle="offcanvas"
+          <!-- <button class="btn d-lg-none d-sm-flex d-md-none" type="button" data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
             <img id="offcanvas_toggle_button" src="{% static 'hamburger.png' %}" alt="toggle_button"
               style="height: 60px" />
-          </button>
+          </button> -->
         </div>
-        <!--OFF CANVAS-->
-        {% include 'offcanvas.html' %}
+
       </div>
     </div>
     <!-- </div> -->

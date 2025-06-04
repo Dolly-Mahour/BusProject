@@ -2,18 +2,35 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
 <div class="offcanvas offcanvas-end w-75" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-    <div class="offcanvas-body d-lg-none d-sm-flex d-md-none ps-3">
-       {% include 'common-toggle.html' %}
-      <div class="row m-2 ">
-        <img id="download-img-sm" src="{% static 'download.png' %}" class="col-1 p-0" style="height: auto;"></img>
-        <div class="col-8">
-          {%  include 'download_button.html' %}
+  <div class="offcanvas-body d-lg-none d-sm-flex d-md-none ps-3">
+    <div class="row m-2">
+      <img id="moonImage" src="{% static 'moon.png' %}" class="col-1 p-0" style="height: auto;"></img>
+      <div class="col-8 black-to-white">{% trans 'dd-tb-t-1' %}</div>
+      <div class="col-2">
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" name="theme_change" id="themeSwitch-offcanvas"
+            onclick="setThemeSmallScreen()">
         </div>
       </div>
-      <div class="ms-1">
-        {% include 'global.html' %}
-      </div>
-      
     </div>
-    <!-- {% include 'global.html' %} -->
+    <div class="row m-2">
+      <img id="docImage1" src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
+      <div class="col black-to-white">{% trans 'dd-tb-t-2' %}</div>
+    </div>
+    <div class="row m-2">
+      <img id="docImage2" src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
+      <div class="col black-to-white">{% trans 'dd-tb-t-3' %}</div>
+    </div>
+    <div class="row m-2">
+      <img id="docImage3" src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
+      <div class="col black-to-white">{% trans 'dd-tb-t-4' %}</div>
+    </div>
+    <div class="row m-2">
+      <img id="docImage4" src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
+      <div class="col black-to-white">{% trans 'dd-tb-t-5' %}</div>
+    </div>
+   
+
+  </div>
+  <!-- {% include 'global.html' %} -->
 </div>
