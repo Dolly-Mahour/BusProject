@@ -60,7 +60,7 @@ def homepage(request):
     
     print("this is the token boolean",token_exists_or_not)
     print("------------success code ----------------------------------",http_code_of_singup_api)
-    global User
+    global User         
     global flag_and_language
     print("THIS IS THE GLOBAL USER",User)
     data = {

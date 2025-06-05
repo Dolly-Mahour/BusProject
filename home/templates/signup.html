@@ -3,8 +3,8 @@
 {% load i18n %}
         <!--MODAL OF SIGNUP FORM-->
         <div class="modal" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true" >
-            <div class="modal-dialog modal-dialog-scrollable " id="modal-scrollbar">
-              <div class="modal-content">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" id="modal-scrollbar">
+              <div class="modal-content signup-modal-content">
                 <div class="modal-body" id="signup_model_body">
                    <div class="container">
                       <div class="row">
@@ -78,7 +78,7 @@
                          
                          <div class="center-div">
                             <p class="mb-0">{% trans 'dd-signup-ques' %}</p>
-                            <button  type="button" class="btn black-to-white" data-bs-toggle="modal" data-bs-target="#loginModal">{% trans 't-login' %}</button>
+                            <button id="signup_button_with_http_response" value="{{http_code_of_singup_api}}" type="button" class="btn black-to-white" data-bs-toggle="modal" data-bs-target="#loginModal">{% trans 't-login' %}</button>
                          </div>
                          <div>
                           {% include 'messages.html' %}

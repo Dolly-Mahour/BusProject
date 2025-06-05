@@ -143,9 +143,9 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 /* body of the login modal---------------------------------------------------------------------- */
-#login-modal-body {
+/* #login-modal-body {
   overflow-y: auto;
-}
+} */
 
 /* chnaging the color pf all the modal body with the changing of the theme---------------------- */
 .modal-body {
@@ -341,15 +341,20 @@ p {
 }
 
 .toggle-modal {
-  top: 50px;
-  right: 80px;
+  top: 7%;
+  right: 10%;
   width: 300px;
   position: absolute;
 }
 
 @media only screen and (max-width: 540px) {
 
-
+.login-modal-content{
+  height: 75%;
+}
+.signup-modal-content{
+  height: 75%;
+}
   .destiny_card {
     margin-top: 100%;
   }
@@ -367,9 +372,10 @@ p {
   }
 
   .toggle-modal-download {
-    top: 100px;
-    right: 7%;
-    width: 300px;
+    top: 25%;
+    margin-right: 10%;
+    width: 80%;
+    margin-left: 10%;
     position: absolute;
   }
 
@@ -400,7 +406,7 @@ p {
   }
 
   .toggle-modal-download {
-    top: 50px;
+    top: 60px;
     right: 200px;
     width: 300px;
     position: absolute;
@@ -433,8 +439,8 @@ p {
   }
 
   .toggle-modal-download {
-    top: 50px;
-    right: 400px;
+    top: 70px;
+    right: 350px;
     width: 300px;
     position: absolute;
   }
@@ -454,9 +460,13 @@ p {
 
 @media only screen and (min-width: 1024px) {
   .destiny_card {
-    margin-top: 45%;
+    margin-top: 38%;
   }
-
+  /* #illustration {
+    margin-top: 35%;
+  height: 45%;
+  width: 50%;
+  } */
   .Search_Bus_Card_div {
     margin-top: -320px;
   }
@@ -466,8 +476,8 @@ p {
   }
 
   .toggle-modal-download {
-    top: 50px;
-    right: 400px;
+    top: 80px;
+    right: 300px;
     width: 300px;
     position: absolute;
   }
@@ -477,7 +487,7 @@ p {
   }
 
   #search_button_div {
-    width: 15%;
+    width: 13%;
   }
 
   .myprofile_div {
@@ -487,7 +497,7 @@ p {
 
 @media only screen and (min-width: 1536px) {
   .destiny_card {
-    margin-top: 30%;
+    margin-top: 31%;
   }
 
   .Search_Bus_Card_div {
@@ -500,7 +510,7 @@ p {
 
   .toggle-modal-download {
     top: 50px;
-    right: 400px;
+    right: 550px;
     width: 300px;
     position: absolute;
   }
@@ -582,8 +592,7 @@ div.item {
 #forget-pass-next-button {
   background-color: #7171B8;
   color: white;
-  border-radius: 20px;
-  width: 20%;
+  border-radius: 10px;
   border: 0;
 }
 

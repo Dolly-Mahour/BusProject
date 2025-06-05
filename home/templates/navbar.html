@@ -25,7 +25,7 @@
         </div>
         
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-12 ms-2 center-div">
+      <div class="col-lg-6 col-md-6 col-sm-12 center-div justify-content-start">
         <!--Signup  button -->
         <!--ITEM 1-->
 
@@ -67,10 +67,10 @@
           </div>
         </div>
 
-        <!--toggle button of  NAVBAR  NOT  visible on small screen-->
+        <!--toggle button of  NAVBAR  -->
         <!--ITEM 3-->
         <div class="col-lg-3 col-md-4 col-sm-4 center-div">
-          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" id="toggle_button_with_token_value" value="{{token}}">
             <img id="toggle-btn-img" src="{% static 'hamburger.png' %}" alt="toggle_button" style="height: 60px" />
           </button>
           <!--toggle button of OFFCANVAS visible only on small screen-->

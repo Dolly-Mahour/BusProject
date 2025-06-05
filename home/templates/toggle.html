@@ -3,7 +3,7 @@
 {% load i18n %}
 <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-  <div class="modal-dialog toggle-modal" id="modal-scrollbar">
+  <div class="modal-dialog toggle-modal">
     <div class="modal-content" style="border-radius: 20px;">
       <div class="modal-body">
         <div class="row m-2">
@@ -31,34 +31,34 @@
           <img id="docImage4" src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
           <div class="col black-to-white">{% trans 'dd-tb-t-5' %}</div>
         </div>
-         <div class="row m-2 ">
+         <div class="row m-2 d-lg-none d-sm-flex d-md-none">
           <img id="download-img-sm" src="{% static 'download.png' %}" class="col-1 p-0" style="height: auto;"></img>
           <div class="col-8">
          {% include 'download_button.html' %}
       </div>
     </div>
-    <div class="row m-2">
+    <div class="row m-2 d-lg-none d-sm-flex d-md-none">
       <img id="earth-img-sm" src="{% static 'planet-earth.png' %}" class="col-1 p-0 m-0" style="height: auto;"></img>
       <div class="col-8">
         {% include 'global.html' %}
       </div>
     </div>
-    <div class="row m-2">
-          <img id="docImage3" src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
+    <div id="tickets" class="row m-2" style="display: none;">
+          <img id="tickets-img" src="{% static 'tickets.png' %}" class="col-1 p-0" style="height: auto;"></img>
           <div class="col black-to-white">My Ticket</div>
         </div>
-        <div class="row m-2">
-          <img id="docImage3" src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
+        <div id="wallet" class="row m-2"  style="display: none;">
+          <img id="wallet-img" src="{% static 'wallet.png' %}" class="col-1 p-0" style="height: auto;"></img>
           <div class="col black-to-white">My Wallet</div>
         </div>
-        <div class="row m-2">
-          <img id="docImage3" src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
+        <div id="reffer" class="row m-2"  style="display: none;">
+          <img id="reffer-img" src="{% static 'exchange.png' %}" class="col-1 p-0" style="height: auto;"></img>
           <div class="col black-to-white">Reffer & Earn</div>
         </div>
-        <hr class=" black-to-white">
-        <div class="row m-2">
-          <img id="docImage3" src="{% static 'google-docs.png' %}" class="col-1 p-0" style="height: auto;"></img>
-          <div class="col black-to-white">Logout</div>
+        <hr id="hr-logout" class="black-to-white"  style="display: none;">
+        <div id="logout" class="row m-2"  style="display: none;">
+          <img id="logout-img" src="{% static 'logout-red.png' %}" class="col-1 p-0" style="height: auto;"></img>
+          <div class="col text-danger fw-bold">Logout</div>
         </div>
       </div>
     </div>
