@@ -3,6 +3,7 @@
 {% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,15 +16,79 @@
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <title>{% block title %} Busify {% endblock %}</title>
 </head>
-<body >
-    
-    {% block start %}
 
-    {% endblock %}
-    
+<body>
+
+    <div class="container-fluid position-absolute p-0 m-0">
+        <!--ROW 1 that including the navnbar -------------------------------------------------------------------------------------------------------->
+        <div class="row position-absolute">
+            <!--  navbar   -->
+            {% include 'navbar.html' %}
+        </div>
+
+        <div class="row bg-warning p-0 m-0">
+
+
+
+
+
+            <!-- Starting the block  of the common html and this is the part between navbar nad bottom wear-->
+
+            <div class="row px-0 m-0">
+                {% block start %}
+
+                {% endblock %}
+            </div>
+
+        <!--MODAL OF TOGGLE BUTTON visible on large screens theme,languages,privacy,etc-->
+        {% include 'toggle.html' %}
+        <!--MODAL of signup form-->
+        {% include 'signup.html' %}
+        <!--MODAL of login form-->
+        {% include 'login.html' %}
+        <!-- MODAL of download  -->
+        {% include 'download.html' %}
+        <!-- MODAL of forget password  -->
+        {% include 'forget-pass-modal.html' %}
+        <!-- Toast of Success login -->
+        {% include 'Login_Toast.html' %}
+        <!-- Toast of Success signup -->
+        {% include 'Signup_Toast.html' %}
+        <!--OFF CANVAS-->
+        {% include 'offcanvas.html' %}
+        </div>
+         <!-- Row 4 ------------------------------------------------------------------------------------------------ -->
+            <div class="row center-div px-0">
+                <div class="my-3 bottomdiv">
+                    {% include 'logo.html' %}
+                </div>
+                <div class="col-lg-2 col-md-12 col-sm-12 center-div">
+                    <img id="email-img" class="mx-2 image-height img-fluid" src="{% static 'email.png' %}"
+                        alt="lgo_end">
+                    <a class="link-underline link-underline-opacity-0 grey-text"
+                        href="mailto:dollymahour282@gmail.com">hello@probusify.com</a>
+                </div>
+                <div class="col-lg-2 col-md-12 col-sm-12 center-div">
+                    <img id="call-img" class="ms-lg-4 ms-md-3 ms-sm-1 mx-2 image-height img-fluid"
+                        src="{% static 'phone.png' %}" alt="lgo_end">
+                    <a class="link-underline link-underline-opacity-0 grey-text" href="tel:8287213874o">+91
+                        1123298579</a>
+                </div>
+                <div class="col-lg-1 col-md-12 col-sm-12 center-div">
+                    <img id="location-img" class="ms-lg-4 mx-2 img-fluid image-height" src="{% static 'location.png' %}"
+                        alt="lgo_end">
+                    <a class="link-underline link-underline-opacity-0 grey-text"
+                        href="https://www.google.com/maps/place/India">India</a>
+                </div>
+            </div>
+            {% include 'footer.html' %}
+        </div>
+
+    </div>
+
+
 </body>
-<!-- <script src="{% static 'Theme.js' %}"></script> -->
- 
+
 </html>
 <script src="{% static 'Theme.js' %}"></script>
 <!-- <script>

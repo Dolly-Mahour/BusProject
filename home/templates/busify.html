@@ -3,77 +3,44 @@
 {% load static %}
 {% load django_bootstrap5 %}
 {% load i18n %}
-        <div class="container-fluid main-container">
-<!--ROW 1 -------------------------------------------------------------------------------------------------------->
-            <div class="row">
-              <!--  navbar   -->
-                {% include 'navbar.html' %}
-            </div>
-<!--Row 2------------------------------------------------------------------------------------------------------->
-            <!--BANNER-->
-            <div class="row1-of-banner">
-                  {%  include 'banner.html'  with list=combined_list %}
-            </div>
-<!--Row 3------------------------------------------------------------------------------------------------------->
-            <!--TEXT AFTER THE CARD-->
-            <!-- {% include 'messages.html' %} -->
-            <div class="container mt-5">
-            <div class="row d-none d-lg-flex d-md-flex">
-                <div class="center-div">
-                  <p class="fs-1 fw-bold mb-0">{% trans 'after-card-t1' %}</p>
-                </div>
-                <div class="center-div">
-                  <p class="fw-bold fs-5 grey-text">{% trans 'after-card-t2' %}</p>
-                </div>
-                <!--Carousel-->
-                {% include 'carousel.html' %}
-            </div>
-            <div class="row d-lg-none d-md-none d-sm-flex" style=" margin-top: 20%;">
-              <div class="center-div">
-                <p class="fs-1 fw-bold mb-0 text-center">{% trans 'after-card-t1' %}</p>
-              </div>
-              <div class="center-div">
-                <p class="fw-bold fs-6 grey-text text-center">{% trans 'after-card-t2' %}</p>
-              </div>
-              <!--Carousel-->
-              {% include 'carousel.html' %}
-          </div>
-            <div class="my-3 bottomdiv" >
-                {% include 'logo.html' %}
-            </div>
-<!-- Row 4 ------------------------------------------------------------------------------------------------ -->
-            <div class="row center-div margin-t">
-              <div class="col-lg-2 col-md-12 col-sm-12 center-div">
-                <img id="email-img" class="mx-2 image-height img-fluid" src="{% static 'email.png' %}" alt="lgo_end">
-                <a class="link-underline link-underline-opacity-0 grey-text"  href="mailto:dollymahour282@gmail.com">hello@probusify.com</a>
-              </div>
-              <div class="col-lg-2 col-md-12 col-sm-12 center-div" >
-                <img id="call-img" class="ms-lg-4 ms-md-3 ms-sm-1 mx-2 image-height img-fluid" src="{% static 'phone.png' %}" alt="lgo_end">
-              <a class="link-underline link-underline-opacity-0 grey-text" href="tel:8287213874o">+91 1123298579</a>
-              </div>
-              <div class="col-lg-1 col-md-12 col-sm-12 center-div">
-                <img id="location-img" class="ms-lg-4 mx-2 img-fluid image-height" src="{% static 'location.png' %}" alt="lgo_end" >
-                <a class="link-underline link-underline-opacity-0 grey-text" href="https://www.google.com/maps/place/India">{% trans 'footer-country' %}</a>
-              </div>
-            </div>
-            {% include 'footer.html' %}
-          </div>
-        <!--MODAL OF TOGGLE BUTTON visible on large screens theme,languages,privacy,etc-->
-        {% include 'toggle.html' %}
-        <!--MODAL of signup form-->
-        {% include 'signup.html' %}
-        <!--MODAL of login form-->
-        {% include 'login.html' %}
-        <!-- MODAL of download  -->
-        {% include 'download.html' %}
-        <!-- MODAL of forget password  -->
-        {% include 'forget-pass-modal.html' %}
-        <!-- Toast of Success login -->
-        {% include 'Login_Toast.html' %}
-        <!-- Toast of Success signup -->
-        {% include 'Signup_Toast.html' %}
-        <!--OFF CANVAS-->
-        {% include 'offcanvas.html' %}
-        </div>
+<div class="container-fluid main-container">
+  <!--ROW 1 -------------------------------------------------------------------------------------------------------->
+ 
+  <!--Row 2------------------------------------------------------------------------------------------------------->
+  <!--BANNER-->
+  <!-- <div class="row"> -->
+<div class="row1-of-banner">
+    {% include 'banner.html' with list=combined_list %}
+  </div>
+  <!--Row 3------------------------------------------------------------------------------------------------------->
+  <!--TEXT AFTER THE CARD-->
+  <div class="mt-5 px-5">
+    <div class="row d-none d-lg-flex d-md-flex">
+      <div class="center-div">
+        <p class="fs-1 fw-bold mb-0">{% trans 'after-card-t1' %}</p>
+      </div>
+      <div class="center-div">
+        <p class="fw-bold fs-5 grey-text">{% trans 'after-card-t2' %}</p>
+      </div>
+      <!--Carousel-->
+      {% include 'carousel.html' %}
+    </div>
+    <div class="row d-lg-none d-md-none d-sm-flex" style=" margin-top: 20%;">
+      <div class="center-div">
+        <p class="fs-1 fw-bold mb-0 text-center">{% trans 'after-card-t1' %}</p>
+      </div>
+      <div class="center-div">
+        <p class="fw-bold fs-6 grey-text text-center">{% trans 'after-card-t2' %}</p>
+      </div>
+      <!--Carousel-->
+      {% include 'carousel.html' %}
+    </div>
+    
+    
+  </div>
+  <!-- </div> -->
+  
+  
+</div>
 
-    {% endblock%}
+{% endblock%}

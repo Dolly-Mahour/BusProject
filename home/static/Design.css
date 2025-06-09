@@ -47,6 +47,7 @@ body {
   background-color: var(--bg-color-white-black);
 }
 
+/* this is the class  */
 .main-to-dark {
   color: var(--main-to-dark);
 }
@@ -77,8 +78,6 @@ input {
 ::placeholder {
   color: var(--text-color-black-peach);
 }
-
-/* Div in which all the inputs are-------------------------------------------------------------- */
 
 /* image height for the iamges having 20px height ------------------------------------------------ */
 .image-height {
@@ -113,8 +112,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
   position: relative;
   height: 72%;
   background-color: var(--banner-bg);
-  /* border-bottom-right-radius: 250px;
-   border-bottom-left-radius: 250px; */
   display: flex;
   justify-content: center;
 }
@@ -142,10 +139,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
   border-radius: 10px;
 }
 
-/* body of the login modal---------------------------------------------------------------------- */
-/* #login-modal-body {
-  overflow-y: auto;
-} */
+
 
 /* chnaging the color pf all the modal body with the changing of the theme---------------------- */
 .modal-body {
@@ -166,8 +160,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
   position: absolute;
   height: 100%;
   display: flex;
-  /* margin-top: auto; 
-   margin-bottom: auto; */
   align-items: center;
   justify-content: center;
 }
@@ -268,13 +260,11 @@ p {
 
 /* CARD--------------------------------------------------------------------------------------------- */
 .destiny_card {
-  /* background-color: green; */
-  /* height: 20%; */
+  
   position: relative;
   width: 90%;
   border: 0.5px solid #536872;
   border-radius: 30px;
-  /* box-shadow: 0px 0px 30px 0px rgb(186, 179, 179); */
   background-color: var(--bg-color-white-black);
 }
 
@@ -283,9 +273,6 @@ p {
   width: 80%;
   background-color: transparent;
   border: 0;
-  /* border-bottom: 2px;
-  border-color:  var(--blue-white);
-  border-style: solid; */
   outline: none;
 
 }
@@ -303,7 +290,6 @@ p {
   width: 75%;
   margin-left: auto;
   margin-right: auto;
-  /* margin-bottom: 20px; */
   background-color: var(--bg-color-white-black);
 }
 
@@ -356,7 +342,8 @@ p {
   height: 75%;
 }
   .destiny_card {
-    margin-top: 100%;
+    height: 100px;
+    /* margin-top: 100%; */
   }
 
   .Search_Bus_Card_div {
@@ -394,7 +381,8 @@ p {
 
 @media only screen and (min-width: 540px) {
   .destiny_card {
-    margin-top: 75%;
+    height: 200px;
+    /* margin-top: 75%; */
   }
 
   .toggle-modal {
@@ -427,7 +415,8 @@ p {
 
 @media only screen and (min-width: 768px) {
   .destiny_card {
-    margin-top: 65%;
+    height: 300px;
+    /* margin-top: 65%; */
   }
 
   .toggle-modal {
@@ -460,13 +449,10 @@ p {
 
 @media only screen and (min-width: 1024px) {
   .destiny_card {
-    margin-top: 38%;
+    height: 400px;
+    /* margin-top: 38%; */
   }
-  /* #illustration {
-    margin-top: 35%;
-  height: 45%;
-  width: 50%;
-  } */
+ 
   .Search_Bus_Card_div {
     margin-top: -320px;
   }
@@ -497,7 +483,8 @@ p {
 
 @media only screen and (min-width: 1536px) {
   .destiny_card {
-    margin-top: 31%;
+    height: 130px;
+    /* margin-top: 31%; */
   }
 
   .Search_Bus_Card_div {
@@ -582,8 +569,6 @@ div.item {
   height: 50px;
 }
 
-
-
 #border_bottom_of_card {
   border-bottom: 2px solid #7171B8;
   width: 100%;
@@ -602,7 +587,6 @@ div.item {
   border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
-  /* margin-bottom: 2%; */
 }
 
 #offcanvasRight {
@@ -627,12 +611,6 @@ div.item {
 
 }
 
-/* #signup_form_submit_button{
-  opacity: 0.3;
-}
-#login_form_submit_button{
-  opacity: 0.3;
-} */
 
 .black-to-white {
   color: var(--black-to-white);
@@ -650,24 +628,15 @@ div.item {
   color: rgb(177, 168, 168);
 }
 
-/* #arrival_time_plus:focus{
-  height: 500px;
-} */
 #arrival_time_div {
   transition: 2s;
 }
 
-/* input[type="date"]::-webkit-calendar-picker-indicator{
-  color-scheme: dark;
-} */
-/* input[type="date"] {
-  accent-color: red;
-} */
+
 .search_box_sorting {
   height: 9%;
   background-color: #7171B8;
   border-radius: 10px;
-  /* transition:height 2s; */
 }
 
 .card_of_bus_details {
@@ -682,10 +651,7 @@ div.item {
 
 }
 
-/* div.search_box_sorting:hover{
-  height: 200px;
 
- } */
 .myprofile_input_box {
   height: 50px;
   border: 2px solid rgb(118, 117, 117);
@@ -706,7 +672,3 @@ div.item {
 #profile_heading {
   color: var(--text-color-black-peach);
 }
-
-/* input{
-  color: var(--black-to-white);
-} */
