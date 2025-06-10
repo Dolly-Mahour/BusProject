@@ -3,11 +3,11 @@
 {% load static %}
 {% load django_bootstrap5 %}
 {% load i18n %}
-<div class="container-fluid main-container">
+<div class="container-fluid">
 <!--ROW 1 -------------------------------------------------------------------------------------------------------->
   
 <!--ROW 2 -------------------------------------------------------------------------------------------------------->
-<div class="row center-div Search_Bus_Card_div">
+<div class="row  d-flex justify-content-center align-items-end   Search_Bus_Card_div">
 
   {% include 'card.html' %}
 
@@ -353,16 +353,16 @@
           <div class="col h-100 w-100 p-1" >
             <div class="h-100 w-100 center-div profile_div">P</div>
           </div>
-          <div class="col-10">
+          <div class="col-9">
             <div class="row">
-              <p>{{data.bus_operator}}</p>
+              <p class="navbar_text">{{data.bus_operator}}</p>
             </div>
             <div class="row">
               <div class="col-3">
-                <p>None A/c sleeper</p>
+                <p class="navbar_text">None A/c sleeper</p>
               </div>
               <div class="col">
-                <p>36 seats</p>
+                <p class="navbar_text">36 seats</p>
               </div>
             </div>
           </div>
@@ -371,11 +371,11 @@
               <div class="row">
                 <div style="background-color: rgb(213, 213, 24);border-radius: 10px;width: 75%;margin-left: auto;display: flex;">
                   <img src="{% static 'white-star.png' %}" alt="rating_star" style="height: 10px;margin-top: auto;margin-bottom: auto;">
-                  <p>4</p>
+                  <p class="navbar_text">4</p>
                 </div>
               </div>
             <div class="row">
-              <p>₹{{data.seat_prices}}</p>
+              <p class="navbar_text">₹{{data.seat_prices}}</p>
             </div>
             </div>
             
@@ -384,33 +384,33 @@
         <div class="py-2 h-50">
           <div class="row" style="height: 33%;">
             <div class="col">
-              <p>{{city_obj.from}},{{state_obj.from}}</p>
+              <p class="navbar_text">{{city_obj.from}},{{state_obj.from}}</p>
             </div>
             <div class="col d-flex justify-content-center">
-              <p>----</p>
+              <p class="navbar_text">----</p>
               <img src="{% static 'bus (1).png' %}" alt="bus_details_bus_icon" style="height: 20px;margin-top: auto;margin-bottom: auto;">
-              <p>----</p>
+              <p class="navbar_text">----</p>
             </div>
             <div class="col d-flex justify-content-end">
-              <p>{{city_obj.to}},{{state_obj.to}}</p>
+              <p class="navbar_text">{{city_obj.to}},{{state_obj.to}}</p>
             </div>
           </div>
           <div class="row" style="height: 33%;">
             <div class="col">
-              <p>{{data.departure_time}}</p>
+              <p class="navbar_text">{{data.departure_time}}</p>
             </div>
             <!-- <div class="col d-flex justify-content-center">bus logo </div> -->
             <div class="col d-flex justify-content-end">
-              <p><p>{{data.arrival_time}}</p></p>
+              <p class="navbar_text">{{data.arrival_time}}</p>
             </div>
           </div>
           <div class="row" style="height: 33%;">
             <div class="col">
-              <p>{{data.on_date}}</p>
+              <p class="navbar_text">{{data.on_date}}</p>
             </div>
             <div class="col d-flex justify-content-center">total journey time</div>
             <div class="col d-flex justify-content-end">
-              <p>{{data.on_date}}</p>
+              <p class="navbar_text">{{data.on_date}}</p>
             </div>
           </div>
           <hr>
@@ -418,13 +418,13 @@
       
         <div style="height: 20%;display: flex;align-items: center;">
           <div class="col">
-            <p>amenities</p>
+            <p class="navbar_text">amenities</p>
           </div>
           <div class=" d-flex justify-content-center">
-            <p>reviews</p>
+            <p class="navbar_text">reviews</p>
           </div>
           <div class="col d-flex justify-content-end">
-            <p>cancellation policy</p>
+            <p class="navbar_text">cancellation policy</p>
           </div>
         </div>
 

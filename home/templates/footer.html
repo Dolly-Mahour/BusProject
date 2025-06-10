@@ -1,47 +1,72 @@
 {% load static %}
 {% load django_bootstrap5 %}
 {% load i18n %}
-<div style="height: 1px;width: 100%; background-color: rgb(225, 214, 214); margin-top: 30px; margin-bottom: 30px;"></div>
-            <div class="center-div mb-4">
-              <div class="Social-Icon">
-                <a class="SocialMedia-Link" href="https://x.com/">
-                  <img class="img-fluid h-50 w-50" src="{% static 'twitter.png' %}" alt="lgo_end">
-                </a>
-              </div>
-              <div class="Social-Icon" >
-                <a class="SocialMedia-Link" href=" https://www.instagram.com/ " >
-                  <img class="img-fluid  h-50 w-50" src="{% static 'instagram.png' %}" alt="lgo_end">
-                </a>
-              </div>
-              <div class="Social-Icon">
-                <a class="SocialMedia-Link" href="https://www.facebook.com/ ">
-                  <img class="img-fluid  h-50 w-50" src="{% static 'facebook.png' %}" alt="lgo_end">
-                </a>
-              </div>
-              <div class="Social-Icon" >
-                <a class="SocialMedia-Link" href="https://www.pinterest.com/ " >
-                  <img class="img-fluid h-50 w-50" src="{% static 'pinterest.png' %}" alt="lgo_end">
-                </a>
-              </div>
-              <div class="Social-Icon" >
-                <a class="SocialMedia-Link" href="https://www.tiktok.com/ " >
-                  <img class="img-fluid h-50 w-50" src="{% static 'tik-tok.png' %}" alt="lgo_end">
-                </a>
-              </div>
-              <div class="Social-Icon">
-                <a class="SocialMedia-Link" href="https://www.google.com/">
-                  <img class="img-fluid h-50 w-50" src="{% static 'search.png' %}" alt="lgo_end">
-                </a>
-              </div>
-              <div class="Social-Icon">
-                <a class="SocialMedia-Link" href="https://www.whatsapp.com/">
-                  <img class="img-fluid h-50 w-50" src="{% static 'whatsapp.png' %}" alt="lgo_end">
-                </a>
-              </div>
-            </div>
-            <div class="center-div">
-              <div class="w-lg-25 w-md-50 w-sm-100   fs-6 mb-3">
-                <div id="copyright_footer" class="p-0 fw-bold mb-0 text-center">Copyright © Make it Busify | Designed by make it services-Powered by busify</div>
-              </div>
-            </div>
-            
+<div class="container-fluid">
+  <div class="row center-div p-0 m-0">
+    <div class="my-3 bottomdiv">
+      {% include 'logo.html' %}
+    </div>
+    <div class="col-lg-2 col-md-12 col-sm-12 center-div">
+      <img id="email-img" class="mx-2 image-height img-fluid" src="{% static 'email.png' %}" alt="lgo_end">
+      <a class="link-underline link-underline-opacity-0 grey-text"
+        href="mailto:dollymahour282@gmail.com">hello@probusify.com</a>
+    </div>
+    <div class="col-lg-2 col-md-12 col-sm-12 center-div">
+      <img id="call-img" class="ms-lg-4 ms-md-3 ms-sm-1 mx-2 image-height img-fluid" src="{% static 'phone.png' %}"
+        alt="lgo_end">
+      <a class="link-underline link-underline-opacity-0 grey-text" href="tel:8287213874o">+91
+        1123298579</a>
+    </div>
+    <div class="col-lg-1 col-md-12 col-sm-12 center-div">
+      <img id="location-img" class="ms-lg-4 mx-2 img-fluid image-height" src="{% static 'location.png' %}"
+        alt="lgo_end">
+      <a class="link-underline link-underline-opacity-0 grey-text"
+        href="https://www.google.com/maps/place/India">India</a>
+    </div>
+  </div>
+  <div style="height: 1px;width: 100%; background-color: rgb(225, 214, 214); margin-top: 30px; margin-bottom: 30px;">
+  </div>
+  <div class="center-div mb-4">
+    <div class="Social-Icon">
+      <a class="SocialMedia-Link" href="https://x.com/">
+        <img class="img-fluid h-50 w-50" src="{% static 'twitter.png' %}" alt="lgo_end">
+      </a>
+    </div>
+    <div class="Social-Icon">
+      <a class="SocialMedia-Link" href=" https://www.instagram.com/ ">
+        <img class="img-fluid  h-50 w-50" src="{% static 'instagram.png' %}" alt="lgo_end">
+      </a>
+    </div>
+    <div class="Social-Icon">
+      <a class="SocialMedia-Link" href="https://www.facebook.com/ ">
+        <img class="img-fluid  h-50 w-50" src="{% static 'facebook.png' %}" alt="lgo_end">
+      </a>
+    </div>
+    <div class="Social-Icon">
+      <a class="SocialMedia-Link" href="https://www.pinterest.com/ ">
+        <img class="img-fluid h-50 w-50" src="{% static 'pinterest.png' %}" alt="lgo_end">
+      </a>
+    </div>
+    <div class="Social-Icon">
+      <a class="SocialMedia-Link" href="https://www.tiktok.com/ ">
+        <img class="img-fluid h-50 w-50" src="{% static 'tik-tok.png' %}" alt="lgo_end">
+      </a>
+    </div>
+    <div class="Social-Icon">
+      <a class="SocialMedia-Link" href="https://www.google.com/">
+        <img class="img-fluid h-50 w-50" src="{% static 'search.png' %}" alt="lgo_end">
+      </a>
+    </div>
+    <div class="Social-Icon">
+      <a class="SocialMedia-Link" href="https://www.whatsapp.com/">
+        <img class="img-fluid h-50 w-50" src="{% static 'whatsapp.png' %}" alt="lgo_end">
+      </a>
+    </div>
+  </div>
+  <div class="center-div">
+    <div class="w-lg-25 w-md-50 w-sm-100   fs-6 mb-3">
+      <div id="copyright_footer" class="p-0 fw-bold mb-0 text-center">Copyright © Make it Busify | Designed by make it
+        services-Powered by busify</div>
+    </div>
+  </div>
+</div>

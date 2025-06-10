@@ -1,42 +1,44 @@
 {% load static %}
 {% load django_bootstrap5 %}
 {% load i18n %}
-  <div class="row" id="banner-bg">
-<!-- ILLUSTRATION---------------------------------------------------------------------------- -->
-
-    <div class="row d-none d-lg-flex d-md-none illustration-size">
-      <img class="img-fluid" src="{% static 'new_illustration.png' %}" alt="illustration" id="illustration">
+<div class="row" id="banner-bg">
+  <!-- ILLUSTRATION---------------------------------------------------------------------------- -->
+  <div class="row d-none d-lg-flex d-md-none illustration-size">
+    <img class="img-fluid" src="{% static 'new_illustration.png' %}" alt="illustration" id="illustration">
+  </div>
+  <!-- SMALL SCREEN ON THE BANNER TEXT  --------------------------------------------------------->
+  <div class="d-lg-none d-sm-flex d-md-none" id="banner-div">
+    <div class="mx-4 d-block">
+      <div class="center-div">
+        <p class="mx-4 mb-0" id="banner-text1">{% trans 'banner-t1' %}</p>
+      </div>
+      <div class="center-div">
+        <p class="mx-5" id="banner-text2">{% trans 'banner-t2' %}</p>
+      </div>
+      <div class="center-div">
+        <button class="mb-0 p-1 px-4 banner-button">Book now</button>
+      </div>
     </div>
-
-<!-- SMALL SCREEN ON THE BANNER TEXT  --------------------------------------------------------->
-    <div class="d-lg-none d-sm-flex d-md-none" id="banner-div">
-      <div class="mx-4 d-block">
-              <div class="center-div">
-                  <p class="mx-4 mb-0" id="banner-text1">{% trans 'banner-t1' %}</p>
-              </div>
-              <div class="center-div">
-                  <p class="mx-5" id="banner-text2" >{% trans 'banner-t2' %}</p>
-              </div>
-              <div class="center-div">
-                  <button class="mb-0 p-1 px-4 banner-button">Book now</button>
-              </div>
-     </div>
   </div>
-<!-- LARGE SCREEN ON THE BANNER TEXT  --------------------------------------------------------->
+  <!-- LARGE SCREEN ON THE BANNER TEXT  --------------------------------------------------------->
   <div class="d-sm-flex d-none d-md-flex" id="banner-text-div">
-      <div class="d-inline-block">
-              <div>
-                  <p class="mx-5" id="banner-text1-lg">{% trans 'banner-t1' %}</p>
-              </div>
-              <div class="w-75 ms-auto me-auto">
-                  <div class="col-5"></div>
-                  <p class="col" id="banner-text2-lg">{% trans 'banner-t2' %}</p>
-              </div>
-              <div class="row center-div">
-                  <div class="col-8"></div>
-                  <button class="col mx-5 py-2 banner-button">{% trans 'banner-t-btn' %}</button>
-              </div>
-     </div>
+    <div class="d-inline-block">
+      <div>
+        <p class="mx-5" id="banner-text1-lg">{% trans 'banner-t1' %}</p>
+      </div>
+      <div class="w-75 ms-auto me-auto">
+        <div class="col-5"></div>
+        <p class="col" id="banner-text2-lg">{% trans 'banner-t2' %}</p>
+      </div>
+      <div class="row center-div">
+        <div class="col-8"></div>
+        <button class="col mx-5 py-2 banner-button">{% trans 'banner-t-btn' %}</button>
+      </div>
+    </div>
   </div>
-    {% include 'card.html'  with list=list %}
+  <!-- including the card--------------------------------------------------------------------- -->
+  <div class="center-div position-absolute" id="div_for_card_position">
+    {% include 'card.html' with list=list %}
   </div>
+
+</div>

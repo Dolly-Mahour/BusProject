@@ -3,44 +3,42 @@
 {% load static %}
 {% load django_bootstrap5 %}
 {% load i18n %}
-<div class="container-fluid main-container">
+<div class="container-fluid">
   <!--ROW 1 -------------------------------------------------------------------------------------------------------->
- 
-  <!--Row 2------------------------------------------------------------------------------------------------------->
   <!--BANNER-->
-  <!-- <div class="row"> -->
-<div class="row1-of-banner">
-    {% include 'banner.html' with list=combined_list %}
-  </div>
-  <!--Row 3------------------------------------------------------------------------------------------------------->
-  <!--TEXT AFTER THE CARD-->
-  <div class="mt-5 px-5">
-    <div class="row d-none d-lg-flex d-md-flex">
-      <div class="center-div">
-        <p class="fs-1 fw-bold mb-0">{% trans 'after-card-t1' %}</p>
-      </div>
-      <div class="center-div">
-        <p class="fw-bold fs-5 grey-text">{% trans 'after-card-t2' %}</p>
-      </div>
-      <!--Carousel-->
-      {% include 'carousel.html' %}
+  <div class="row px-0">
+    <div class="row1-of-banner">
+      {% include 'banner.html' with list=combined_list %}
     </div>
-    <div class="row d-lg-none d-md-none d-sm-flex" style=" margin-top: 20%;">
-      <div class="center-div">
-        <p class="fs-1 fw-bold mb-0 text-center">{% trans 'after-card-t1' %}</p>
+    <!--Row 2------------------------------------------------------------------------------------------------------->
+    <!--TEXT AFTER THE CARD-->
+    <div class="px-5" id="div_of_after_card_text">
+      <div class="row d-none d-lg-flex d-md-flex">
+        <div class="center-div">
+          <p class="fs-1 fw-bold mb-0">{% trans 'after-card-t1' %}</p>
+        </div>
+        <div class="center-div">
+          <p class="fw-bold fs-5 grey-text">{% trans 'after-card-t2' %}</p>
+        </div>
+        <!--Carousel-->
+        {% include 'carousel.html' %}
       </div>
-      <div class="center-div">
-        <p class="fw-bold fs-6 grey-text text-center">{% trans 'after-card-t2' %}</p>
+      <div class="row d-lg-none d-md-none d-sm-flex" style=" margin-top: 20%;">
+        <div class="center-div">
+          <p class="fs-1 fw-bold mb-0 text-center">{% trans 'after-card-t1' %}</p>
+        </div>
+        <div class="center-div">
+          <p class="fw-bold fs-6 grey-text text-center">{% trans 'after-card-t2' %}</p>
+        </div>
+        <!--Carousel-->
+        {% include 'carousel.html' %}
       </div>
-      <!--Carousel-->
-      {% include 'carousel.html' %}
+
+
     </div>
-    
-    
   </div>
-  <!-- </div> -->
-  
-  
+
+
 </div>
 
 {% endblock%}

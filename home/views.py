@@ -109,7 +109,7 @@ def login_api_view(request):
     if request.method == 'POST':
         try:
             #converting the data into the json to sent it to api 
-            data ={
+            data ={ 
                 "Phone_number": request.POST.get('number'),
                 "Password": request.POST.get('password'),
             }

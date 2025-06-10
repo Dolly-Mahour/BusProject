@@ -1,3 +1,4 @@
+// FIRST function for calling the theme and setting it to the local storage
 function setTheme() {
   const checkBox = document.getElementById("themeSwitch");
   if (checkBox?.checked) {
@@ -9,43 +10,54 @@ function setTheme() {
   }
 }
 
+// SECOND function for showing the modal on the search button if not logged in
 function show_modal() {
-  var exists = document.getElementById("toggle_button_with_token_value").value;
+  var IsExist = document.getElementById("toggle_button_with_token_value").value;
 
-  if (exists == "True") {
+  if (IsExist == "True") {
     console.log("Yay ! logged in");
     document.getElementById("Search_form").submit();
+    localStorage.setItem("showLoginToast", "true");
   } else {
     console.log("please login");
     var modal = new bootstrap.Modal(document.getElementById("loginModal"));
-    localStorage.setItem("showLoginToast", "true");
+
     modal.show();
   }
 }
 
+// THIRD  function for showing the signup success toast if the httpcoderesponse is 201
 function singup_taost() {
-  let exists = "{{http_code_of_singup_api}}";
+  let IsSignedIn = document.getElementById("signup_form_submit_button").value;
   console.log(
-    typeof exists,
+    IsSignedIn,
     "This is the type of the success code we are getting from the signup api"
   );
-  if (exists == "201") {
+  if (IsSignedIn == "201") {
     console.log("Yay ! signup");
     const toastElement = document.getElementById("signupToast");
     const toast = new bootstrap.Toast(toastElement);
     toast.show();
-    return exists;
+    return IsSignedIn;
   }
 }
+
+// FOURTH function for showing the login success toast if the user is logged in
 function show_login_taost() {
+  console.log(
+    "this is the local storage item we are checking in the toast fucn",
+    localStorage.getItem("showLoginToast")
+  );
+  if (localStorage.getItem("showLoginToast") != null) {
     console.log("Yay ! logged in");
     const toastElement = document.getElementById("loginToast");
     const toast = new bootstrap.Toast(toastElement);
     toast.show();
-    localStorage.removeItem('logged_in')
+    localStorage.removeItem("showLoginToast");
+  }
 }
 
-// set the images of the toggle wallet logout and anothers according to the theme
+//FIFTH to set the images of the toggle wallet logout and anothers according to the theme
 function set_images() {
   let current_theme = localStorage.getItem("theme");
   console.log("this is the current theme", current_theme);
@@ -66,14 +78,14 @@ function set_images() {
 // -------------------------THE MAIN EVENT LITSENER-----------------------------------------------------------------------------------------------------
 
 document.addEventListener("DOMContentLoaded", function () {
-  let code_ = document.getElementById('signup_button_with_http_response').value;
-  console.log("calling the load function ",code_, typeof(code_));
+  let code_ = document.getElementById("signup_button_with_http_response").value;
+  console.log("calling the load function ", code_, typeof code_);
 
-  var exists = document.getElementById("toggle_button_with_token_value").value;
-  if(exists == "True"){
-    localStorage.setItem('logged_in','True');
-  }
-
+  var IsExist = document.getElementById("toggle_button_with_token_value").value;
+  // if (IsExist == "True") {
+  //   localStorage.setItem("logged_in", "True");
+  // }
+  singup_taost();
   let profile = document.getElementById("div_of_profile_btn");
   let signup = document.getElementById("div_of_singup_btn");
   let login = document.getElementById("div_of_login_btn");
@@ -83,8 +95,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let wallet = document.getElementById("wallet");
   let hr = document.getElementById("hr-logout");
 
-  console.log("This is to check that the token exists or not", exists);
-  if (exists == "True") {
+  console.log("This is to check that the token IsExist or not", IsExist);
+  if (IsExist == "True") {
     profile.style.display = "flex";
     signup.style.display = "none";
     login.style.display = "none";
@@ -120,23 +132,9 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 
-  if(exists == "True" && localStorage.getItem('logged_in')==null){
+  if (IsExist == "True") {
     show_login_taost();
   }
-
-//   const shouldShowToast = localStorage.getItem("showLoginToast");
-//   if (shouldShowToast === "true") {
-//     localStorage.removeItem("showLoginToast");
-
-//     show_login_taost();
-//   }
-
-  let code = 400;
-  code = singup_taost();
-  console.log(
-    "This is all about the code response of the success code of signup api",
-    code
-  );
 
   const emailInput = document.getElementById("email");
   const numberInput = document.getElementById("number");
@@ -235,7 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function light_theme() {
-  var exists = document.getElementById("toggle_button_with_token_value").value;
+  var IsExist = document.getElementById("toggle_button_with_token_value").value;
 
   document.documentElement.setAttribute("data-theme", "light");
 
@@ -272,11 +270,15 @@ function light_theme() {
   document.getElementById("docImage3").src = "../home/static/google-docs.png";
   document.getElementById("docImage4").src = "../home/static/google-docs.png";
 
-  document.getElementById("card_calendar").src =
+
+  if(document.getElementById("card_calendar")!=null){
+document.getElementById("card_calendar").src =
     "../home/static/calendar (2).png";
+  }
+  
 }
 function dark_theme() {
-  var exists = document.getElementById("toggle_button_with_token_value").value;
+  var IsExist = document.getElementById("toggle_button_with_token_value").value;
 
   document.documentElement.setAttribute("data-theme", "dark");
 
@@ -301,9 +303,7 @@ function dark_theme() {
     document.getElementById("reffer-img").src =
       "../home/static/exchange-white.png";
   }
-  // document.getElementById('tickets-img').src = "../home/static/tickets-white.png";
-  // document.getElementById('wallet-img').src = "../home/static/wallet-white.png";
-  // document.getElementById('reffer-img').src = "../home/static/exchange-white.png";
+  
 
   document.getElementById("email-img").src =
     "../home/static/email-dark-theme.png";
@@ -321,7 +321,9 @@ function dark_theme() {
     "../home/static/google-doc-white.png";
   document.getElementById("docImage4").src =
     "../home/static/google-doc-white.png";
-
+  if(document.getElementById("card_calendar")!=null){
   document.getElementById("card_calendar").src =
     "../home/static/white-calendar.png";
+  }
+
 }
