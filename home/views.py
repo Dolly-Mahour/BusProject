@@ -16,6 +16,8 @@ from django.contrib import messages
 token_exist = False 
 jwt_token = None
 http_code_of_singup_api = 400
+http_code_of_login_api = 400
+login_response_message = None
 profile = ""
 User ={}
 flag_and_language=[
@@ -50,6 +52,8 @@ def homepage(request):
     global jwt_token
     global http_code_of_singup_api
     global profile
+    global http_code_of_login_api 
+    global login_response_message
     
 
     # latitude, longitude = get_location()
@@ -70,9 +74,12 @@ def homepage(request):
         'http_code_of_singup_api' : http_code_of_singup_api,
         'profile' : profile,
         'flag_and_language':flag_and_language,
-        'User':User
+        'User':User,
+        'http_code_of_login_api':http_code_of_login_api,
+        'login_response_message':login_response_message,
     }
-    http_code_of_singup_api = 400
+    http_code_of_login_api = 400
+    http_code_of_singup_api= 400
     return render(request,"busify.html",data)
 
 
@@ -109,50 +116,55 @@ def login_api_view(request):
     if request.method == 'POST':
         try:
             #converting the data into the json to sent it to api 
-            data ={ 
+            data ={  
                 "Phone_number": request.POST.get('number'),
                 "Password": request.POST.get('password'),
             }
             #calling the api consuming fuction for user login
             result = post_login_data(data)
+            global login_response_message
+            global jwt_token
+            global http_code_of_login_api
+            global login_response_message
             global User
             print("the result we are getting from the login api--------",result)
-            User =  result['User'][0]
-            print("yuppy===========user",User)
+            
             if result["status"] == 200 : 
                 if result["token"] is not None:
-                    global jwt_token
+                    
                     jwt_token = result["token"]
+                    http_code_of_login_api = result['status']
+                    login_response_message = result['message']
+
+                    User = result["User"] 
+                    User = User[0]
+                    Username = User["Username"]
+                    global profile
+                    profile = Username[0]
                     print("This is the jwt tokn after the login that is changing to the globar variable",jwt_token)
                     to_check_jwt()
+                
                 else :
+                    print("token is none-------------")
                     jwt_token = None
-
-
                 #jwt token to session
                 request.session["jwt_token"] = jwt_token
-
-
-
                 #redirecting to the homepage
-
-
-                User = result["User"]
-                User = User[0]
-
-                Username = User["Username"]
-                global profile
-                profile = Username[0]
-
                 print("This is the getting the object",profile)
                 
                 return redirect('/')
-            
+            else:
+                print("getting into the bad credentials ------------------")
+                http_code_of_login_api = result['status']
+                login_response_message = result['message']
+                return redirect('/')
+
+
         except json.JSONDecodeError:
             return JsonResponse({"error": "Invalid JSON"}, status=400)
     
 
-    return JsonResponse({"error": "Only POST allowed"}, status=405)
+    return JsonResponse({"error": "Only POST-- allowed"}, status=405)
 
 
 

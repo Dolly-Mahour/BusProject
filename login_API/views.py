@@ -29,23 +29,24 @@ class Login_User_Views(APIView):
             access = tokens["access"]
             if object is None :
                return Response({
-                    "status" : 400,
-                    "message" : "enter valid information",
+                    "status" : 401,
+                    "message" : "Enter Valid Credentials",
                     
                })
-            return Response({
-                "status" : 200,
-                "message": "Login Successfully",
-                "token" :tokens,
-                "User" :User_data,
-             })
+            else:
+                return Response({
+                    "status" : 200,
+                    "message": "Login Successfully",
+                    "token" :tokens,
+                    "User" :User_data,
+                })
         else :
             return Response({
-                "status" : 400,
-                "message" : "something went wrong",
+                "status" : 401,
+                "message" : "Enter Valid Credentials",
              })
       except Exception as e:
-         print(e)
+         print("error from the api ",e)
         
         
 

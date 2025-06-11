@@ -13,12 +13,13 @@ function setTheme() {
 // SECOND function for showing the modal on the search button if not logged in
 function show_modal() {
   var IsExist = document.getElementById("toggle_button_with_token_value").value;
-
+  
+ console.log("showing modal -",IsExist)
   if (IsExist == "True") {
     console.log("Yay ! logged in");
-    document.getElementById("Search_form").submit();
-    localStorage.setItem("showLoginToast", "true");
-  } else {
+    
+  }
+  else {
     console.log("please login");
     var modal = new bootstrap.Modal(document.getElementById("loginModal"));
 
@@ -44,17 +45,19 @@ function singup_taost() {
 
 // FOURTH function for showing the login success toast if the user is logged in
 function show_login_taost() {
-  console.log(
-    "this is the local storage item we are checking in the toast fucn",
-    localStorage.getItem("showLoginToast")
-  );
-  if (localStorage.getItem("showLoginToast") != null) {
+  let isLoggedIn = document.getElementById('navbar_login_btn').value;
     console.log("Yay ! logged in");
+    if(isLoggedIn == '200'){
     const toastElement = document.getElementById("loginToast");
     const toast = new bootstrap.Toast(toastElement);
     toast.show();
-    localStorage.removeItem("showLoginToast");
-  }
+    }  
+    if(isLoggedIn == '401'){
+      const toastElement = document.getElementById("LoginErrorToast");
+      const toast = new bootstrap.Toast(toastElement);
+      toast.show();
+
+    }
 }
 
 //FIFTH to set the images of the toggle wallet logout and anothers according to the theme
@@ -82,10 +85,25 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log("calling the load function ", code_, typeof code_);
 
   var IsExist = document.getElementById("toggle_button_with_token_value").value;
-  // if (IsExist == "True") {
-  //   localStorage.setItem("logged_in", "True");
-  // }
+
+const form = document.getElementById('Search_form');
+  
+// localStorage.setItem("showLoginToast", "null")
+
+if(form !=null){
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); 
+  if(IsExist == "True"){
+    form.submit();
+  }
+});
+
+}
+
+
+
   singup_taost();
+  show_login_taost();
   let profile = document.getElementById("div_of_profile_btn");
   let signup = document.getElementById("div_of_singup_btn");
   let login = document.getElementById("div_of_login_btn");
@@ -95,8 +113,10 @@ document.addEventListener("DOMContentLoaded", function () {
   let wallet = document.getElementById("wallet");
   let hr = document.getElementById("hr-logout");
 
-  console.log("This is to check that the token IsExist or not", IsExist);
+  console.log("This is to check that the token IsExist or not", IsExist,typeof IsExist);
+
   if (IsExist == "True") {
+    
     profile.style.display = "flex";
     signup.style.display = "none";
     login.style.display = "none";
@@ -130,10 +150,6 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(
       "Entering the theme at light-------------------------------------------------------------------------------------"
     );
-  }
-
-  if (IsExist == "True") {
-    show_login_taost();
   }
 
   const emailInput = document.getElementById("email");

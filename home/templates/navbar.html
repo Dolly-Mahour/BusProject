@@ -44,7 +44,7 @@
         <div id="div_of_login_btn" class="col-lg-3 col-md-4 col-sm-4 mx-1 justify-content-end" style="display: flex">
           <div class="nav-item">
             <button id="navbar_login_btn" type="button" class="btn p-1 px-3 login-button navbar_text"
-              data-bs-toggle="modal" data-bs-target="#loginModal">
+              data-bs-toggle="modal" data-bs-target="#loginModal" value="{{http_code_of_login_api}}">
               {% trans 't-login' %}
             </button>
           </div>
@@ -61,6 +61,7 @@
                   width: 50px;
                   background-color: #8b8ea6;
                 ">
+                
                 <p class="mb-0 fs-4">{{profile}}</p>
               </div>
             </a>
