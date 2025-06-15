@@ -54,6 +54,30 @@ urlpatterns += i18n_patterns(
 
     # including the api urls 
     path('api/v1/', include('API.urls')),
+
+    # logout view for account logging out function 
+    path('logout/', Account_Logout),
+
+    # logout view for account logging out function 
+    path('PrivacyPolicy/', PrivacyAndPolicy),
+
+    # logout view for account logging out function 
+    path('T&C/', TermAndConditions),
+
+    # logout view for account logging out function 
+    path('ContactUs/', ContactUs),
+
+    # logout view for account logging out function 
+    path('CancellationPolicy/', CancellationPolicy),
+
+    # logout view for account logging out function 
+    path('MyTickets/', MyTickets),
+
+    # logout view for account logging out function 
+    path('MyWallet/', MyWallet),
+
+    # logout view for account logging out function 
+    path('RefferAndEarn/', RefferAndEarn),
     
 
     # JWT token urls for the restframework-jwt  for  get, refresh and verifying the token

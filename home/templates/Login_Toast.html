@@ -5,12 +5,12 @@
     <div id="loginToast" style="background-color: rgb(46, 217, 46);" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
         <img src="{% static 'success.png' %}" style="height: 20px;" class="rounded me-2" alt="login_successful">
-        <strong class="me-auto fs-6" >Login Success</strong>
+        <strong class="me-auto fs-6" >Logged in</strong>
         <!-- <small>11 mins ago</small> -->
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
       <div class="toast-body  fs-6">
-        Yay !! You logged in succesfully !
+        Yay !! {{login_response_message}}
       </div>
     </div>
   </div>

@@ -6,20 +6,25 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from django.contrib import messages
 
-# import winrt.windows.devices.geolocation as wdg    #this is for geolocation and for the current location  
-# import asyncio
 
-# from django.http import HttpResponse
-# from datetime import  date, datetime, time , timedelta
-# import requests
 
+# token is not exist when user is not logged in 
 token_exist = False 
+# we do not have jwt token 
 jwt_token = None
-http_code_of_singup_api = 400
+# the default code response of signup api 
+http_code_of_singup_api = 401
+# the default code response of login api 
 http_code_of_login_api = 400
+# the default message response of login api 
 login_response_message = None
+# the default message response of login api 
+signup_response_message = None
+# user profile first letter of name is empty 
 profile = ""
+# the user object that contain the information of the logged in user
 User ={}
+# list of the flags and with the image sources 
 flag_and_language=[
 
         {'name':"Hindi",
@@ -34,6 +39,8 @@ flag_and_language=[
          'src':"spain.png"},
     ]
 
+
+# method that checks that jwt token exists or not
 def to_check_jwt():
     if jwt_token is not None :
         token_exist = True
@@ -43,33 +50,48 @@ def to_check_jwt():
     return token_exist
 
 
-
+def getdata():
+    global token_exist
+    global jwt_token
+    global http_code_of_singup_api
+    global profile
+    global flag_and_language
+    token_exists_or_not = to_check_jwt()
+    http_code_of_singup_api= 401
+    data = {
+        'token': token_exists_or_not,
+        'http_code_of_singup_api' : http_code_of_singup_api,
+        'profile' : profile,
+        'User':User,
+        'flag_and_language':flag_and_language,
+        'http_code_of_singup_api':http_code_of_singup_api,
+    }
+    return data
 
 # MAIN HOME PAGE FUNTION CALLING AT THE START OF THE SITE
 def homepage(request):
-    context = get_cities(request)
+    # all the global variables we are using in the home page 
     global token_exist
     global jwt_token
     global http_code_of_singup_api
     global profile
     global http_code_of_login_api 
     global login_response_message
-    
-
-    # latitude, longitude = get_location()
-    # print(f"here is the -----------Latitude: {latitude}, Longitude: {longitude}")
-    
-    # jwt_token = None
-    token_exists_or_not = to_check_jwt()
-    
-    print("this is the token boolean",token_exists_or_not)
-    print("------------success code ----------------------------------",http_code_of_singup_api)
     global User         
     global flag_and_language
-    print("THIS IS THE GLOBAL USER",User)
+    global signup_response_message
+    # get api of the cities 
+    CitiesList = get_cities(request)
+    # to check token
+    token_exists_or_not = to_check_jwt()
+    
+    print("IS TOKEN EXIST-->",token_exists_or_not)
+    print("IS USER SIGNED UP-->",http_code_of_singup_api)
+    print("IS USER LOGGED IN -->",User)
+    
     data = {
-        'cities' : context["cities"],
-        'states': context["states"],
+        'cities' : CitiesList["cities"],
+        'states': CitiesList["states"],
         'token': token_exists_or_not,
         'http_code_of_singup_api' : http_code_of_singup_api,
         'profile' : profile,
@@ -77,9 +99,13 @@ def homepage(request):
         'User':User,
         'http_code_of_login_api':http_code_of_login_api,
         'login_response_message':login_response_message,
+        'signup_response_message':signup_response_message,
     }
+
+    # set the code value again to default 
     http_code_of_login_api = 400
-    http_code_of_singup_api= 400
+    http_code_of_singup_api= 401 
+    # render to the home page  
     return render(request,"busify.html",data)
 
 
@@ -101,8 +127,10 @@ def signup_api_view(request):
             # SIGNUP API RESPONSE and calling the api for the user signup
             result = post_to_signup_api(data)
             global http_code_of_singup_api
+            global signup_response_message
             http_code_of_singup_api = result['status']
-            print("after the signup this is the success code",http_code_of_singup_api)
+            signup_response_message= result['message']
+            print("SIGNUP API RESPONSE-->",http_code_of_singup_api)
             return redirect('/')
         except json.JSONDecodeError:
             return JsonResponse({"error": "Invalid JSON"}, status=400)
@@ -127,34 +155,34 @@ def login_api_view(request):
             global http_code_of_login_api
             global login_response_message
             global User
-            print("the result we are getting from the login api--------",result)
-            
+            global profile
+            print("RETURNING RESULT OF LOGIN API -->",result)
+            # if status code is 200 ok
             if result["status"] == 200 : 
+                # and token is generated through api
                 if result["token"] is not None:
-                    
+                    # get the jwt token 
                     jwt_token = result["token"]
+                    # get the status code 
                     http_code_of_login_api = result['status']
+                    # get the response message
                     login_response_message = result['message']
-
+                    # find the first letter of the username 
                     User = result["User"] 
                     User = User[0]
                     Username = User["Username"]
-                    global profile
                     profile = Username[0]
-                    print("This is the jwt tokn after the login that is changing to the globar variable",jwt_token)
-                    to_check_jwt()
-                
+                    print("IS JWT EXIST-->",jwt_token)
+                # if success code is 401 or invalid information
                 else :
-                    print("token is none-------------")
-                    jwt_token = None
-                #jwt token to session
+                    print("NO JWT TOKEN FOUND--!")
+                # storing the token in the session 
                 request.session["jwt_token"] = jwt_token
-                #redirecting to the homepage
-                print("This is the getting the object",profile)
-                
+                print("USERNAME FIRST LETTER -->",profile)
+                # redirecting to the homepage
                 return redirect('/')
             else:
-                print("getting into the bad credentials ------------------")
+                print("GETTING THE INVALID CREDENTIALS --!")
                 http_code_of_login_api = result['status']
                 login_response_message = result['message']
                 return redirect('/')
@@ -172,8 +200,8 @@ def login_api_view(request):
 @csrf_exempt
 def get_cities(request):
     data = get_from_place_api(request)
-    cities =[]#list of cities 
-    states =[]#list of states
+    cities =[]  #list of cities 
+    states =[]  #list of states
     
     #loop for entering the cities and states to the list 
     for i in data:
@@ -181,38 +209,40 @@ def get_cities(request):
         # print(cities)
         states.append(i["states"])
     
-    #data context dictoinary 
-    context = {
+    #data CitiesList dictoinary 
+    CitiesList = {
         'cities' : cities,
         'states' : states,
     }
-    return context
+    return CitiesList
 
 @csrf_exempt
 def search_api_view(request):
     #if the method is post 
-    # print(request)
     if request.method == 'POST':
-        print(request)
+        # id and date entered by user 
+        from_place = request.POST.get('from_place')
+        to_place = request.POST.get('to_place')
+        on_date = request.POST.get('date')
+        # check if they are not selected
+        if(from_place == 'place' or to_place == 'place' or on_date == None):
+            return redirect('/')
         try:
-            #converting the data into the json to sent it to api 
             data ={
                 "from_place_id": request.POST.get('from_place'),
                 "to_place_id": request.POST.get('to_place'),
                 "date": request.POST.get('date'),
             }
-            result = post_to_search_api(data)
-
-            # print("Result gettting from searching buses----------------",result)
-
-            context = get_cities(request)
             global token_exist
             global jwt_token
             global http_code_of_singup_api
             global profile
-
-            # print(context["cities"])
-
+            global flag_and_language
+            http_code_of_singup_api= 401
+            # calling the searching bus api
+            result = post_to_search_api(data)
+            # get list of citites
+            CitiesList = get_cities(request)
             city_obj = None
             state_obj = None
             token_exists_or_not = to_check_jwt()
@@ -220,16 +250,13 @@ def search_api_view(request):
             if "data" not in result :
                 result["data"] = None 
             else:
-                search_result_objects = result["data"]
-
+                # search_result_objects = result["data"]
                 from_id = request.POST.get('from_place')
                 from_id = int(from_id)
                 to_id = request.POST.get('to_place')
                 to_id = int(to_id)
-
-                cities = context["cities"]
-                states = context["states"]
-            
+                cities = CitiesList["cities"]
+                states = CitiesList["states"]
                 city_obj = {
                     "from":cities[from_id],
                     "to":cities[to_id],
@@ -239,13 +266,10 @@ def search_api_view(request):
                     "to":states[to_id],
                 }
                 token_exists_or_not = to_check_jwt()
-            global flag_and_language
-
-
-
+            
             data = {
-                    'cities' : context["cities"],
-                    'states': context["states"],
+                    'cities' : CitiesList["cities"],
+                    'states': CitiesList["states"],
                     'token': token_exists_or_not,
                     'http_code_of_singup_api' : http_code_of_singup_api,
                     'profile' : profile,
@@ -255,8 +279,6 @@ def search_api_view(request):
                     'flag_and_language':flag_and_language,
 
             }
-            http_code_of_singup_api = 400
-            # return JsonResponse(result or {"error": "Invalid JSON"}, status=400)
             return render(request,"search_bus_page.html",data)
         except json.JSONDecodeError:
             return JsonResponse({"error": "Invalid JSON"}, status=400)
@@ -266,33 +288,76 @@ def search_api_view(request):
 
 
 def myprofile(request):
-    # context = get_cities(request)
+    # calling the method of geting the global data used on the ui 
+    data = getdata()
+    # rendering to myprofie page
+    return render(request,"myprofile.html",data)
+
+
+def PrivacyAndPolicy(request):
+    # calling the method of geting the global data used on the ui 
+    data = getdata()
+    print("DATA IN PRIVACY POLICY FUNCTION-->",data)
+    # rendering to myprofie page
+    return render(request,"PrivacyAndPolicy.html",data)
+    
+def TermAndConditions(request):
+    # calling the method of geting the global data used on the ui 
+    data = getdata()
+    # rendering to myprofie page
+    return render(request,"TermAndConditions.html",data)
+    
+def ContactUs(request):
+    # calling the method of geting the global data used on the ui 
+    data = getdata()
+    # rendering to myprofie page
+    return render(request,"ContactUs.html",data)
+    
+def CancellationPolicy(request):
+    # calling the method of geting the global data used on the ui 
+    data = getdata()
+    # rendering to myprofie page
+    return render(request,"CancellationPolicy.html",data)
+    
+def MyTickets(request):
+    # calling the method of geting the global data used on the ui 
+    data = getdata()
+    # rendering to myprofie page
+    return render(request,"MyTickets.html",data)
+    
+def MyWallet(request):
+    # calling the method of geting the global data used on the ui 
+    data = getdata()
+    # rendering to myprofie page
+    return render(request,"MyWallet.html",data)
+
+def RefferAndEarn(request):
+    # calling the method of geting the global data used on the ui 
+    data = getdata()
+    # rendering to myprofie page
+    return render(request,"RefferAndEarn.html",data)
+
+# function for loggin out account all the global variables et to null and to the default value and whole data is refreshed
+def Account_Logout(request):
     global token_exist
     global jwt_token
     global http_code_of_singup_api
     global profile
+    global http_code_of_login_api 
+    global login_response_message
+    global User         
     global flag_and_language
-    token_exists_or_not = to_check_jwt()
-    
-    # print("this is the token boolean",token_exists_or_not)
-    # print("------------success code ----------------------------------",http_code_of_singup_api)
+    global signup_response_message
 
-    data = {
-        # 'cities' : context["cities"],
-        # 'states': context["states"],
-        'token': token_exists_or_not,
-        'http_code_of_singup_api' : http_code_of_singup_api,
-        'profile' : profile,
-        'User':User,
-        'flag_and_language':flag_and_language,
-    }
-    http_code_of_singup_api = 400
-
-    return render(request,"myprofile.html",data)
-
-
-
-
+    token_exist = False 
+    jwt_token = None
+    http_code_of_singup_api = 401
+    http_code_of_login_api = 400
+    login_response_message = None
+    signup_response_message = None
+    profile = ""
+    User ={}
+    return redirect("/")
 
 
 

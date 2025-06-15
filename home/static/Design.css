@@ -263,7 +263,7 @@ p {
   
   position: relative;
   width: 90%;
-  border: 0.5px solid #536872;
+  border: 0.1px solid #929be3;
   border-radius: 30px;
   background-color: var(--bg-color-white-black);
 }
@@ -334,11 +334,27 @@ p {
 }
 
 
+.confirmation-button{
+  border-radius: 10px;
+  color: white;
+  outline: none;
+  border: 0;
+  padding: 5px;
+}
+#confirmation-rejected-button{
+  background-color: var(--banner-bg);
+}
 /* 
 #login-modal-body{
   overflow-y: auto;
 } */
-
+.SearchBusDiv{
+  background-color: #7171B8;
+  border-radius: 10px;
+}
+#RefferButton{
+  background-color: #7171B8;
+}
 .modal-dialog-scrollable .modal-body::-webkit-scrollbar {
   display: none;
 }
@@ -397,6 +413,9 @@ p {
   .myprofile_div {
     margin-top: 20%;
   }
+  #RefferAndEarnIllustration{
+    height: 300px;
+  }
 }
 
 @media only screen and (min-width: 540px) {
@@ -443,6 +462,9 @@ p {
   .myprofile_div {
     margin-top: 20%;
   }
+   #RefferAndEarnIllustration{
+    height: 300px;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -484,6 +506,9 @@ p {
 
   .myprofile_div {
     margin-top: 18%;
+  }
+   #RefferAndEarnIllustration{
+    height: 300px;
   }
 }
 
@@ -527,6 +552,9 @@ p {
   .myprofile_div {
     margin-top: 15%;
   }
+   #RefferAndEarnIllustration{
+    height: 350px;
+  }
 }
 
 @media only screen and (min-width: 1536px) {
@@ -568,6 +596,9 @@ p {
 
   .myprofile_div {
     margin-top: 10%;
+  }
+   #RefferAndEarnIllustration{
+    height: 400px;
   }
 }
 

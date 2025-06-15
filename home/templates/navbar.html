@@ -15,15 +15,16 @@
       <div class="col-6 d-lg-flex d-md-flex d-none justify-content-end">
         <!--DOWNLOAD SCANNER-->
         <div class="nav-item d-flex">
-          <img id="download-img" src="{% static 'download.png' %}" alt="download_img" class="image-height ms-3 me-2 mt-1" />
+          <img id="download-img" src="{% static 'download.png' %}" alt="download_img"
+            class="image-height ms-3 me-2 mt-1" />
           {% include 'download_button.html' %}
         </div>
         <!--LANGUAGES -->
         <div class="nav-item d-flex">
-          <img id="globe-image" src="{% static 'planet-earth.png' %}" alt="download_img" class="ms-3 me-2 mt-1 image-height">
+          <img id="globe-image" src="{% static 'planet-earth.png' %}" alt="download_img"
+            class="ms-3 me-2 mt-1 image-height" />
           {% include 'global.html' %}
         </div>
-        
       </div>
       <div class="col-lg-6 col-md-6 col-sm-12 center-div justify-content-start">
         <!--Signup  button -->
@@ -59,9 +60,8 @@
                   border-radius: 50%;
                   height: 50px;
                   width: 50px;
-                  background-color: #8b8ea6;
+                  background-color: #707bd2;
                 ">
-                
                 <p class="mb-0 fs-4">{{profile}}</p>
               </div>
             </a>
@@ -71,7 +71,8 @@
         <!--toggle button of  NAVBAR  -->
         <!--ITEM 3-->
         <div class="col-lg-3 col-md-4 col-sm-4 center-div">
-          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" id="toggle_button_with_token_value" value="{{token}}">
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            id="toggle_button_with_token_value" value="{{token}}">
             <img id="toggle-btn-img" src="{% static 'hamburger.png' %}" alt="toggle_button" style="height: 60px" />
           </button>
           <!--toggle button of OFFCANVAS visible only on small screen-->
@@ -81,7 +82,6 @@
               style="height: 60px" />
           </button> -->
         </div>
-
       </div>
     </div>
     <!-- </div> -->

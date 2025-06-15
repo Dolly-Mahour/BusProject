@@ -36,7 +36,7 @@ class Application_Users_View(APIView):
             return Response(
                  {
                       'status' : status.HTTP_400_BAD_REQUEST,
-                      'message' : "user with same mobile number exists",
+                      'message' : "Mobile Number already exist",
                  }
             )
         
@@ -44,7 +44,7 @@ class Application_Users_View(APIView):
             return Response(
                  {
                       'status' : status.HTTP_400_BAD_REQUEST,
-                      'message' : "user with same email exists",
+                      'message' : "Email already exist",
                  }
                  
              )
@@ -53,14 +53,14 @@ class Application_Users_View(APIView):
                     {
                       'status' : status.HTTP_201_CREATED,
                        'data'  :user,
-                      'message' : "User created successfully",
+                      'message' : "User Created Successfully",
                  }
                 )
         else :
                 return Response(
                     {
                       'status' : status.HTTP_400_BAD_REQUEST,
-                      'message' : "something went wrong",
+                      'message' : "SOMETHING WENT WRONG",
                  }
                 )
         

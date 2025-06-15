@@ -1,0 +1,33 @@
+{% extends "common.html"%}
+{% block start%}
+{% load static %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+<div class="container-fluid px-5 Search_Bus_Card_div">
+    <h3 class="black-to-white">Reffer And Earn</h3>
+    <div class="row">
+        <div class="row d-flex justify-content-center m-0 p-0">
+            <img class="w-auto" id="RefferAndEarnIllustration" src="{% static 'RefferAndEarn.png' %}" alt="RefferAndEarn">
+        </div>
+    <div class="row center-div m-0 p-0">
+        <p class="black-to-white w-auto mt-5">Share the refferal link with the friend</p>
+    </div>
+    <div class="row center-div m-0 p-0">
+        <h6 class="black-to-white w-auto mt-1 text-center">Friends will get ₹200 on thier first complete transaction</h6>
+    </div>
+    <div class="row center-div m-0 p-0">
+        <h6 class="black-to-white w-auto mt-1">You will get ₹250 in your wallet</h6>
+    </div>
+    <div class="row center-div m-0 p-0">
+        <button class="d-flex justify-content-between col-lg-2 col-md-2 col-sm-5 center-div  border-0 outline-0 rounded mx-1my-1" id="textToCopy" onclick="copyText()" style="height: 40px;">
+            <text>550607</text>
+            <img style="height: 20px;" src="{% static 'CopyText.png' %}" alt="Text copy">
+        </button>
+        <button class=" col-lg-2 col-md-2 col-sm-5 rounded border-0 outline-0 mx-1 my-1" id="RefferButton" onclick="sharePage()" style="height: 40px;">
+            <p>Reffer a friend</p>
+        </button>
+        
+    </div>
+    </div>
+</div>
+{% endblock%}

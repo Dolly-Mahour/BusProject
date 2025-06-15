@@ -43,7 +43,7 @@ class Login_User_Views(APIView):
         else :
             return Response({
                 "status" : 401,
-                "message" : "Enter Valid Credentials",
+                "message" : "Enter Valid Informations",
              })
       except Exception as e:
          print("error from the api ",e)
