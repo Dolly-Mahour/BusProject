@@ -3,7 +3,30 @@
 {% load static %}
 {% load django_bootstrap5 %}
 {% load i18n %}
-<div class="container-fluid px-5 Search_Bus_Card_div">
+<div class="container-fluid px-5 Search_Bus_Card_div ">
     <h3 class="black-to-white">My Tickets</h3>
+    <div class="row justify-content-center">
+        <ul class="nav nav-underline row w-lg-75 w-md-75 w-sm-100 justify-content-center align-items-center py-2 px-lg-3 px-md-3 mx-sm-1 rounded-4 bg-dark-subtle my-5">
+            <li class="nav-item col m-0 p-0">
+                <a class="nav-link" aria-current="page" href="/MyTickets/">
+                    <text class="fs-lg-5 fs-md-3 fs-sm-7">Upcoming Trips</text>
+                </a>
+            </li>
+            <li class="nav-item col m-0 p-0">
+                <a class="nav-link" href="/MyTickets/">
+                    <text class="fs-lg-5 fs-md-3 fs-sm-7">Completed Trips</text>
+                </a>
+            </li>
+            <li class="nav-item col m-0 p-0">
+                <a class="nav-link" href="/MyTickets/">
+                    <text class="fs-lg-5 fs-md-3 fs-sm-7">Cancelled Trips</text>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="row justify-content-center my-5">
+        <img class="d-flex justify-content-center" src="{% static 'train.png' %}" alt="nobookiing" style="height: 200px;width: auto;">
+        <h5 class="black-to-white d-flex justify-content-center">No Booking Found</h5>
+    </div>
 </div>
 {% endblock%}

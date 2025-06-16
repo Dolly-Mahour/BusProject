@@ -337,6 +337,7 @@ def RefferAndEarn(request):
     # rendering to myprofie page
     return render(request,"RefferAndEarn.html",data)
 
+
 # function for loggin out account all the global variables et to null and to the default value and whole data is refreshed
 def Account_Logout(request):
     global token_exist
