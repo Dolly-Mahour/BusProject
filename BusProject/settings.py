@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'Search_Places_API',
+    'corsheaders',
     # 'custom_filter',
     # 'django-filters',
     # 'tailwind',
@@ -61,7 +62,8 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
 
     'django.middleware.locale.LocaleMiddleware',
-
+    
+        'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -70,7 +72,14 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'BusProject.urls'
-
+CORS_ALLOWED_ORIGINS = [
+            "http://localhost:4200", # Replace with your Angular app's origin
+            "http://127.0.0.1:4200",
+            "http://127.0.0.1:8000",
+            "http://localhost:8000",
+            # Add other allowed origins as needed
+        ]
+CORS_ALLOW_ALL_ORIGINS = True
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -120,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-ALLOWED_HOSTS = ['192.168.1.8','192.168.5.3', 'localhost', '127.0.0.1','192.168.1.13']
+ALLOWED_HOSTS = ['192.168.1.8','192.168.5.3', 'localhost', '127.0.0.1','192.168.1.13',' 192.168.5.6','*']
 
 
 # Internationalization

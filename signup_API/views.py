@@ -12,7 +12,7 @@ from rest_framework import status
 class Application_Users_View(APIView):
     # post api method for user signup 
     def post(self,request):
-        
+        hello = request
         data = request.data
           
         # took the field out from the reuest that sent
@@ -60,7 +60,8 @@ class Application_Users_View(APIView):
                 return Response(
                     {
                       'status' : status.HTTP_400_BAD_REQUEST,
-                      'message' : "SOMETHING WENT WRONG",
+                      'message' : "Invalid Serializer",
+                    #   'hello':type(hello),
                  }
                 )
         

@@ -224,6 +224,7 @@ def search_api_view(request):
         from_place = request.POST.get('from_place')
         to_place = request.POST.get('to_place')
         on_date = request.POST.get('date')
+        print("TYPE OF THE DATA IN SEARCH API-->",type(on_date),on_date)
         # check if they are not selected
         if(from_place == 'place' or to_place == 'place' or on_date == None):
             return redirect('/')
