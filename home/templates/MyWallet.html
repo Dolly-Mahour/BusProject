@@ -3,12 +3,57 @@
 {% load static %}
 {% load django_bootstrap5 %}
 {% load i18n %}
-<div class="container-fluid px-5 Search_Bus_Card_div">
-    <h3 class="black-to-white">My Wallet</h3>
-    <div class="rounded-4" style="height: 300px;padding: 70px;background-color: #7171B8;">
-        <div class="h-100 w-100 rounded-4 p-4" id="Wallet">
+
+<div class="container-fluid px-lg-5 px-md-3 px-sm-1 Search_Bus_Card_div " style="height: 50vh;">
+    <div class="w-75 d-flex justify-content-start bg-transparent mt-5">
+        <button class="border-0 d-flex justify-content-center px-4 align-items-center mb-5"
+            style="background-color: #a69ae3;height: 40px;width: 150px;border-radius: 15px;">
+            <img src="{% static 'white-back-button.png' %}" alt="BackToHome" style="height: 25px;">
+            <a href="/" class="text-decoration-none">
+                <p class="White">Go home</p>
+            </a>
+        </button>
+    </div>
+    <div class="rounded-4 my-5 d-flex justify-content-center w-100"
+        style="height: 200px;padding: 20px;background-color: #7171B8;">
+        <div class="container-fluid gx-0 px-0 w-100 h-100">
+            <div class="row d-flex justify-content-between" style="height: 15%;">
+                <h3 class="w-auto" style="color: white;">My Wallet</h3>
+                <a href="/T&C/" class="text-decoration-none w-auto">
+                    <h6 style="color: white;">T&C ?</h6>
+                </a>
+            </div>
+            <div class="row center-div " style="height: 95%;">
+                <div class="h-100 rounded-4 p-4 px-5" id="Wallet">
+                    <div class="row gx-0 h-100 w-100 ">
+                        <div class="col-2 d-flex justify-content-end">
+                            <lottie-player
+                                src="https://lottie.host/ff7d7731-8667-4b58-8e42-27ba1148382e/nb7mVMAtoo.json"
+                                background="transparent" speed="1" style="width: 100px; height: au100pxto;" loop
+                                autoplay></lottie-player>
+                        </div>
+                        <div class="col h-lg-50 ">
+                            <div class="row m-0 p-0 ">
+                                <p style="color: white;">Total wallet balance</p>
+                            </div>
+                            <div class="row m-0 p-0 ">
+                                <h3 style="color: white;">₹0</h3>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 center-div ">
+                            <button
+                                style="height: 40px;width: 250px;border: 0;background-color: #7171B8;border-radius: 10px;font-weight: bold;color: white;">
+                                <img src="{% static 'white-topup-wallet.png' %}" alt="TopUp" style="height: 25px;">Top
+                                up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
+        <!-- <div class="h-100 rounded-4 p-4" id="Wallet">
+
+        </div> -->
     </div>
 </div>
 {% endblock%}

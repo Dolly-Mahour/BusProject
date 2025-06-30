@@ -3,7 +3,15 @@
 {% load static %}
 {% load django_bootstrap5 %}
 {% load i18n %}
-<div class="container-fluid px-5 Search_Bus_Card_div">
+<div class="container-fluid px-5 Search_Bus_Card_div" style="height: 90vh;">
+    <div class="w-75 d-flex justify-content-start bg-transparent">
+            <button class="border-0 d-flex justify-content-center px-4 align-items-center mb-5" style="background-color: #a69ae3;height: 40px;width: 150px;border-radius: 15px;">
+                <img src="{% static 'white-back-button.png' %}" alt="BackToHome" style="height: 25px;">
+                <a href="/" class="text-decoration-none">
+                    <p class="White">Go home</p>
+                </a>
+            </button>
+        </div>
     <h3 class="black-to-white">Reffer And Earn</h3>
     <div class="row">
         <div class="row d-flex justify-content-center m-0 p-0">

@@ -37,7 +37,7 @@ class Search_Places_view(APIView):
         else:
             return Response(
                     {
-                      'status' : status.HTTP_404_NOT_FOUND,
+                      'status' : serializer.errors,
                       'message' : "serializer is not valid",
                  })
 

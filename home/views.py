@@ -234,6 +234,7 @@ def search_api_view(request):
                 "to_place_id": request.POST.get('to_place'),
                 "date": request.POST.get('date'),
             }
+            print("THIS IS THE FROM PLACE OR TO PLACE ID WE ARE WE SELECTED IN THE CARD",request.POST.get('from_place'),request.POST.get('to_place'),request.POST.get('date'))
             global token_exist
             global jwt_token
             global http_code_of_singup_api
