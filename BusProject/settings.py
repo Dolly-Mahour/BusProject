@@ -129,7 +129,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-ALLOWED_HOSTS = ['192.168.1.8','192.168.5.3', 'localhost', '127.0.0.1','192.168.1.13',' 192.168.5.6','*']
+ALLOWED_HOSTS = ['192.168.1.8','192.168.5.3', 'localhost', '127.0.0.1','192.168.1.13',' 192.168.5.6','DollyMahour.pythonanywhere.com']
+# ALLOWED_HOSTS = []
 
 
 # Internationalization
@@ -205,21 +206,21 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME_LATE_USER': timedelta(days=1),
     'SLIDING_TOKEN_LIFETIME_LATE_USER': timedelta(days=30),
 }
-import os
-import dj_database_url
+# import os
+# import dj_database_url
 
-DEBUG = False
+# DEBUG = False
 
-ALLOWED_HOSTS = ['*']  # Or set your Render domain after deploying
+# ALLOWED_HOSTS = ['*']  # Or set your Render domain after deploying
 
-# Static files settings
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+# # Static files settings
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_URL = '/static/'
 
-# Use Whitenoise for static file handling
-MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+# # Use Whitenoise for static file handling
+# MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
-# PostgreSQL from environment variable
-DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600)
-}
+# # PostgreSQL from environment variable
+# DATABASES = {
+#     'default': dj_database_url.config(conn_max_age=600)
+# }
