@@ -129,9 +129,10 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-ALLOWED_HOSTS = ['192.168.1.8','192.168.5.3', 'localhost', '127.0.0.1','192.168.1.13',' 192.168.5.6','DollyMahour.pythonanywhere.com']
+ALLOWED_HOSTS = ['192.168.1.8','192.168.5.3', 'localhost', '127.0.0.1','192.168.1.13',' 192.168.5.6','DollyMahour.pythonanywhere.com','BusProject.onrender.com']
 # ALLOWED_HOSTS = []
-
+if os.getenv('RENDER'):
+    DEBUG = False
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -172,10 +173,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'home/static/'
+STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'home/static'), 
+    os.path.join(BASE_DIR, 'home/static'),
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
