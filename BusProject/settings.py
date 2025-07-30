@@ -27,7 +27,6 @@ SECRET_KEY = 'django-insecure-)h^s^0(a9-hhs*jf8kyehnqyvqnaak$=)a#$5i(&y665q&^%yg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -129,8 +128,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-ALLOWED_HOSTS = ['192.168.1.8','192.168.5.3', 'localhost', '127.0.0.1','192.168.1.13',' 192.168.5.6','DollyMahour.pythonanywhere.com','BusProject.onrender.com']
-# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['192.168.1.8','192.168.5.3', 'localhost', '127.0.0.1','192.168.1.13',' 192.168.5.6','DollyMahour.pythonanywhere.com','BusProject.onrender.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Internationalization
