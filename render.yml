@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: busproject
+    env: python
+    buildCommand: ""
+    startCommand: "gunicorn busproject.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
