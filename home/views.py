@@ -5,6 +5,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from django.contrib import messages
+from cities_API.models import place
 
 
 
@@ -199,22 +200,20 @@ def login_api_view(request):
 #Funtion calling the cities api and getting the data from the api also converting it to the lists
 @csrf_exempt
 def get_cities(request):
-    data = get_from_place_api(request)
-    cities =[]  #list of cities 
-    states =[]  #list of states
-    
-    #loop for entering the cities and states to the list 
+    data = place.objects.all()
+
+    cities = []
+    states = []
+
     for i in data:
-        cities.append(i["cities"])
-        # print(cities)
-        states.append(i["states"])
-    
-    #data CitiesList dictoinary 
-    CitiesList = {
-        'cities' : cities,
-        'states' : states,
+        cities.append(i.cities)
+        states.append(i.states)
+
+    return {
+        'cities': cities,
+        'states': states,
     }
-    return CitiesList
+
 
 @csrf_exempt
 def search_api_view(request):
