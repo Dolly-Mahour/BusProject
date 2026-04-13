@@ -1,204 +1,133 @@
-from django.shortcuts import render,redirect
-from django.template.response import TemplateResponse
-from .api_consumer import post_to_signup_api,post_login_data,get_from_place_api,post_to_search_api
+from django.shortcuts import render, redirect
 from django.http import JsonResponse    
 from django.views.decorators.csrf import csrf_exempt
 import json
-from django.contrib import messages
+
 from cities_API.models import place
+from Search_Places_API.models import search_bus_trips
+from signup_API.models import Application_Users   # अगर model का नाम अलग है तो change करो
 
+# ---------------- GLOBALS ---------------- #
 
-
-# token is not exist when user is not logged in 
 token_exist = False 
-# we do not have jwt token 
 jwt_token = None
-# the default code response of signup api 
 http_code_of_singup_api = 401
-# the default code response of login api 
 http_code_of_login_api = 400
-# the default message response of login api 
 login_response_message = None
-# the default message response of login api 
 signup_response_message = None
-# user profile first letter of name is empty 
 profile = ""
-# the user object that contain the information of the logged in user
-User ={}
-# list of the flags and with the image sources 
-flag_and_language=[
+User = {}
 
-        {'name':"Hindi",
-         'src':"flag.png"},
-         {'name':"English",
-         'src':"united-kingdom.png"},
-         {'name':"Japnese",
-         'src':"japan.png"},
-         {'name':"French",
-         'src':"france.png"},
-         {'name':"Spanish",
-         'src':"spain.png"},
-    ]
+flag_and_language = [
+    {'name': "Hindi", 'src': "flag.png"},
+    {'name': "English", 'src': "united-kingdom.png"},
+    {'name': "Japnese", 'src': "japan.png"},
+    {'name': "French", 'src': "france.png"},
+    {'name': "Spanish", 'src': "spain.png"},
+]
 
+# ---------------- COMMON ---------------- #
 
-# method that checks that jwt token exists or not
 def to_check_jwt():
-    if jwt_token is not None :
-        token_exist = True
-    else :
-        token_exist = False
-    
-    return token_exist
+    return jwt_token is not None
 
 
 def getdata():
-    global token_exist
-    global jwt_token
-    global http_code_of_singup_api
-    global profile
-    global flag_and_language
-    token_exists_or_not = to_check_jwt()
-    http_code_of_singup_api= 401
-    data = {
-        'token': token_exists_or_not,
-        'http_code_of_singup_api' : http_code_of_singup_api,
-        'profile' : profile,
-        'User':User,
-        'flag_and_language':flag_and_language,
-        'http_code_of_singup_api':http_code_of_singup_api,
+    return {
+        'token': to_check_jwt(),
+        'http_code_of_singup_api': http_code_of_singup_api,
+        'profile': profile,
+        'User': User,
+        'flag_and_language': flag_and_language,
     }
-    return data
 
-# MAIN HOME PAGE FUNTION CALLING AT THE START OF THE SITE
+# ---------------- HOME ---------------- #
+
 def homepage(request):
-    # all the global variables we are using in the home page 
-    global token_exist
-    global jwt_token
-    global http_code_of_singup_api
-    global profile
-    global http_code_of_login_api 
-    global login_response_message
-    global User         
-    global flag_and_language
-    global signup_response_message
-    # get api of the cities 
     CitiesList = get_cities(request)
-    # to check token
-    token_exists_or_not = to_check_jwt()
-    
-    print("IS TOKEN EXIST-->",token_exists_or_not)
-    print("IS USER SIGNED UP-->",http_code_of_singup_api)
-    print("IS USER LOGGED IN -->",User)
-    
+
     data = {
-        'cities' : CitiesList["cities"],
+        'cities': CitiesList["cities"],
         'states': CitiesList["states"],
-        'token': token_exists_or_not,
-        'http_code_of_singup_api' : http_code_of_singup_api,
-        'profile' : profile,
-        'flag_and_language':flag_and_language,
-        'User':User,
-        'http_code_of_login_api':http_code_of_login_api,
-        'login_response_message':login_response_message,
-        'signup_response_message':signup_response_message,
+        'token': to_check_jwt(),
+        'http_code_of_singup_api': http_code_of_singup_api,
+        'profile': profile,
+        'flag_and_language': flag_and_language,
+        'User': User,
+        'http_code_of_login_api': http_code_of_login_api,
+        'login_response_message': login_response_message,
+        'signup_response_message': signup_response_message,
     }
 
-    # set the code value again to default 
-    http_code_of_login_api = 400
-    http_code_of_singup_api= 401 
-    # render to the home page  
-    return render(request,"busify.html",data)
+    return render(request, "busify.html", data)
 
+# ---------------- SIGNUP ---------------- #
 
-# user signup function calling the api for signup
 @csrf_exempt
 def signup_api_view(request):
-    #if the method is post 
+    global http_code_of_singup_api, signup_response_message
+
     if request.method == 'POST':
         try:
-            #converting the data into the json to sent it to api 
-            data ={
-                "Username": request.POST.get('username'),
-                "User_or_Agent": True,
-                "Email": request.POST.get('email'),
-                "Phone_number": request.POST.get('number'),
-                "Password": request.POST.get('password'),
-                "Referral_code": request.POST.get('ref-code')
-            }
-            # SIGNUP API RESPONSE and calling the api for the user signup
-            result = post_to_signup_api(data)
-            global http_code_of_singup_api
-            global signup_response_message
-            http_code_of_singup_api = result['status']
-            signup_response_message= result['message']
-            print("SIGNUP API RESPONSE-->",http_code_of_singup_api)
+            user = Application_Users.objects.create(
+                Username=request.POST.get('username'),
+                Email=request.POST.get('email'),
+                Phone_number=request.POST.get('number'),
+                Password=request.POST.get('password'),
+            )
+
+            http_code_of_singup_api = 200
+            signup_response_message = "Signup successful"
+
             return redirect('/')
-        except json.JSONDecodeError:
-            return JsonResponse({"error": "Invalid JSON"}, status=400)
+        except Exception as e:
+            http_code_of_singup_api = 400
+            signup_response_message = str(e)
+            return redirect('/')
+
     return JsonResponse({"error": "Only POST allowed"}, status=405)
 
+# ---------------- LOGIN ---------------- #
 
-#LOGIN Api calling and storing the jwt token into the session
 @csrf_exempt
 def login_api_view(request):
-    #if the method is post 
+    global jwt_token, http_code_of_login_api, login_response_message, User, profile
+
     if request.method == 'POST':
         try:
-            #converting the data into the json to sent it to api 
-            data ={  
-                "Phone_number": request.POST.get('number'),
-                "Password": request.POST.get('password'),
-            }
-            #calling the api consuming fuction for user login
-            result = post_login_data(data)
-            global login_response_message
-            global jwt_token
-            global http_code_of_login_api
-            global login_response_message
-            global User
-            global profile
-            print("RETURNING RESULT OF LOGIN API -->",result)
-            # if status code is 200 ok
-            if result["status"] == 200 : 
-                # and token is generated through api
-                if result["token"] is not None:
-                    # get the jwt token 
-                    jwt_token = result["token"]
-                    # get the status code 
-                    http_code_of_login_api = result['status']
-                    # get the response message
-                    login_response_message = result['message']
-                    # find the first letter of the username 
-                    User = result["User"] 
-                    User = User[0]
-                    Username = User["Username"]
-                    profile = Username[0]
-                    print("IS JWT EXIST-->",jwt_token)
-                # if success code is 401 or invalid information
-                else :
-                    print("NO JWT TOKEN FOUND--!")
-                # storing the token in the session 
-                request.session["jwt_token"] = jwt_token
-                print("USERNAME FIRST LETTER -->",profile)
-                # redirecting to the homepage
-                return redirect('/')
+            phone = request.POST.get('number')
+            password = request.POST.get('password')
+
+            user = Application_Users.objects.filter(
+                Phone_number=phone,
+                Password=password
+            ).first()
+
+            if user:
+                jwt_token = "dummy_token"
+                http_code_of_login_api = 200
+                login_response_message = "Login successful"
+
+                User = {
+                    "Username": user.Username,
+                    "Email": user.Email
+                }
+
+                profile = user.Username[0]
+
             else:
-                print("GETTING THE INVALID CREDENTIALS --!")
-                http_code_of_login_api = result['status']
-                login_response_message = result['message']
-                return redirect('/')
+                http_code_of_login_api = 401
+                login_response_message = "Invalid credentials"
 
+            return redirect('/')
 
-        except json.JSONDecodeError:
-            return JsonResponse({"error": "Invalid JSON"}, status=400)
-    
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=400)
 
-    return JsonResponse({"error": "Only POST-- allowed"}, status=405)
+    return JsonResponse({"error": "Only POST allowed"}, status=405)
 
+# ---------------- GET CITIES ---------------- #
 
-
-#Funtion calling the cities api and getting the data from the api also converting it to the lists
-@csrf_exempt
 def get_cities(request):
     data = place.objects.all()
 
@@ -214,142 +143,76 @@ def get_cities(request):
         'states': states,
     }
 
+# ---------------- SEARCH ---------------- #
 
 @csrf_exempt
 def search_api_view(request):
-    #if the method is post 
     if request.method == 'POST':
-        # id and date entered by user 
+
         from_place = request.POST.get('from_place')
         to_place = request.POST.get('to_place')
-        on_date = request.POST.get('date')
-        print("TYPE OF THE DATA IN SEARCH API-->",type(on_date),on_date)
-        # check if they are not selected
-        if(from_place == 'place' or to_place == 'place' or on_date == None):
-            return redirect('/')
-        try:
-            data ={
-                "from_place_id": request.POST.get('from_place'),
-                "to_place_id": request.POST.get('to_place'),
-                "date": request.POST.get('date'),
-            }
-            print("THIS IS THE FROM PLACE OR TO PLACE ID WE ARE WE SELECTED IN THE CARD",request.POST.get('from_place'),request.POST.get('to_place'),request.POST.get('date'))
-            global token_exist
-            global jwt_token
-            global http_code_of_singup_api
-            global profile
-            global flag_and_language
-            http_code_of_singup_api= 401
-            # calling the searching bus api
-            result = post_to_search_api(data)
-            # get list of citites
-            CitiesList = get_cities(request)
-            city_obj = None
-            state_obj = None
-            token_exists_or_not = to_check_jwt()
-           
-            if "data" not in result :
-                result["data"] = None 
-            else:
-                # search_result_objects = result["data"]
-                from_id = request.POST.get('from_place')
-                from_id = int(from_id)
-                to_id = request.POST.get('to_place')
-                to_id = int(to_id)
-                cities = CitiesList["cities"]
-                states = CitiesList["states"]
-                city_obj = {
-                    "from":cities[from_id],
-                    "to":cities[to_id],
-                }
-                state_obj = {
-                    "from":states[from_id],
-                    "to":states[to_id],
-                }
-                token_exists_or_not = to_check_jwt()
-            
-            data = {
-                    'cities' : CitiesList["cities"],
-                    'states': CitiesList["states"],
-                    'token': token_exists_or_not,
-                    'http_code_of_singup_api' : http_code_of_singup_api,
-                    'profile' : profile,
-                    'search_results':result["data"],
-                    'city_obj':city_obj,
-                    'state_obj':state_obj,
-                    'flag_and_language':flag_and_language,
 
+        if(from_place == 'place' or to_place == 'place'):
+            return redirect('/')
+
+        try:
+            results = search_bus_trips.objects.filter(
+                from_place_id=from_place,
+                to_place_id=to_place
+            )
+
+            CitiesList = get_cities(request)
+
+            result_data = list(results.values())
+
+            data = {
+                'cities': CitiesList["cities"],
+                'states': CitiesList["states"],
+                'token': to_check_jwt(),
+                'profile': profile,
+                'search_results': result_data,
+                'flag_and_language': flag_and_language,
             }
-            return render(request,"search_bus_page.html",data)
-        except json.JSONDecodeError:
-            return JsonResponse({"error": "Invalid JSON"}, status=400)
+
+            return render(request, "search_bus_page.html", data)
+
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=400)
+
     return JsonResponse({"error": "Only POST allowed"}, status=405)
 
-
-
+# ---------------- STATIC PAGES ---------------- #
 
 def myprofile(request):
-    # calling the method of geting the global data used on the ui 
-    data = getdata()
-    # rendering to myprofie page
-    return render(request,"myprofile.html",data)
-
+    return render(request, "myprofile.html", getdata())
 
 def PrivacyAndPolicy(request):
-    # calling the method of geting the global data used on the ui 
-    data = getdata()
-    print("DATA IN PRIVACY POLICY FUNCTION-->",data)
-    # rendering to myprofie page
-    return render(request,"PrivacyAndPolicy.html",data)
-    
+    return render(request, "PrivacyAndPolicy.html", getdata())
+
 def TermAndConditions(request):
-    # calling the method of geting the global data used on the ui 
-    data = getdata()
-    # rendering to myprofie page
-    return render(request,"TermAndConditions.html",data)
-    
+    return render(request, "TermAndConditions.html", getdata())
+
 def ContactUs(request):
-    # calling the method of geting the global data used on the ui 
-    data = getdata()
-    # rendering to myprofie page
-    return render(request,"ContactUs.html",data)
-    
+    return render(request, "ContactUs.html", getdata())
+
 def CancellationPolicy(request):
-    # calling the method of geting the global data used on the ui 
-    data = getdata()
-    # rendering to myprofie page
-    return render(request,"CancellationPolicy.html",data)
-    
+    return render(request, "CancellationPolicy.html", getdata())
+
 def MyTickets(request):
-    # calling the method of geting the global data used on the ui 
-    data = getdata()
-    # rendering to myprofie page
-    return render(request,"MyTickets.html",data)
-    
+    return render(request, "MyTickets.html", getdata())
+
 def MyWallet(request):
-    # calling the method of geting the global data used on the ui 
-    data = getdata()
-    # rendering to myprofie page
-    return render(request,"MyWallet.html",data)
+    return render(request, "MyWallet.html", getdata())
 
 def RefferAndEarn(request):
-    # calling the method of geting the global data used on the ui 
-    data = getdata()
-    # rendering to myprofie page
-    return render(request,"RefferAndEarn.html",data)
+    return render(request, "RefferAndEarn.html", getdata())
 
+# ---------------- LOGOUT ---------------- #
 
-# function for loggin out account all the global variables et to null and to the default value and whole data is refreshed
 def Account_Logout(request):
-    global token_exist
-    global jwt_token
-    global http_code_of_singup_api
-    global profile
-    global http_code_of_login_api 
-    global login_response_message
-    global User         
-    global flag_and_language
-    global signup_response_message
+    global token_exist, jwt_token, http_code_of_singup_api
+    global http_code_of_login_api, login_response_message
+    global User, profile, signup_response_message
 
     token_exist = False 
     jwt_token = None
@@ -358,23 +221,6 @@ def Account_Logout(request):
     login_response_message = None
     signup_response_message = None
     profile = ""
-    User ={}
+    User = {}
+
     return redirect("/")
-
-
-
-
-
-# --------------------LOCATION---------------------------------------------------------
-
-# async def get_coords():
-#         locator = wdg.Geolocator()
-#         pos = await locator.get_geoposition_async()
-#         return [pos.coordinate.latitude, pos.coordinate.longitude]
-
-# def get_location():
-#         return asyncio.run(get_coords())
-
-
-#---------------------------------------------------------------------------------------
-
