@@ -10,9 +10,9 @@
     </div>
 
     <!-------------------SECOND HALF OF NAVBAR-------------------->
-    <div class="col-lg-6 col-md-6 col-sm-8 d-flex align-items-center">
+    <div class="col-lg-6 col-md-6 col-sm-8 d-flex align-items-center justify-content-between">
       <!--DIV of download and language not visible on small screen-->
-      <div class="col-6 d-lg-flex d-md-flex d-none justify-content-end">
+      <div class="col-5 d-lg-flex d-md-flex d-none justify-content-end">
         <!--DOWNLOAD SCANNER-->
         <div class="nav-item d-flex">
           <img id="download-img" src="{% static 'download.png' %}" alt="download_img"
@@ -26,13 +26,12 @@
           {% include 'global.html' %}
         </div>
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-12 center-div justify-content-start">
+      <div class="col-lg-7 col-md-7 col-sm-12 center-div justify-content-start">
         <!--Signup  button -->
         <!--ITEM 1-->
-
-        <div id="div_of_singup_btn" class="col-lg-3 col-md-4 col-sm-4 mx-1 justify-content-end" style="display: flex">
+        <div id="div_of_singup_btn" class="col-lg-4 col-md-4 col-sm-4 mx-1 justify-content-end" style="display: flex">
           <div class="nav-item">
-            <button id="navbar_signup_btn" type="button" class="btn p-0 sign-up navbar_text" data-bs-toggle="modal"
+            <button  type="button" class="btn p-0 sign-up navbar_text w-auto" data-bs-toggle="modal"
               data-bs-target="#signupModal">
               {% trans 't-signup' %}
             </button>
@@ -42,9 +41,9 @@
         <!--login  button -->
         <!--ITEM 2-->
 
-        <div id="div_of_login_btn" class="col-lg-3 col-md-4 col-sm-4 mx-1 justify-content-end" style="display: flex">
+        <div id="div_of_login_btn" class="col-lg-4 col-md-4 col-sm-4 mx-1 justify-content-end" style="display: flex">
           <div class="nav-item">
-            <button id="navbar_login_btn" type="button" class="btn p-1 px-3 login-button navbar_text"
+            <button id="navbar_login_btn" type="button" class="btn p-1 px-2 w-auto login-button navbar_text"
               data-bs-toggle="modal" data-bs-target="#loginModal" value="{{http_code_of_login_api}}">
               {% trans 't-login' %}
             </button>

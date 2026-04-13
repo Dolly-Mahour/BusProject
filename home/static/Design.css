@@ -249,8 +249,8 @@ p {
 
 .sign-up {
   color: var(--text-color-brown-peach);
-  background-color: transparent;
-  width: auto;
+  /* background-color: transparent;
+  width: auto; */
 }
 
 .login-button {
@@ -404,9 +404,9 @@ p {
     max-width: 90%;
   }
 
-  .navbar_text {
+  /* .navbar_text {
     font-size: small;
-  }
+  } */
 
   .toggle-modal-download {
     top: 25%;
@@ -432,6 +432,23 @@ p {
   }
   .fs-sm-7{
  font-size: 12px;
+}
+.navbar_text {
+    font-size: 11px !important;
+  }
+  #logo {
+  color: var(--text-color-brown-peach);
+  font-weight: bold;
+  font-family: cursive;
+  font-size: 20px
+}
+div.item {
+  min-width: 330px !important;
+  height: 170px !important;
+  display: flex;
+  justify-content: center;
+  color: white;
+  border-radius: 30px;
 }
 
 }
@@ -483,6 +500,9 @@ p {
    #RefferAndEarnIllustration{
     height: 250px;
   }
+  /* .navbar_text {
+    font-size: 11px !important;
+  } */
   
 }
 
@@ -529,6 +549,7 @@ p {
    #RefferAndEarnIllustration{
     height: 250px;
   }
+  
 }
 
 @media only screen and (min-width: 1024px) {
@@ -626,7 +647,7 @@ p {
 }
 
 .welcome {
-  width: 90%;
+  /* width: 90%; */
   height: 400px;
   overflow-x: auto;
   white-space: nowrap;
